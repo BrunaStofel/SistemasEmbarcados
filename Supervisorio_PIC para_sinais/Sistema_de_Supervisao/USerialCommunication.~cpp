@@ -47,8 +47,7 @@ void __fastcall TFSerialPort::FormCreate(TObject *Sender)
 {
     // Cria as três séries em cada um dos três charts.
     Chart1->Series[0]->AddXY(0,0);
-    Chart2->Series[0]->AddXY(0,0);
-    Chart3->Series[0]->AddXY(0,0);
+    
 
 
     //------- Gráfico de sinais ------------------------------------------
@@ -91,8 +90,6 @@ void __fastcall TFSerialPort::Timer1Timer(TObject *Sender)
 {
     unsigned char buffer[100] = {0};
     double tensao1 = 0;
-    double tensao2 = 0;
-    double tensao3 = 0;
     int valor = 0;
     AnsiString saida;
 
@@ -124,20 +121,9 @@ void __fastcall TFSerialPort::Timer1Timer(TObject *Sender)
         valor = (buffer[2] << 8) + (buffer[3]);
         tensao1 = (valor * 0.004887585532749);
 
-        //Calculo da temperatura conforme os bytes recebidos (10 bits).
-        valor = (buffer[4] << 8) + (buffer[5]);
-        tensao2 = (valor * 0.004887585532749);
-
-        //Calculo da temperatura conforme os bytes recebidos (10 bits).
-        valor = (buffer[6] << 8) + (buffer[7]);
-        tensao3 = (valor * 0.004887585532749);
-
 
         //Manipulação dos valores dos gráficos.
-//      Chart1->Series[0]->YValues->Value[0] = tensao1;
-//      Chart2->Series[0]->YValues->Value[0] = tensao2;
-//      Chart3->Series[0]->YValues->Value[0] = tensao3;
-                             
+      Chart1->Series[0]->YValues->Value[0] = tensao1;
 
         //------- Gráfico de sinais ------------------------------------------
 
@@ -160,24 +146,14 @@ void __fastcall TFSerialPort::Timer1Timer(TObject *Sender)
         // Grava o canal 1 no arquivo.
         fprintf(arq_dados,"%0.2f\n", tensao1);
 
-        //------- Gráfico de sinais ------------------------------------------
-
-
-
-
-        //Atualização dos novos valores nos gráficos.
-//      Chart1->Refresh();
-//      Chart2->Refresh();
-//      Chart3->Refresh();
-
-
+        //------- Gráfico de sinais -----------------------------------------
 
 
         //Apresenta as temperaturas no supervisório da planta.
         LbTemp1->Caption = FloatToStrF(tensao1, ffFixed,10,2) + " [V] ";
 
 
-        saida = saida + "Tensão1: "  + FloatToStrF(tensao1, ffFixed,10,2) + " [V] ";
+        saida = saida + "Tensao1: "  + FloatToStrF(tensao1, ffFixed,10,2) + " [V] ";
 
         //Apresenta a saída.
         Log->Lines->Add(saida);
@@ -295,11 +271,8 @@ void __fastcall TFSerialPort::BtClosePortClick(TObject *Sender)
     delete PortaSerial;
     PortaSerial = NULL;
 
-
     //Fecha o arquivo e salva alterações.
     fclose(arq_dados);
-
-
 }
 
 //---------------------------------------------------------------------------
@@ -468,6 +441,10 @@ void __fastcall TFSerialPort::SalvarComo1Click(TObject *Sender)
 
 
 */
+
+
+
+
 
 
 

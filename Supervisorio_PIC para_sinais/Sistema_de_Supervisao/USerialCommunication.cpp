@@ -47,8 +47,7 @@ void __fastcall TFSerialPort::FormCreate(TObject *Sender)
 {
     // Cria as três séries em cada um dos três charts.
     Chart1->Series[0]->AddXY(0,0);
-    Chart2->Series[0]->AddXY(0,0);
-    Chart3->Series[0]->AddXY(0,0);
+    
 
 
     //------- Gráfico de sinais ------------------------------------------
@@ -148,12 +147,6 @@ void __fastcall TFSerialPort::Timer1Timer(TObject *Sender)
         fprintf(arq_dados,"%0.2f\n", tensao1);
 
         //------- Gráfico de sinais -----------------------------------------
-
-
-        //Apresenta as temperaturas no supervisório da planta.
-        LbTemp1->Caption = FloatToStrF(tensao1, ffFixed,10,2) + " [V] ";
-
-
         saida = saida + "Tensao1: "  + FloatToStrF(tensao1, ffFixed,10,2) + " [V] ";
 
         //Apresenta a saída.
@@ -442,6 +435,10 @@ void __fastcall TFSerialPort::SalvarComo1Click(TObject *Sender)
 
 
 */
+
+
+
+
 
 
 
