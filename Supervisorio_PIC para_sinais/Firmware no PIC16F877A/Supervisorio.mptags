@@ -1,0 +1,27 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.5.4	//
+!_TAG_REVISION_NAME	MCHPTags	//
+!_TAG_REVISION_VERSION	6.0.1	//
+ADCResult	C:\Users\Dracarys\Downloads\Sistemas Embarcados\Trabalho_Final_Sistemas_embarcados_coletar_de_sensor_analogico_a_cada_1_segundo\Supervisorio_PIC para_sinais\Firmware no PIC16F877A\Supervisorio.c	15;"	v	line:15
+ADC_Init	C:\Users\Dracarys\Downloads\Sistemas Embarcados\Trabalho_Final_Sistemas_embarcados_coletar_de_sensor_analogico_a_cada_1_segundo\Supervisorio_PIC para_sinais\Firmware no PIC16F877A\Supervisorio.c	100;"	f	line:100
+ADC_Read	C:\Users\Dracarys\Downloads\Sistemas Embarcados\Trabalho_Final_Sistemas_embarcados_coletar_de_sensor_analogico_a_cada_1_segundo\Supervisorio_PIC para_sinais\Firmware no PIC16F877A\Supervisorio.c	119;"	f	line:119	signature:(unsigned short channel)
+BR	C:\Users\Dracarys\Downloads\Sistemas Embarcados\Trabalho_Final_Sistemas_embarcados_coletar_de_sensor_analogico_a_cada_1_segundo\Supervisorio_PIC para_sinais\Firmware no PIC16F877A\Supervisorio.c	28;"	l	line:28
+Display	C:\Users\Dracarys\Downloads\Sistemas Embarcados\Trabalho_Final_Sistemas_embarcados_coletar_de_sensor_analogico_a_cada_1_segundo\Supervisorio_PIC para_sinais\Firmware no PIC16F877A\Supervisorio.c	16;"	v	line:16
+ISR	C:\Users\Dracarys\Downloads\Sistemas Embarcados\Trabalho_Final_Sistemas_embarcados_coletar_de_sensor_analogico_a_cada_1_segundo\Supervisorio_PIC para_sinais\Firmware no PIC16F877A\Supervisorio.c	132;"	f	line:132	signature:(void)
+USART_Data	C:\Users\Dracarys\Downloads\Sistemas Embarcados\Trabalho_Final_Sistemas_embarcados_coletar_de_sensor_analogico_a_cada_1_segundo\Supervisorio_PIC para_sinais\Firmware no PIC16F877A\Supervisorio.c	80;"	l	line:80
+USART_Init	C:\Users\Dracarys\Downloads\Sistemas Embarcados\Trabalho_Final_Sistemas_embarcados_coletar_de_sensor_analogico_a_cada_1_segundo\Supervisorio_PIC para_sinais\Firmware no PIC16F877A\Supervisorio.c	22;"	f	line:22	signature:(long BaudRate)
+USART_ReceiveChar	C:\Users\Dracarys\Downloads\Sistemas Embarcados\Trabalho_Final_Sistemas_embarcados_coletar_de_sensor_analogico_a_cada_1_segundo\Supervisorio_PIC para_sinais\Firmware no PIC16F877A\Supervisorio.c	78;"	f	line:78	signature:(void)
+USART_WriteChar	C:\Users\Dracarys\Downloads\Sistemas Embarcados\Trabalho_Final_Sistemas_embarcados_coletar_de_sensor_analogico_a_cada_1_segundo\Supervisorio_PIC para_sinais\Firmware no PIC16F877A\Supervisorio.c	59;"	f	line:59	signature:(unsigned char USARTData)
+USART_WriteString	C:\Users\Dracarys\Downloads\Sistemas Embarcados\Trabalho_Final_Sistemas_embarcados_coletar_de_sensor_analogico_a_cada_1_segundo\Supervisorio_PIC para_sinais\Firmware no PIC16F877A\Supervisorio.c	66;"	f	line:66	signature:(const char *str)
+_XTAL_FREQ::18432000	C:\Users\Dracarys\Downloads\Sistemas Embarcados\Trabalho_Final_Sistemas_embarcados_coletar_de_sensor_analogico_a_cada_1_segundo\Supervisorio_PIC para_sinais\Firmware no PIC16F877A\Supervisorio.c	5;"	d	line:5	file:
+buffer	C:\Users\Dracarys\Downloads\Sistemas Embarcados\Trabalho_Final_Sistemas_embarcados_coletar_de_sensor_analogico_a_cada_1_segundo\Supervisorio_PIC para_sinais\Firmware no PIC16F877A\Supervisorio.c	19;"	v	line:19
+byte1	C:\Users\Dracarys\Downloads\Sistemas Embarcados\Trabalho_Final_Sistemas_embarcados_coletar_de_sensor_analogico_a_cada_1_segundo\Supervisorio_PIC para_sinais\Firmware no PIC16F877A\Supervisorio.c	154;"	l	line:154
+byte2	C:\Users\Dracarys\Downloads\Sistemas Embarcados\Trabalho_Final_Sistemas_embarcados_coletar_de_sensor_analogico_a_cada_1_segundo\Supervisorio_PIC para_sinais\Firmware no PIC16F877A\Supervisorio.c	153;"	l	line:153
+input	C:\Users\Dracarys\Downloads\Sistemas Embarcados\Trabalho_Final_Sistemas_embarcados_coletar_de_sensor_analogico_a_cada_1_segundo\Supervisorio_PIC para_sinais\Firmware no PIC16F877A\Supervisorio.c	17;"	v	line:17
+main	C:\Users\Dracarys\Downloads\Sistemas Embarcados\Trabalho_Final_Sistemas_embarcados_coletar_de_sensor_analogico_a_cada_1_segundo\Supervisorio_PIC para_sinais\Firmware no PIC16F877A\Supervisorio.c	218;"	f	line:218	signature:(void)
+resp	C:\Users\Dracarys\Downloads\Sistemas Embarcados\Trabalho_Final_Sistemas_embarcados_coletar_de_sensor_analogico_a_cada_1_segundo\Supervisorio_PIC para_sinais\Firmware no PIC16F877A\Supervisorio.c	152;"	l	line:152
+status	C:\Users\Dracarys\Downloads\Sistemas Embarcados\Trabalho_Final_Sistemas_embarcados_coletar_de_sensor_analogico_a_cada_1_segundo\Supervisorio_PIC para_sinais\Firmware no PIC16F877A\Supervisorio.c	18;"	v	line:18

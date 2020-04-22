@@ -1,0 +1,1 @@
+ Supervisorio.d  Supervisorio.p1:  C:/Users/Dracarys/Downloads/Sistemas\ Embarcados/Trabalho_Final_Sistemas_embarcados_coletar_de_sensor_analogico_a_cada_1_segundo/Supervisorio_PIC\ para_sinais/Firmware\ no\ PIC16F877A/Supervisorio.c
