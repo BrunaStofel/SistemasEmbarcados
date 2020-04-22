@@ -1,0 +1,367 @@
+[Header]
+MagicCookie={0b13fe8c-dfe0-40eb-8900-6712719559a7}
+Version=1.0
+[File000]
+Location=C:\Desenvolvimento\Supervisório + PIC\Firmware no PIC16F877A\Supervisorio.p1
+Folder=Intermediary
+DeviceName=PIC16F877A
+LanguageToolSuiteID={38171385-97B2-4EC5-BF2C-C2C027BA5B04}
+LanguageToolID={B6D1F1C2-3E8A-49F6-9C0A-75F5EBE32222}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\xc8\v1.44\bin\xc8.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Supervisorio.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C:\ C9=2,1
+TraceCmdString=
+DebugOptions=
+[File001]
+Location=C:\Users\Dracarys\Downloads\Sistemas Embarcados\Trabalho_Final_Sistemas_embarcados_coletar_de_sensor_analogico_a_cada_1_segundo\Supervisorio_PIC para_sinais\Firmware no PIC16F877A\Supervisorio.p1
+Folder=Intermediary
+DeviceName=PIC16F877A
+LanguageToolSuiteID={38171385-97B2-4EC5-BF2C-C2C027BA5B04}
+LanguageToolID={B6D1F1C2-3E8A-49F6-9C0A-75F5EBE32222}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\xc8\v1.33\bin\xc8.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Supervisorio.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C:\ C9=2,1
+TraceCmdString=
+DebugOptions=
+[File002]
+Location=C:\Desenvolvimento\Supervisório + PIC\Firmware no PIC16F877A\Supervisorio.cof
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={38171385-97B2-4EC5-BF2C-C2C027BA5B04}
+LanguageToolID={B6D1F1C2-3E8A-49F6-9C0A-75F5EBE32222}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\xc8\v1.44\bin\xc8.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Supervisorio.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C:\ C9=2,1
+TraceCmdString=
+DebugOptions=
+[File003]
+Location=C:\Desenvolvimento\Supervisório + PIC\Firmware no PIC16F877A\Supervisorio.hex
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={38171385-97B2-4EC5-BF2C-C2C027BA5B04}
+LanguageToolID={B6D1F1C2-3E8A-49F6-9C0A-75F5EBE32222}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\xc8\v1.44\bin\xc8.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Supervisorio.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C:\ C9=2,1
+TraceCmdString=
+DebugOptions=
+[File004]
+Location=C:\Desenvolvimento\Supervisório + PIC\Firmware no PIC16F877A\Supervisorio.sym
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={38171385-97B2-4EC5-BF2C-C2C027BA5B04}
+LanguageToolID={B6D1F1C2-3E8A-49F6-9C0A-75F5EBE32222}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\xc8\v1.44\bin\xc8.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Supervisorio.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C:\ C9=2,1
+TraceCmdString=
+DebugOptions=
+[File005]
+Location=C:\Desenvolvimento\Supervisório + PIC\Firmware no PIC16F877A\Supervisorio.map
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={38171385-97B2-4EC5-BF2C-C2C027BA5B04}
+LanguageToolID={B6D1F1C2-3E8A-49F6-9C0A-75F5EBE32222}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\xc8\v1.44\bin\xc8.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Supervisorio.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C:\ C9=2,1
+TraceCmdString=
+DebugOptions=
+[File006]
+Location=C:\Desenvolvimento\Supervisório + PIC\Firmware no PIC16F877A\Supervisorio.hxl
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={38171385-97B2-4EC5-BF2C-C2C027BA5B04}
+LanguageToolID={B6D1F1C2-3E8A-49F6-9C0A-75F5EBE32222}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\xc8\v1.44\bin\xc8.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Supervisorio.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C:\ C9=2,1
+TraceCmdString=
+DebugOptions=
+[File007]
+Location=C:\Desenvolvimento\Supervisório + PIC\Firmware no PIC16F877A\startup.lst
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={38171385-97B2-4EC5-BF2C-C2C027BA5B04}
+LanguageToolID={B6D1F1C2-3E8A-49F6-9C0A-75F5EBE32222}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\xc8\v1.44\bin\xc8.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Supervisorio.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C:\ C9=2,1
+TraceCmdString=
+DebugOptions=
+[File008]
+Location=C:\Desenvolvimento\Supervisório + PIC\Firmware no PIC16F877A\startup.rlf
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={38171385-97B2-4EC5-BF2C-C2C027BA5B04}
+LanguageToolID={B6D1F1C2-3E8A-49F6-9C0A-75F5EBE32222}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\xc8\v1.44\bin\xc8.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Supervisorio.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C:\ C9=2,1
+TraceCmdString=
+DebugOptions=
+[File009]
+Location=C:\Desenvolvimento\Supervisório + PIC\Firmware no PIC16F877A\doprnt.p1
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={38171385-97B2-4EC5-BF2C-C2C027BA5B04}
+LanguageToolID={B6D1F1C2-3E8A-49F6-9C0A-75F5EBE32222}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\xc8\v1.44\bin\xc8.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Supervisorio.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C:\ C9=2,1
+TraceCmdString=
+DebugOptions=
+[File010]
+Location=C:\Desenvolvimento\Supervisório + PIC\Firmware no PIC16F877A\doprnt.pre
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={38171385-97B2-4EC5-BF2C-C2C027BA5B04}
+LanguageToolID={B6D1F1C2-3E8A-49F6-9C0A-75F5EBE32222}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\xc8\v1.44\bin\xc8.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Supervisorio.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C:\ C9=2,1
+TraceCmdString=
+DebugOptions=
+[File011]
+Location=C:\Desenvolvimento\Supervisório + PIC\Firmware no PIC16F877A\Supervisorio.obj
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={38171385-97B2-4EC5-BF2C-C2C027BA5B04}
+LanguageToolID={B6D1F1C2-3E8A-49F6-9C0A-75F5EBE32222}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\xc8\v1.44\bin\xc8.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Supervisorio.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C:\ C9=2,1
+TraceCmdString=
+DebugOptions=
+[File012]
+Location=C:\Desenvolvimento\Supervisório + PIC\Firmware no PIC16F877A\Supervisorio.lst
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={38171385-97B2-4EC5-BF2C-C2C027BA5B04}
+LanguageToolID={B6D1F1C2-3E8A-49F6-9C0A-75F5EBE32222}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\xc8\v1.44\bin\xc8.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Supervisorio.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C:\ C9=2,1
+TraceCmdString=
+DebugOptions=
+[File013]
+Location=C:\Desenvolvimento\Supervisório + PIC\Firmware no PIC16F877A\Supervisorio.rlf
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={38171385-97B2-4EC5-BF2C-C2C027BA5B04}
+LanguageToolID={B6D1F1C2-3E8A-49F6-9C0A-75F5EBE32222}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\xc8\v1.44\bin\xc8.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Supervisorio.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C:\ C9=2,1
+TraceCmdString=
+DebugOptions=
+[File014]
+Location=C:\Desenvolvimento\Supervisório + PIC\Firmware no PIC16F877A\Supervisorio.sdb
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={38171385-97B2-4EC5-BF2C-C2C027BA5B04}
+LanguageToolID={B6D1F1C2-3E8A-49F6-9C0A-75F5EBE32222}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\xc8\v1.44\bin\xc8.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Supervisorio.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C:\ C9=2,1
+TraceCmdString=
+DebugOptions=
+[File015]
+Location=C:\Users\Dracarys\Downloads\Sistemas Embarcados\Trabalho_Final_Sistemas_embarcados_coletar_de_sensor_analogico_a_cada_1_segundo\Supervisorio_PIC para_sinais\Firmware no PIC16F877A\Supervisorio.cof
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={38171385-97B2-4EC5-BF2C-C2C027BA5B04}
+LanguageToolID={B6D1F1C2-3E8A-49F6-9C0A-75F5EBE32222}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\xc8\v1.33\bin\xc8.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Supervisorio.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C:\ C9=2,1
+TraceCmdString=
+DebugOptions=
+[File016]
+Location=C:\Users\Dracarys\Downloads\Sistemas Embarcados\Trabalho_Final_Sistemas_embarcados_coletar_de_sensor_analogico_a_cada_1_segundo\Supervisorio_PIC para_sinais\Firmware no PIC16F877A\Supervisorio.hex
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={38171385-97B2-4EC5-BF2C-C2C027BA5B04}
+LanguageToolID={B6D1F1C2-3E8A-49F6-9C0A-75F5EBE32222}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\xc8\v1.33\bin\xc8.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Supervisorio.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C:\ C9=2,1
+TraceCmdString=
+DebugOptions=
+[File017]
+Location=C:\Users\Dracarys\Downloads\Sistemas Embarcados\Trabalho_Final_Sistemas_embarcados_coletar_de_sensor_analogico_a_cada_1_segundo\Supervisorio_PIC para_sinais\Firmware no PIC16F877A\Supervisorio.sym
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={38171385-97B2-4EC5-BF2C-C2C027BA5B04}
+LanguageToolID={B6D1F1C2-3E8A-49F6-9C0A-75F5EBE32222}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\xc8\v1.33\bin\xc8.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Supervisorio.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C:\ C9=2,1
+TraceCmdString=
+DebugOptions=
+[File018]
+Location=C:\Users\Dracarys\Downloads\Sistemas Embarcados\Trabalho_Final_Sistemas_embarcados_coletar_de_sensor_analogico_a_cada_1_segundo\Supervisorio_PIC para_sinais\Firmware no PIC16F877A\Supervisorio.map
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={38171385-97B2-4EC5-BF2C-C2C027BA5B04}
+LanguageToolID={B6D1F1C2-3E8A-49F6-9C0A-75F5EBE32222}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\xc8\v1.33\bin\xc8.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Supervisorio.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C:\ C9=2,1
+TraceCmdString=
+DebugOptions=
+[File019]
+Location=C:\Users\Dracarys\Downloads\Sistemas Embarcados\Trabalho_Final_Sistemas_embarcados_coletar_de_sensor_analogico_a_cada_1_segundo\Supervisorio_PIC para_sinais\Firmware no PIC16F877A\Supervisorio.hxl
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={38171385-97B2-4EC5-BF2C-C2C027BA5B04}
+LanguageToolID={B6D1F1C2-3E8A-49F6-9C0A-75F5EBE32222}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\xc8\v1.33\bin\xc8.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Supervisorio.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C:\ C9=2,1
+TraceCmdString=
+DebugOptions=
+[File020]
+Location=C:\Users\Dracarys\Downloads\Sistemas Embarcados\Trabalho_Final_Sistemas_embarcados_coletar_de_sensor_analogico_a_cada_1_segundo\Supervisorio_PIC para_sinais\Firmware no PIC16F877A\startup.lst
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={38171385-97B2-4EC5-BF2C-C2C027BA5B04}
+LanguageToolID={B6D1F1C2-3E8A-49F6-9C0A-75F5EBE32222}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\xc8\v1.33\bin\xc8.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Supervisorio.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C:\ C9=2,1
+TraceCmdString=
+DebugOptions=
+[File021]
+Location=C:\Users\Dracarys\Downloads\Sistemas Embarcados\Trabalho_Final_Sistemas_embarcados_coletar_de_sensor_analogico_a_cada_1_segundo\Supervisorio_PIC para_sinais\Firmware no PIC16F877A\startup.rlf
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={38171385-97B2-4EC5-BF2C-C2C027BA5B04}
+LanguageToolID={B6D1F1C2-3E8A-49F6-9C0A-75F5EBE32222}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\xc8\v1.33\bin\xc8.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Supervisorio.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C:\ C9=2,1
+TraceCmdString=
+DebugOptions=
+[File022]
+Location=C:\Users\Dracarys\Downloads\Sistemas Embarcados\Trabalho_Final_Sistemas_embarcados_coletar_de_sensor_analogico_a_cada_1_segundo\Supervisorio_PIC para_sinais\Firmware no PIC16F877A\doprnt.p1
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={38171385-97B2-4EC5-BF2C-C2C027BA5B04}
+LanguageToolID={B6D1F1C2-3E8A-49F6-9C0A-75F5EBE32222}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\xc8\v1.33\bin\xc8.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Supervisorio.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C:\ C9=2,1
+TraceCmdString=
+DebugOptions=
+[File023]
+Location=C:\Users\Dracarys\Downloads\Sistemas Embarcados\Trabalho_Final_Sistemas_embarcados_coletar_de_sensor_analogico_a_cada_1_segundo\Supervisorio_PIC para_sinais\Firmware no PIC16F877A\doprnt.pre
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={38171385-97B2-4EC5-BF2C-C2C027BA5B04}
+LanguageToolID={B6D1F1C2-3E8A-49F6-9C0A-75F5EBE32222}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\xc8\v1.33\bin\xc8.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Supervisorio.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C:\ C9=2,1
+TraceCmdString=
+DebugOptions=
+[File024]
+Location=C:\Users\Dracarys\Downloads\Sistemas Embarcados\Trabalho_Final_Sistemas_embarcados_coletar_de_sensor_analogico_a_cada_1_segundo\Supervisorio_PIC para_sinais\Firmware no PIC16F877A\Supervisorio.obj
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={38171385-97B2-4EC5-BF2C-C2C027BA5B04}
+LanguageToolID={B6D1F1C2-3E8A-49F6-9C0A-75F5EBE32222}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\xc8\v1.33\bin\xc8.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Supervisorio.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C:\ C9=2,1
+TraceCmdString=
+DebugOptions=
+[File025]
+Location=C:\Users\Dracarys\Downloads\Sistemas Embarcados\Trabalho_Final_Sistemas_embarcados_coletar_de_sensor_analogico_a_cada_1_segundo\Supervisorio_PIC para_sinais\Firmware no PIC16F877A\Supervisorio.lst
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={38171385-97B2-4EC5-BF2C-C2C027BA5B04}
+LanguageToolID={B6D1F1C2-3E8A-49F6-9C0A-75F5EBE32222}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\xc8\v1.33\bin\xc8.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Supervisorio.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C:\ C9=2,1
+TraceCmdString=
+DebugOptions=
+[File026]
+Location=C:\Users\Dracarys\Downloads\Sistemas Embarcados\Trabalho_Final_Sistemas_embarcados_coletar_de_sensor_analogico_a_cada_1_segundo\Supervisorio_PIC para_sinais\Firmware no PIC16F877A\Supervisorio.rlf
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={38171385-97B2-4EC5-BF2C-C2C027BA5B04}
+LanguageToolID={B6D1F1C2-3E8A-49F6-9C0A-75F5EBE32222}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\xc8\v1.33\bin\xc8.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Supervisorio.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C:\ C9=2,1
+TraceCmdString=
+DebugOptions=
+[File027]
+Location=C:\Users\Dracarys\Downloads\Sistemas Embarcados\Trabalho_Final_Sistemas_embarcados_coletar_de_sensor_analogico_a_cada_1_segundo\Supervisorio_PIC para_sinais\Firmware no PIC16F877A\Supervisorio.sdb
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={38171385-97B2-4EC5-BF2C-C2C027BA5B04}
+LanguageToolID={B6D1F1C2-3E8A-49F6-9C0A-75F5EBE32222}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\xc8\v1.33\bin\xc8.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Supervisorio.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C:\ C9=2,1
+TraceCmdString=
+DebugOptions=
