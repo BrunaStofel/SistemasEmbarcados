@@ -147,7 +147,7 @@ void __fastcall TFSerialPort::Timer1Timer(TObject *Sender)
         fprintf(arq_dados,"%0.2f\n", tensao1);
 
         //------- Gráfico de sinais -----------------------------------------
-        saida = saida + "Tensao1: "  + FloatToStrF(tensao1, ffFixed,10,2) + " [V] ";
+        saida ="Tensao1: "  + FloatToStrF(tensao1, ffFixed,10,2) + " [V] ";
 
         //Apresenta a saída.
         Log->Lines->Add(saida);
