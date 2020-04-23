@@ -228,13 +228,13 @@ object FSerialPort: TFSerialPort
     object TabSheet1: TTabSheet
       Caption = 'Configuracoes'
       object Label10: TLabel
-        Left = -16
+        Left = 8
         Top = 0
-        Width = 1265
+        Width = 785
         Height = 33
         Alignment = taCenter
         AutoSize = False
-        Caption = 'Exemplo de Comunicacao Serial'
+        Caption = 'Comunicacao Serial'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -27
