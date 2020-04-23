@@ -177,9 +177,7 @@ void __fastcall TFSerialPort::ImValvula1Click(TObject *Sender)
             Sleep(100);
             strcpy(buff,PortaSerial->ReadABuffer());
 
-            LbValvula1->Caption = "VÁLVULA ABERTA";
-            LbValvula1->Color = clLime;
-            atuador1 = true;
+
         }
         else
         {
@@ -188,9 +186,7 @@ void __fastcall TFSerialPort::ImValvula1Click(TObject *Sender)
             Sleep(100);
             strcpy(buff,PortaSerial->ReadABuffer());
 
-            LbValvula1->Caption = "VÁLVULA FECHADA";
-            LbValvula1->Color = clRed;
-            atuador1 = false;
+
         }
         
         Log->Lines->Add(buff);
@@ -213,9 +209,6 @@ void __fastcall TFSerialPort::ImValvula2Click(TObject *Sender)
 
             strcpy(buff,PortaSerial->ReadABuffer());
 
-            LbValvula2->Caption = "VÁLVULA ABERTA";
-            LbValvula2->Color = clLime;
-            atuador2 = true;
         }
         else
         {
@@ -224,9 +217,7 @@ void __fastcall TFSerialPort::ImValvula2Click(TObject *Sender)
             Sleep(100);
             strcpy(buff,PortaSerial->ReadABuffer());
 
-            LbValvula2->Caption = "VÁLVULA FECHADA";
-            LbValvula2->Color = clRed;
-            atuador2 = false;
+          
         }
 
         Log->Lines->Add(buff);
