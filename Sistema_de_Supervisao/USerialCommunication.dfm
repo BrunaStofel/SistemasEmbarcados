@@ -1,6 +1,6 @@
 object FSerialPort: TFSerialPort
-  Left = 275
-  Top = 133
+  Left = 281
+  Top = 196
   HorzScrollBar.Visible = False
   VertScrollBar.Visible = False
   BorderStyle = bsSingle
@@ -221,8 +221,8 @@ object FSerialPort: TFSerialPort
     Top = 16
     Width = 801
     Height = 513
-    ActivePage = TabSheet1
-    TabIndex = 0
+    ActivePage = TabSheet3
+    TabIndex = 2
     TabOrder = 2
     TabPosition = tpBottom
     object TabSheet1: TTabSheet

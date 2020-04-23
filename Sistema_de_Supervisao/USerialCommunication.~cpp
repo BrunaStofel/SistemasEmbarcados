@@ -48,7 +48,7 @@ void __fastcall TFSerialPort::FormCreate(TObject *Sender)
     // Cria as três séries em cada um dos três charts.
     Chart1->Series[0]->AddXY(0,0);
     
-     Edit1->Text = Date();
+    
 
     //------- Gráfico de sinais ------------------------------------------
 
