@@ -258,6 +258,14 @@ object FSerialPort: TFSerialPort
           TabOrder = 0
         end
       end
+      object Edit1: TEdit
+        Left = 40
+        Top = 8
+        Width = 121
+        Height = 21
+        TabOrder = 1
+        Text = 'edtToday'
+      end
     end
     object TabSheet2: TTabSheet
       Caption = 'Sensores'

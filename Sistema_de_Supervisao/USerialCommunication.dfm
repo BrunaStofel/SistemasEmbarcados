@@ -258,6 +258,21 @@ object FSerialPort: TFSerialPort
           TabOrder = 0
         end
       end
+      object tempo: TDateTimePicker
+        Left = 8
+        Top = 8
+        Width = 186
+        Height = 21
+        CalAlignment = dtaLeft
+        Date = 43943.9542970023
+        Time = 43943.9542970023
+        DateFormat = dfShort
+        DateMode = dmComboBox
+        ImeMode = imAlpha
+        Kind = dtkDate
+        ParseInput = False
+        TabOrder = 1
+      end
     end
     object TabSheet2: TTabSheet
       Caption = 'Sensores'
