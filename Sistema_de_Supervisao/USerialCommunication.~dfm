@@ -1,6 +1,6 @@
 object FSerialPort: TFSerialPort
-  Left = 1488
-  Top = 21
+  Left = 902
+  Top = 228
   HorzScrollBar.Visible = False
   VertScrollBar.Visible = False
   BorderStyle = bsSingle
@@ -37,36 +37,36 @@ object FSerialPort: TFSerialPort
     object Label5: TLabel
       Left = 8
       Top = 204
-      Width = 113
+      Width = 82
       Height = 13
       Caption = 'Controle de fluxo:'
     end
     object Label4: TLabel
       Left = 10
       Top = 156
-      Width = 111
+      Width = 71
       Height = 13
       Caption = 'Bits de parada:'
     end
     object Label3: TLabel
       Left = 8
       Top = 108
-      Width = 113
+      Width = 45
       Height = 13
       Caption = 'Paridade:'
     end
     object Label2: TLabel
       Left = 7
       Top = 60
-      Width = 90
-      Height = 21
+      Width = 82
+      Height = 13
       Caption = 'Bits por segundo:'
     end
     object Label1: TLabel
       Left = 10
       Top = 16
-      Width = 71
-      Height = 17
+      Width = 55
+      Height = 13
       Caption = 'Porta serial:'
     end
     object Bevel1: TBevel
@@ -221,8 +221,8 @@ object FSerialPort: TFSerialPort
     Top = 16
     Width = 801
     Height = 513
-    ActivePage = TabSheet3
-    TabIndex = 2
+    ActivePage = TabSheet1
+    TabIndex = 0
     TabOrder = 2
     TabPosition = tpBottom
     object TabSheet1: TTabSheet

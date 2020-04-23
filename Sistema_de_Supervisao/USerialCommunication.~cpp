@@ -93,6 +93,9 @@ void __fastcall TFSerialPort::Timer1Timer(TObject *Sender)
     int valor = 0;
     AnsiString saida;
 
+      TDateTime DateTime = Time();  // store the current date and time
+      AnsiString currenttimestring = TimeToStr(DateTime);
+
     //Envia o buffer pela porta serial.
     PortaSerial->WriteABuffer("A", 1);
 
@@ -146,14 +149,11 @@ void __fastcall TFSerialPort::Timer1Timer(TObject *Sender)
         // Grava o canal 1 no arquivo.
         fprintf(arq_dados,"%0.2f\n", tensao1);
 
+
         //------- Gráfico de sinais -----------------------------------------
+        saida = saida + currenttimestring  + FloatToStrF(tensao1, ffFixed,10,2) + " [V] ";
 
 
-        //Apresenta as temperaturas no supervisório da planta.
-        LbTemp1->Caption = FloatToStrF(tensao1, ffFixed,10,2) + " [V] ";
-
-
-        saida = saida + "Tensao1: "  + FloatToStrF(tensao1, ffFixed,10,2) + " [V] ";
 
         //Apresenta a saída.
         Log->Lines->Add(saida);
@@ -183,9 +183,6 @@ void __fastcall TFSerialPort::ImValvula1Click(TObject *Sender)
             Sleep(100);
             strcpy(buff,PortaSerial->ReadABuffer());
 
-            LbValvula1->Caption = "VÁLVULA ABERTA";
-            LbValvula1->Color = clLime;
-            atuador1 = true;
         }
         else
         {
@@ -194,9 +191,6 @@ void __fastcall TFSerialPort::ImValvula1Click(TObject *Sender)
             Sleep(100);
             strcpy(buff,PortaSerial->ReadABuffer());
 
-            LbValvula1->Caption = "VÁLVULA FECHADA";
-            LbValvula1->Color = clRed;
-            atuador1 = false;
         }
         
         Log->Lines->Add(buff);
@@ -218,10 +212,6 @@ void __fastcall TFSerialPort::ImValvula2Click(TObject *Sender)
             Sleep(100);
 
             strcpy(buff,PortaSerial->ReadABuffer());
-
-            LbValvula2->Caption = "VÁLVULA ABERTA";
-            LbValvula2->Color = clLime;
-            atuador2 = true;
         }
         else
         {
@@ -229,10 +219,6 @@ void __fastcall TFSerialPort::ImValvula2Click(TObject *Sender)
             PortaSerial->WriteABuffer("E",2);
             Sleep(100);
             strcpy(buff,PortaSerial->ReadABuffer());
-
-            LbValvula2->Caption = "VÁLVULA FECHADA";
-            LbValvula2->Color = clRed;
-            atuador2 = false;
         }
 
         Log->Lines->Add(buff);
