@@ -1,6 +1,6 @@
 object FSerialPort: TFSerialPort
-  Left = 1488
-  Top = 21
+  Left = 275
+  Top = 133
   HorzScrollBar.Visible = False
   VertScrollBar.Visible = False
   BorderStyle = bsSingle
@@ -221,20 +221,20 @@ object FSerialPort: TFSerialPort
     Top = 16
     Width = 801
     Height = 513
-    ActivePage = TabSheet3
-    TabIndex = 2
+    ActivePage = TabSheet1
+    TabIndex = 0
     TabOrder = 2
     TabPosition = tpBottom
     object TabSheet1: TTabSheet
       Caption = 'Configuracoes'
       object Label10: TLabel
-        Left = -16
+        Left = 8
         Top = 0
-        Width = 1265
+        Width = 785
         Height = 33
         Alignment = taCenter
         AutoSize = False
-        Caption = 'Exemplo de Comunicacao Serial'
+        Caption = 'Comunicacao Serial'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -27
@@ -507,7 +507,7 @@ object FSerialPort: TFSerialPort
     Top = 480
   end
   object OpenDialog1: TOpenDialog
-    Left = 80
+    Left = 72
     Top = 480
   end
   object Timer1: TTimer

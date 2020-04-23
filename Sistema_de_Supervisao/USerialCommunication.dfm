@@ -1,6 +1,6 @@
 object FSerialPort: TFSerialPort
-  Left = 1488
-  Top = 21
+  Left = 275
+  Top = 133
   HorzScrollBar.Visible = False
   VertScrollBar.Visible = False
   BorderStyle = bsSingle
@@ -507,7 +507,7 @@ object FSerialPort: TFSerialPort
     Top = 480
   end
   object OpenDialog1: TOpenDialog
-    Left = 80
+    Left = 72
     Top = 480
   end
   object Timer1: TTimer
