@@ -68,6 +68,7 @@ __published:	// IDE-managed Components
         TPanel *Panel2;
         TChart *GraficoLinha;
         TLineSeries *Series2;
+        TDateTimePicker *tempo;
     void __fastcall BtClosePortClick(TObject *Sender);
     void __fastcall BtOpenPortClick(TObject *Sender);
     void __fastcall Sair1Click(TObject *Sender);

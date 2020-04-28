@@ -48,7 +48,7 @@ void __fastcall TFSerialPort::FormCreate(TObject *Sender)
     // Cria as três séries em cada um dos três charts.
     Chart1->Series[0]->AddXY(0,0);
     
-
+    
 
     //------- Gráfico de sinais ------------------------------------------
 
@@ -93,8 +93,7 @@ void __fastcall TFSerialPort::Timer1Timer(TObject *Sender)
     int valor = 0;
     AnsiString saida;
 
-      TDateTime DateTime = Time();  // store the current date and time
-      AnsiString currenttimestring = TimeToStr(DateTime);
+    //
 
     //Envia o buffer pela porta serial.
     PortaSerial->WriteABuffer("A", 1);
@@ -126,7 +125,7 @@ void __fastcall TFSerialPort::Timer1Timer(TObject *Sender)
 
 
         //Manipulação dos valores dos gráficos.
-      Chart1->Series[0]->YValues->Value[0] = tensao1;
+        Chart1->Series[0]->YValues->Value[0] = tensao1;
 
         //------- Gráfico de sinais ------------------------------------------
 
@@ -149,11 +148,8 @@ void __fastcall TFSerialPort::Timer1Timer(TObject *Sender)
         // Grava o canal 1 no arquivo.
         fprintf(arq_dados,"%0.2f\n", tensao1);
 
-
         //------- Gráfico de sinais -----------------------------------------
-        saida = saida + currenttimestring  + FloatToStrF(tensao1, ffFixed,10,2) + " [V] ";
-
-
+        saida ="Tensao1: "  + FloatToStrF(tensao1, ffFixed,10,2) + " [V] ";
 
         //Apresenta a saída.
         Log->Lines->Add(saida);
@@ -183,6 +179,7 @@ void __fastcall TFSerialPort::ImValvula1Click(TObject *Sender)
             Sleep(100);
             strcpy(buff,PortaSerial->ReadABuffer());
 
+
         }
         else
         {
@@ -190,6 +187,7 @@ void __fastcall TFSerialPort::ImValvula1Click(TObject *Sender)
             PortaSerial->WriteABuffer("C",2);
             Sleep(100);
             strcpy(buff,PortaSerial->ReadABuffer());
+
 
         }
         
@@ -212,6 +210,7 @@ void __fastcall TFSerialPort::ImValvula2Click(TObject *Sender)
             Sleep(100);
 
             strcpy(buff,PortaSerial->ReadABuffer());
+
         }
         else
         {
@@ -219,6 +218,8 @@ void __fastcall TFSerialPort::ImValvula2Click(TObject *Sender)
             PortaSerial->WriteABuffer("E",2);
             Sleep(100);
             strcpy(buff,PortaSerial->ReadABuffer());
+
+          
         }
 
         Log->Lines->Add(buff);
@@ -427,6 +428,8 @@ void __fastcall TFSerialPort::SalvarComo1Click(TObject *Sender)
 
 
 */
+
+
 
 
 

@@ -1,6 +1,6 @@
 object FSerialPort: TFSerialPort
-  Left = 902
-  Top = 228
+  Left = 281
+  Top = 196
   HorzScrollBar.Visible = False
   VertScrollBar.Visible = False
   BorderStyle = bsSingle
@@ -221,8 +221,8 @@ object FSerialPort: TFSerialPort
     Top = 16
     Width = 801
     Height = 513
-    ActivePage = TabSheet1
-    TabIndex = 0
+    ActivePage = TabSheet3
+    TabIndex = 2
     TabOrder = 2
     TabPosition = tpBottom
     object TabSheet1: TTabSheet
@@ -257,6 +257,21 @@ object FSerialPort: TFSerialPort
           ScrollBars = ssBoth
           TabOrder = 0
         end
+      end
+      object tempo: TDateTimePicker
+        Left = 8
+        Top = 8
+        Width = 186
+        Height = 21
+        CalAlignment = dtaLeft
+        Date = 43943.9542970023
+        Time = 43943.9542970023
+        DateFormat = dfShort
+        DateMode = dmComboBox
+        ImeMode = imAlpha
+        Kind = dtkDate
+        ParseInput = False
+        TabOrder = 1
       end
     end
     object TabSheet2: TTabSheet
@@ -507,7 +522,7 @@ object FSerialPort: TFSerialPort
     Top = 480
   end
   object OpenDialog1: TOpenDialog
-    Left = 80
+    Left = 72
     Top = 480
   end
   object Timer1: TTimer
