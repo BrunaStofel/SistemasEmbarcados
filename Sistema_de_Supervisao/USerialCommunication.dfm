@@ -1,6 +1,6 @@
 object FSerialPort: TFSerialPort
-  Left = 281
-  Top = 196
+  Left = 622
+  Top = 199
   HorzScrollBar.Visible = False
   VertScrollBar.Visible = False
   BorderStyle = bsSingle
@@ -256,7 +256,6 @@ object FSerialPort: TFSerialPort
           Height = 425
           ScrollBars = ssBoth
           TabOrder = 0
-          OnChange = LogChange
         end
       end
       object tempo: TDateTimePicker

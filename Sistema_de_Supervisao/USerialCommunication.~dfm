@@ -221,8 +221,8 @@ object FSerialPort: TFSerialPort
     Top = 16
     Width = 801
     Height = 513
-    ActivePage = TabSheet3
-    TabIndex = 2
+    ActivePage = TabSheet1
+    TabIndex = 0
     TabOrder = 2
     TabPosition = tpBottom
     object TabSheet1: TTabSheet
@@ -256,6 +256,7 @@ object FSerialPort: TFSerialPort
           Height = 425
           ScrollBars = ssBoth
           TabOrder = 0
+          OnChange = LogChange
         end
       end
       object tempo: TDateTimePicker

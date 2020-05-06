@@ -81,7 +81,6 @@ __published:	// IDE-managed Components
     void __fastcall CbSerialPort1DropDown(TObject *Sender);
     void __fastcall GraficoLinhaAfterDraw(TObject *Sender);
     void __fastcall SalvarComo1Click(TObject *Sender);
-        void __fastcall LogChange(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
     __fastcall TFSerialPort(TComponent* Owner);
