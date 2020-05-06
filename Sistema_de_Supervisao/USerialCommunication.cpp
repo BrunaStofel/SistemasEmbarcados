@@ -430,11 +430,3 @@ void __fastcall TFSerialPort::SalvarComo1Click(TObject *Sender)
 */
 
 
-
-
-
-
-
-
-
-
