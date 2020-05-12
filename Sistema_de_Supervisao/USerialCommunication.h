@@ -35,15 +35,12 @@ __published:	// IDE-managed Components
     TOpenDialog *OpenDialog1;
     TStatusBar *StatusBar1;
     TTimer *Timer1;
-    TGroupBox *GroupBox3;
+        TGroupBox *config;
     TLabel *Label5;
     TLabel *Label4;
     TLabel *Label3;
     TLabel *Label2;
     TLabel *Label1;
-    TBevel *Bevel1;
-    TBevel *Bevel2;
-    TBevel *Bevel3;
     TComboBox *ComboBox4;
     TComboBox *ComboBox3;
     TComboBox *CbParity1;
@@ -59,11 +56,6 @@ __published:	// IDE-managed Components
         TLabel *Label10;
         TGroupBox *GroupBox1;
         TMemo *Log;
-        TTabSheet *TabSheet2;
-        TLabel *Label7;
-        TPanel *Panel1;
-        TChart *Chart1;
-        TBarSeries *Series1;
         TTabSheet *TabSheet3;
         TPanel *Panel2;
         TChart *GraficoLinha;
@@ -74,17 +66,37 @@ __published:	// IDE-managed Components
     void __fastcall Sair1Click(TObject *Sender);
     void __fastcall EnviarClick(TObject *Sender);
     void __fastcall CheckBoxModoContinuoClick(TObject *Sender);
-    void __fastcall Timer1Timer(TObject *Sender);
     void __fastcall FormCreate(TObject *Sender);
-    void __fastcall ImValvula2Click(TObject *Sender);
-        void __fastcall ImValvula1Click(TObject *Sender);
     void __fastcall CbSerialPort1DropDown(TObject *Sender);
     void __fastcall GraficoLinhaAfterDraw(TObject *Sender);
     void __fastcall SalvarComo1Click(TObject *Sender);
+        void __fastcall Abri1Click(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
     __fastcall TFSerialPort(TComponent* Owner);
+    void __fastcall AtualizaGrafico();
+    void __fastcall LerPortaSerial();
 };
+
+
+//---------------------------------------------------------------------------
+
+class Thread : public TThread
+{
+        private:
+        protected:
+                void __fastcall Execute();
+
+        public:
+                __fastcall Thread(bool CreateSuspended);
+
+};
+
+//---------------------------------------------------------------------------
+
+
+
+
 //---------------------------------------------------------------------------
 extern PACKAGE TFSerialPort *FSerialPort;
 //---------------------------------------------------------------------------
