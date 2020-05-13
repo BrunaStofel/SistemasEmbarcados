@@ -1,10 +1,10 @@
 object FSerialPort: TFSerialPort
-  Left = 281
-  Top = 196
+  Left = 325
+  Top = 61
   HorzScrollBar.Visible = False
   VertScrollBar.Visible = False
   BorderStyle = bsSingle
-  Caption = 'Exemplo de Comunicacao Serial e Monitoramento de Sensores'
+  Caption = 'Monitoramento de Temperatura'
   ClientHeight = 547
   ClientWidth = 975
   Color = clBtnFace
@@ -27,7 +27,7 @@ object FSerialPort: TFSerialPort
     Panels = <>
     SimplePanel = False
   end
-  object GroupBox3: TGroupBox
+  object config: TGroupBox
     Left = 8
     Top = 13
     Width = 129
@@ -68,24 +68,6 @@ object FSerialPort: TFSerialPort
       Width = 55
       Height = 13
       Caption = 'Porta serial:'
-    end
-    object Bevel1: TBevel
-      Left = 0
-      Top = 168
-      Width = 185
-      Height = 2
-    end
-    object Bevel2: TBevel
-      Left = 0
-      Top = 224
-      Width = 185
-      Height = 2
-    end
-    object Bevel3: TBevel
-      Left = 0
-      Top = 416
-      Width = 185
-      Height = 2
     end
     object ComboBox4: TComboBox
       Left = 8
@@ -221,8 +203,8 @@ object FSerialPort: TFSerialPort
     Top = 16
     Width = 801
     Height = 513
-    ActivePage = TabSheet1
-    TabIndex = 0
+    ActivePage = TabSheet3
+    TabIndex = 1
     TabOrder = 2
     TabPosition = tpBottom
     object TabSheet1: TTabSheet
@@ -242,6 +224,14 @@ object FSerialPort: TFSerialPort
         Font.Style = [fsBold]
         ParentFont = False
       end
+      object horalabel: TLabel
+        Left = 624
+        Top = 8
+        Width = 23
+        Height = 13
+        Caption = 'Hora'
+        OnClick = horalabelClick
+      end
       object GroupBox1: TGroupBox
         Left = 0
         Top = 40
@@ -256,7 +246,6 @@ object FSerialPort: TFSerialPort
           Height = 425
           ScrollBars = ssBoth
           TabOrder = 0
-          OnChange = LogChange
         end
       end
       object tempo: TDateTimePicker
@@ -273,117 +262,6 @@ object FSerialPort: TFSerialPort
         Kind = dtkDate
         ParseInput = False
         TabOrder = 1
-      end
-    end
-    object TabSheet2: TTabSheet
-      Caption = 'Sensores'
-      ImageIndex = 1
-      object Label7: TLabel
-        Left = 24
-        Top = 8
-        Width = 585
-        Height = 46
-        Alignment = taCenter
-        AutoSize = False
-        Caption = 'Monitoramento do Sensor (Tensao)'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -27
-        Font.Name = 'Arial'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
-      object Panel1: TPanel
-        Left = 8
-        Top = 56
-        Width = 777
-        Height = 425
-        BevelInner = bvRaised
-        BevelOuter = bvLowered
-        Color = clWhite
-        TabOrder = 0
-        object Chart1: TChart
-          Left = 40
-          Top = 8
-          Width = 169
-          Height = 345
-          BackWall.Brush.Color = clWhite
-          BackWall.Brush.Style = bsClear
-          LeftWall.Color = clSilver
-          MarginBottom = 5
-          MarginLeft = 5
-          MarginRight = 5
-          MarginTop = 5
-          Title.Text.Strings = (
-            'TChart')
-          Title.Visible = False
-          BottomAxis.Automatic = False
-          BottomAxis.AutomaticMaximum = False
-          BottomAxis.AutomaticMinimum = False
-          BottomAxis.ExactDateTime = False
-          BottomAxis.Labels = False
-          BottomAxis.Maximum = 0.5
-          BottomAxis.Minimum = -0.5
-          BottomAxis.Title.Caption = 'Sensor 01'
-          BottomAxis.Title.Font.Charset = DEFAULT_CHARSET
-          BottomAxis.Title.Font.Color = clBlack
-          BottomAxis.Title.Font.Height = -13
-          BottomAxis.Title.Font.Name = 'Arial'
-          BottomAxis.Title.Font.Style = [fsBold]
-          Chart3DPercent = 35
-          LeftAxis.Automatic = False
-          LeftAxis.AutomaticMaximum = False
-          LeftAxis.AutomaticMinimum = False
-          LeftAxis.ExactDateTime = False
-          LeftAxis.Increment = 1
-          LeftAxis.Maximum = 5.1
-          LeftAxis.Title.Caption = 'Tensao (V)'
-          LeftAxis.Title.Font.Charset = DEFAULT_CHARSET
-          LeftAxis.Title.Font.Color = clBlack
-          LeftAxis.Title.Font.Height = -13
-          LeftAxis.Title.Font.Name = 'Arial'
-          LeftAxis.Title.Font.Style = [fsBold]
-          RightAxis.Automatic = False
-          RightAxis.AutomaticMaximum = False
-          RightAxis.AutomaticMinimum = False
-          RightAxis.Maximum = 100
-          RightAxis.Title.Angle = 90
-          RightAxis.Title.Caption = 'Graus ?C'
-          RightAxis.Title.Font.Charset = DEFAULT_CHARSET
-          RightAxis.Title.Font.Color = clBlack
-          RightAxis.Title.Font.Height = -13
-          RightAxis.Title.Font.Name = 'Arial'
-          RightAxis.Title.Font.Style = [fsBold]
-          RightAxis.Visible = False
-          TopAxis.Automatic = False
-          TopAxis.AutomaticMaximum = False
-          TopAxis.AutomaticMinimum = False
-          TopAxis.Maximum = 0.5
-          TopAxis.Minimum = -0.5
-          BevelWidth = 0
-          Color = clWhite
-          TabOrder = 0
-          object Series1: TBarSeries
-            Cursor = crHandPoint
-            Marks.ArrowLength = 8
-            Marks.Visible = True
-            SeriesColor = clLime
-            ShowInLegend = False
-            ValueFormat = '#,##0.00 Volts'
-            VertAxis = aBothVertAxis
-            BarPen.Visible = False
-            BarWidthPercent = 100
-            MultiBar = mbNone
-            XValues.DateTime = False
-            XValues.Name = 'X'
-            XValues.Multiplier = 1
-            XValues.Order = loAscending
-            YValues.DateTime = False
-            YValues.Name = 'Bar'
-            YValues.Multiplier = 1
-            YValues.Order = loNone
-          end
-        end
       end
     end
     object TabSheet3: TTabSheet
@@ -431,9 +309,10 @@ object FSerialPort: TFSerialPort
           LeftAxis.AutomaticMinimum = False
           LeftAxis.AxisValuesFormat = '#,##0.00###'
           LeftAxis.ExactDateTime = False
-          LeftAxis.Increment = 0.5
-          LeftAxis.Maximum = 5
-          LeftAxis.Title.Caption = 'Tensao (V)'
+          LeftAxis.Increment = 5
+          LeftAxis.LabelsSeparation = 30
+          LeftAxis.Maximum = 50
+          LeftAxis.Title.Caption = 'Graus (Celsius)'
           LeftAxis.Title.Font.Charset = DEFAULT_CHARSET
           LeftAxis.Title.Font.Color = clBlack
           LeftAxis.Title.Font.Height = -13
@@ -495,6 +374,7 @@ object FSerialPort: TFSerialPort
       Caption = 'Arquivo'
       object Abri1: TMenuItem
         Caption = 'Abrir'
+        OnClick = Abri1Click
       end
       object N2: TMenuItem
         Caption = '-'
@@ -527,8 +407,6 @@ object FSerialPort: TFSerialPort
     Top = 480
   end
   object Timer1: TTimer
-    Enabled = False
-    OnTimer = Timer1Timer
     Left = 40
     Top = 480
   end
