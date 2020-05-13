@@ -66,15 +66,11 @@ unsigned int TamanhoDoRegistro;
 unsigned int NumeroDeAmostras;
 unsigned int TamanhoDaEpoca;
 unsigned int Deslocamento;
-const int hourToSec = 36; // 60sX60min
+const int hourToSec = 3600; // 60sX60min
 float tensao = 0;
-//typedef struct {
-//    double temperatura;
-//} List_temperature;
-//List_temperature itens[hourToSec];
+
 double itens[hourToSec];
-//char nome_arq[] = "A";
-//char fim_arq[] = ".dat"
+
 //---------------------------------------------------------------------------
 
 __fastcall TFSerialPort::TFSerialPort(TComponent* Owner)
@@ -397,7 +393,7 @@ void __fastcall Thread::Execute()
 
             // Calculo da temperatura conforme os bytes recebidos (10 bits).
             valor = (buffer1[3] << 8) + (buffer1[4]);
-            itens[Tatual] = (valor * 0.004887585532749)*100;
+            itens[Tatual] = (valor * 0.004887585532749);
 
             //------- Gráfico de sinais ------------------------------------------
 
@@ -432,7 +428,7 @@ void __fastcall Thread::Execute()
             //------- Gráfico de sinais ------------------------------------------
 
             // Apresenta a saída.
-            saida = saida + "Temperatura: "  + FloatToStrF(itens[Tatual], ffFixed,10,3) + " [V] " +
+            saida = saida + timeStr + " - " + "Temperatura: "  + FloatToStrF(itens[Tatual], ffFixed,10,3) + " [V] " +
                             " inteiro: " + IntToStr(valor) + " - " + check;
 
             FSerialPort->Log->Lines->Add(saida);

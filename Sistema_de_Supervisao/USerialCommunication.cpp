@@ -34,6 +34,10 @@ SerialPort *PortaSerial;
 bool atuador1 = false;
 bool atuador2 = false;
 
+
+
+
+
 //double tensao1 = 0;
 int valor, Tatual = 0;
 
@@ -393,7 +397,7 @@ void __fastcall Thread::Execute()
 
             // Calculo da temperatura conforme os bytes recebidos (10 bits).
             valor = (buffer1[3] << 8) + (buffer1[4]);
-            itens[Tatual] = (valor * 0.004887585532749)*100;
+            itens[Tatual] = (valor * 0.004887585532749);
 
             //------- Gráfico de sinais ------------------------------------------
 
@@ -428,7 +432,7 @@ void __fastcall Thread::Execute()
             //------- Gráfico de sinais ------------------------------------------
 
             // Apresenta a saída.
-            saida = saida + "Temperatura: "  + FloatToStrF(itens[Tatual], ffFixed,10,3) + " [V] " +
+            saida = saida + DateTimeToStr(Now()) +  " - " + "Temperatura: "  + FloatToStrF(itens[Tatual], ffFixed,10,3) + " [V] " +
                             " inteiro: " + IntToStr(valor) + " - " + check;
 
             FSerialPort->Log->Lines->Add(saida);
@@ -452,5 +456,7 @@ void __fastcall TFSerialPort::horalabelClick(TObject *Sender)
    horalabel->SetTextBuf(timeStr);
 }
 //---------------------------------------------------------------------------
+
+
 
 
