@@ -1,5 +1,5 @@
 
-# 1 "C:\Users\Dracarys\Downloads\Sistemas Embarcados\Trabalho_Final_Sistemas_embarcados_coletar_de_sensor_analogico_a_cada_1_segundo\Supervisorio_PIC para_sinais\Firmware no PIC16F877A\Supervisorio.c"
+# 1 "C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c"
 
 # 21 "C:\Program Files (x86)\Microchip\xc8\v1.33\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -1502,7 +1502,7 @@ extern char * ultoa(char * buf, unsigned long val, int base);
 extern char * ftoa(float f, int * status);
 
 
-# 6 "C:\Users\Dracarys\Downloads\Sistemas Embarcados\Trabalho_Final_Sistemas_embarcados_coletar_de_sensor_analogico_a_cada_1_segundo\Supervisorio_PIC para_sinais\Firmware no PIC16F877A\Supervisorio.c"
+# 6 "C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c"
 #pragma config FOSC = HS
 #pragma config WDTE = OFF
 #pragma config PWRTE = ON
@@ -1517,6 +1517,8 @@ unsigned char *Display;
 float input = 0;
 int status = 0;
 unsigned char buffer[9];
+unsigned short cont1 = 0;
+unsigned int sec =0;
 
 
 void USART_Init(long BaudRate)
@@ -1629,19 +1631,50 @@ while(ADCON0bits.GO_DONE);
 PIR1bits.ADIF = 0;
 }
 
+
+void TIMER1_Init()
+{
+T1CONbits.TMR1CS = 0;
+T1CONbits.T1OSCEN = 0;
+T1CONbits.T1CKPS1 = 1;
+T1CONbits.T1CKPS0 = 1;
+
+T1CONbits.TMR1ON = 1;
+TMR1 = 7936;
+
+PIR1bits.TMR1IF = 0;
+PIE1bits.TMR1IE = 1;
+}
+
+
+
 void interrupt ISR(void)
 {
 
+
+if(PIR1bits.TMR1IF == 1)
+{
+TMR1 = 7936;
+if(cont1 == 10)
+{
+sec++;
+cont1 = 0;
+
+}
+PIR1bits.TMR1IF = 0;
+}
+
+
 if (PIR1bits.ADIF)
 {
+
 ADC_Read(0);
 ADCResult = ((ADRESH << 8) + ADRESL);
 input = ADCResult * 0.004887585533;
 Display = ftoa(input, &status);
-
 USART_WriteString(Display);
-
 _delay((unsigned long)((2)*(18432000/4000000.0)));
+
 
 PIR1bits.ADIF = 0;
 }
@@ -1659,6 +1692,7 @@ resp = USART_ReceiveChar();
 switch(resp)
 {
 case 'A' :
+
 
 buffer[0] = '#';
 buffer[1] = ':';
@@ -1717,8 +1751,8 @@ break;
 
 void main(void)
 {
-TRISA = 0b00011111;
-PORTA = 0b00011111;
+TRISA = 0b00000001;
+PORTA = 0b00000001;
 TRISB = 0b00000000;
 PORTB = 0b00000000;
 TRISC = 0b10000000;
@@ -1733,11 +1767,9 @@ ADC_Init();
 
 INTCONbits.PEIE = 1;
 INTCONbits.GIE = 1;
+_delay((unsigned long)((400)*(18432000/4000.0)));
+TIMER1_Init();
 
-
-USART_WriteString("Inicializando...");
-
-_delay((unsigned long)((1000)*(18432000/4000.0)));
 
 while(1)
 {

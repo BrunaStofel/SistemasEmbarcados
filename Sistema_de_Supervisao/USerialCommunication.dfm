@@ -203,8 +203,8 @@ object FSerialPort: TFSerialPort
     Top = 16
     Width = 801
     Height = 513
-    ActivePage = TabSheet3
-    TabIndex = 1
+    ActivePage = TabSheet1
+    TabIndex = 0
     TabOrder = 2
     TabPosition = tpBottom
     object TabSheet1: TTabSheet
@@ -398,7 +398,6 @@ object FSerialPort: TFSerialPort
     Top = 480
   end
   object Timer1: TTimer
-    Enabled = False
     Left = 40
     Top = 480
   end

@@ -109,23 +109,23 @@
 [v ___fltoee __fltoee `(d  1 e 3 0 ]
 "49 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\pic\ftdiv.c
 [v ___ftdiv __ftdiv `(f  1 e 3 0 ]
-"22 C:\Users\Dracarys\Downloads\Sistemas Embarcados\Trabalho_Final_Sistemas_embarcados_coletar_de_sensor_analogico_a_cada_1_segundo\Supervisorio_PIC para_sinais\Firmware no PIC16F877A\Supervisorio.c
+"24 C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c
 [v _USART_Init USART_Init `(v  1 e 0 0 ]
-"59
+"61
 [v _USART_WriteChar USART_WriteChar `(v  1 e 0 0 ]
-[v i1_USART_WriteChar USART_WriteChar `(v  1 e 0 0 ]
-"66
+"68
 [v _USART_WriteString USART_WriteString `(v  1 e 0 0 ]
-[v i1_USART_WriteString USART_WriteString `(v  1 e 0 0 ]
-"78
+"80
 [v _USART_ReceiveChar USART_ReceiveChar `(uc  1 e 1 0 ]
-"100
+"102
 [v _ADC_Init ADC_Init `(v  1 e 0 0 ]
-"119
+"121
 [v _ADC_Read ADC_Read `(v  1 e 0 0 ]
-"132
+"135
+[v _TIMER1_Init TIMER1_Init `(v  1 e 0 0 ]
+"151
 [v _ISR ISR `II(v  1 e 0 0 ]
-"218
+"252
 [v _main main `(v  1 e 0 0 ]
 "158 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic16f877a.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
@@ -137,7 +137,7 @@
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
 "390
 [v _PORTE PORTE `VEuc  1 e 1 @9 ]
-[s S242 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S278 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -147,13 +147,13 @@
 `uc 1 GIE 1 0 :1:7 
 ]
 "463
-[s S251 . 1 `uc 1 . 1 0 :2:0 
+[s S287 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 T0IE 1 0 :1:5 
 ]
-[u S256 . 1 `S242 1 . 1 0 `S251 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES256  1 e 1 @11 ]
+[u S292 . 1 `S278 1 . 1 0 `S287 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES292  1 e 1 @11 ]
 [s S101 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
@@ -166,6 +166,26 @@
 "534
 [u S110 . 1 `S101 1 . 1 0 ]
 [v _PIR1bits PIR1bits `VES110  1 e 1 @12 ]
+"617
+[v _TMR1 TMR1 `VEus  1 e 2 @14 ]
+[s S222 . 1 `uc 1 TMR1ON 1 0 :1:0 
+`uc 1 TMR1CS 1 0 :1:1 
+`uc 1 nT1SYNC 1 0 :1:2 
+`uc 1 T1OSCEN 1 0 :1:3 
+`uc 1 T1CKPS 1 0 :2:4 
+]
+"660
+[s S228 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 T1SYNC 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 T1CKPS0 1 0 :1:4 
+`uc 1 T1CKPS1 1 0 :1:5 
+]
+[s S234 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 T1INSYNC 1 0 :1:2 
+]
+[u S237 . 1 `S222 1 . 1 0 `S228 1 . 1 0 `S234 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES237  1 e 1 @16 ]
 [s S57 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
@@ -291,7 +311,7 @@
 [v _WREN WREN `VEb  1 e 0 @3170 ]
 "354 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c
 [v _dpowers dpowers `DCC[10]ul  1 s 40 dpowers ]
-"15 C:\Users\Dracarys\Downloads\Sistemas Embarcados\Trabalho_Final_Sistemas_embarcados_coletar_de_sensor_analogico_a_cada_1_segundo\Supervisorio_PIC para_sinais\Firmware no PIC16F877A\Supervisorio.c
+"15 C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c
 [v _ADCResult ADCResult `us  1 e 2 0 ]
 "16
 [v _Display Display `*.4uc  1 e 1 0 ]
@@ -301,33 +321,23 @@
 [v _status status `i  1 e 2 0 ]
 "19
 [v _buffer buffer `[9]uc  1 e 9 0 ]
-"218
+"20
+[v _cont1 cont1 `us  1 e 2 0 ]
+"21
+[v _sec sec `ui  1 e 2 0 ]
+"252
 [v _main main `(v  1 e 0 0 ]
 {
-"246
+"278
 } 0
-"66
-[v _USART_WriteString USART_WriteString `(v  1 e 0 0 ]
-{
-[v USART_WriteString@str str `*.26DCCuc  1 p 2 1 ]
-"75
-} 0
-"59
-[v _USART_WriteChar USART_WriteChar `(v  1 e 0 0 ]
-{
-[v USART_WriteChar@USARTData USARTData `uc  1 a 1 wreg ]
-[v USART_WriteChar@USARTData USARTData `uc  1 a 1 wreg ]
-[v USART_WriteChar@USARTData USARTData `uc  1 a 1 0 ]
-"63
-} 0
-"22
+"24
 [v _USART_Init USART_Init `(v  1 e 0 0 ]
 {
-"28
+"30
 [v USART_Init@BR BR `uc  1 a 1 24 ]
-"22
+"24
 [v USART_Init@BaudRate BaudRate `l  1 p 4 15 ]
-"56
+"58
 } 0
 "6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c
 [v ___aldiv __aldiv `(l  1 e 4 0 ]
@@ -342,33 +352,38 @@
 [v ___aldiv@dividend dividend `l  1 p 4 4 ]
 "42
 } 0
-"100 C:\Users\Dracarys\Downloads\Sistemas Embarcados\Trabalho_Final_Sistemas_embarcados_coletar_de_sensor_analogico_a_cada_1_segundo\Supervisorio_PIC para_sinais\Firmware no PIC16F877A\Supervisorio.c
+"135 C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c
+[v _TIMER1_Init TIMER1_Init `(v  1 e 0 0 ]
+{
+"147
+} 0
+"102
 [v _ADC_Init ADC_Init `(v  1 e 0 0 ]
 {
-"117
+"119
 } 0
-"132
+"151
 [v _ISR ISR `II(v  1 e 0 0 ]
 {
-"154
-[v ISR@byte1 byte1 `uc  1 a 1 59 ]
-"153
-[v ISR@byte2 byte2 `uc  1 a 1 58 ]
-"152
-[v ISR@resp resp `uc  1 a 1 57 ]
-"215
+"187
+[v ISR@byte1 byte1 `uc  1 a 1 58 ]
+"186
+[v ISR@byte2 byte2 `uc  1 a 1 57 ]
+"185
+[v ISR@resp resp `uc  1 a 1 56 ]
+"249
 } 0
 "6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftoa.c
 [v _ftoa ftoa `(*.4uc  1 e 1 0 ]
 {
 "10
-[v ftoa@l l `ul  1 a 4 46 ]
-[v ftoa@rem rem `ul  1 a 4 42 ]
+[v ftoa@l l `ul  1 a 4 45 ]
+[v ftoa@rem rem `ul  1 a 4 41 ]
 "9
-[v ftoa@cp cp `*.4uc  1 a 1 50 ]
+[v ftoa@cp cp `*.4uc  1 a 1 49 ]
 "6
-[v ftoa@f f `f  1 p 3 37 ]
-[v ftoa@status status `*.4i  1 p 1 40 ]
+[v ftoa@f f `f  1 p 3 36 ]
+[v ftoa@status status `*.4i  1 p 1 39 ]
 "8
 [v ftoa@buf buf `[17]uc  1 s 17 buf ]
 "21
@@ -377,25 +392,25 @@
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
 [v sprintf@sp sp `*.4uc  1 a 1 wreg ]
-[s S394 . 4 `*.1DCCuc 1 _cp 2 0 `ui 1 _len 2 2 ]
+[s S443 . 4 `*.1DCCuc 1 _cp 2 0 `ui 1 _len 2 2 ]
 "533
-[u S397 . 4 `ul 1 _val 4 0 `S394 1 _str 4 0 ]
-[v sprintf@_val _val `S397  1 a 4 27 ]
+[u S446 . 4 `ul 1 _val 4 0 `S443 1 _str 4 0 ]
+[v sprintf@_val _val `S446  1 a 4 26 ]
 "504
-[v sprintf@prec prec `i  1 a 2 34 ]
+[v sprintf@prec prec `i  1 a 2 33 ]
 "501
-[v sprintf@width width `i  1 a 2 32 ]
+[v sprintf@width width `i  1 a 2 31 ]
 "499
-[v sprintf@c c `c  1 a 1 36 ]
+[v sprintf@c c `c  1 a 1 35 ]
 "494
-[v sprintf@ap ap `[1]*.4v  1 a 1 26 ]
+[v sprintf@ap ap `[1]*.4v  1 a 1 25 ]
 "508
-[v sprintf@flag flag `uc  1 a 1 25 ]
+[v sprintf@flag flag `uc  1 a 1 24 ]
 "492
 [v sprintf@sp sp `*.4uc  1 a 1 wreg ]
-[v sprintf@f f `*.25DCCuc  1 p 2 10 ]
+[v sprintf@f f `*.24DCCuc  1 p 1 10 ]
 "542
-[v sprintf@sp sp `*.4uc  1 a 1 31 ]
+[v sprintf@sp sp `*.4uc  1 a 1 30 ]
 "1550
 } 0
 "8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\isdigit.c
@@ -520,30 +535,30 @@
 [v ___ftpack@sign sign `uc  1 p 1 4 ]
 "86
 } 0
-"78 C:\Users\Dracarys\Downloads\Sistemas Embarcados\Trabalho_Final_Sistemas_embarcados_coletar_de_sensor_analogico_a_cada_1_segundo\Supervisorio_PIC para_sinais\Firmware no PIC16F877A\Supervisorio.c
+"80 C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c
 [v _USART_ReceiveChar USART_ReceiveChar `(uc  1 e 1 0 ]
 {
-"80
+"82
 [v USART_ReceiveChar@USART_Data USART_Data `uc  1 a 1 4 ]
-"98
+"100
 } 0
-"66
-[v i1_USART_WriteString USART_WriteString `(v  1 e 0 0 ]
+"68
+[v _USART_WriteString USART_WriteString `(v  1 e 0 0 ]
 {
-[v i1USART_WriteString@str str `*.26DCCuc  1 p 2 1 ]
-"75
+[v USART_WriteString@str str `*.26DCCuc  1 p 2 1 ]
+"77
 } 0
-"59
-[v i1_USART_WriteChar USART_WriteChar `(v  1 e 0 0 ]
+"61
+[v _USART_WriteChar USART_WriteChar `(v  1 e 0 0 ]
 {
-[v i1USART_WriteChar@USARTData USARTData `uc  1 a 1 wreg ]
-[v i1USART_WriteChar@USARTData USARTData `uc  1 a 1 wreg ]
-[v i1USART_WriteChar@USARTData USARTData `uc  1 a 1 0 ]
-"63
+[v USART_WriteChar@USARTData USARTData `uc  1 a 1 wreg ]
+[v USART_WriteChar@USARTData USARTData `uc  1 a 1 wreg ]
+[v USART_WriteChar@USARTData USARTData `uc  1 a 1 0 ]
+"65
 } 0
-"119
+"121
 [v _ADC_Read ADC_Read `(v  1 e 0 0 ]
 {
 [v ADC_Read@channel channel `us  1 p 2 0 ]
-"130
+"132
 } 0

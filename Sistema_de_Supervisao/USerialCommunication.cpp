@@ -251,7 +251,7 @@ void __fastcall TFSerialPort::BtOpenPortClick(TObject *Sender)
     // Declaração da thread para leitura dos pacotes e plotagem do gráfico.
     ProcessaGrafico = new Thread(true);
     ProcessaGrafico->Resume();
-
+      Timer1->Enabled = true;
     BtOpenPort->Enabled = false;
 }
 
@@ -543,7 +543,7 @@ void __fastcall Thread::Execute()
 
         int valor = 0;
         AnsiString saida;
-
+        Sleep(1000);
         // Envia o buffer pela porta serial.
         PortaSerial->WriteABuffer("A", 1);
 
@@ -599,10 +599,6 @@ void __fastcall Thread::Execute()
        */
 
 
-
-
-
-
             // Calculo da temperatura conforme os bytes recebidos (10 bits).
             valor = (buffer1[3] << 8) + (buffer1[4]);
             tensao1 = (valor * 0.004887585532749);
@@ -645,4 +641,5 @@ void __fastcall Thread::Execute()
         }
     }
 }
+
 

@@ -398,7 +398,6 @@ object FSerialPort: TFSerialPort
     Top = 480
   end
   object Timer1: TTimer
-    Enabled = False
     Left = 40
     Top = 480
   end

@@ -86,7 +86,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 "154 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic.h
 [v __delay `JF1089 ~T0 @X0 0 e ]
 [p i __delay ]
-"1116 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic16f877a.h
+"641 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic16f877a.h
+[s S26 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 ]
+[n S26 . TMR1ON TMR1CS nT1SYNC T1OSCEN T1CKPS ]
+"648
+[s S27 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S27 . . T1SYNC . T1CKPS0 T1CKPS1 ]
+"655
+[s S28 :2 `uc 1 :1 `uc 1 ]
+[n S28 . . T1INSYNC ]
+"640
+[u S25 `S26 1 `S27 1 `S28 1 ]
+[n S25 . . . . ]
+"660
+[v _T1CONbits `VS25 ~T0 @X0 0 e@16 ]
+"617
+[v _TMR1 `Vus ~T0 @X0 0 e@14 ]
+"1116
 [v _ADRESH `Vuc ~T0 @X0 0 e@30 ]
 "2167
 [v _ADRESL `Vuc ~T0 @X0 0 e@158 ]
@@ -1196,7 +1212,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdlib.h: 109: extern char * ltoa(char * buf, long val, int base);
 [; ;stdlib.h: 110: extern char * ultoa(char * buf, unsigned long val, int base);
 [; ;stdlib.h: 112: extern char * ftoa(float f, int * status);
-"6 C:\Users\Dracarys\Downloads\Sistemas Embarcados\Trabalho_Final_Sistemas_embarcados_coletar_de_sensor_analogico_a_cada_1_segundo\Supervisorio_PIC para_sinais\Firmware no PIC16F877A\Supervisorio.c
+"6 C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c
 [p x FOSC=HS ]
 "7
 [p x WDTE=OFF ]
@@ -1234,558 +1250,637 @@ Version 3.2 HI-TECH Software Intermediate Code
 "19
 [v _buffer `uc ~T0 @X0 -> 9 `i e ]
 [; ;Supervisorio.c: 19: unsigned char buffer[9];
-"22
+"20
+[v _cont1 `us ~T0 @X0 1 e ]
+[i _cont1
+-> -> 0 `i `us
+]
+[; ;Supervisorio.c: 20: unsigned short cont1 = 0;
+"21
+[v _sec `ui ~T0 @X0 1 e ]
+[i _sec
+-> -> 0 `i `ui
+]
+[; ;Supervisorio.c: 21: unsigned int sec =0;
+"24
 [v _USART_Init `(v ~T0 @X0 1 ef1`l ]
-"23
+"25
 {
-[; ;Supervisorio.c: 22: void USART_Init(long BaudRate)
-[; ;Supervisorio.c: 23: {
+[; ;Supervisorio.c: 24: void USART_Init(long BaudRate)
+[; ;Supervisorio.c: 25: {
 [e :U _USART_Init ]
-"22
+"24
 [v _BaudRate `l ~T0 @X0 1 r1 ]
-"23
+"25
 [f ]
-"28
+"30
 [v _BR `uc ~T0 @X0 1 a ]
-[; ;Supervisorio.c: 28: unsigned char BR = 0;
+[; ;Supervisorio.c: 30: unsigned char BR = 0;
 [e = _BR -> -> 0 `i `uc ]
-[; ;Supervisorio.c: 31: BR = (18432000 / (16 * BaudRate)) - 1;
-"31
+[; ;Supervisorio.c: 33: BR = (18432000 / (16 * BaudRate)) - 1;
+"33
 [e = _BR -> - / -> 18432000 `l * -> -> 16 `i `l _BaudRate -> -> 1 `i `l `uc ]
-[; ;Supervisorio.c: 32: SPBRG = BR;
-"32
+[; ;Supervisorio.c: 34: SPBRG = BR;
+"34
 [e = _SPBRG _BR ]
-[; ;Supervisorio.c: 35: TXSTAbits.CSRC = 0;
-"35
-[e = . . _TXSTAbits 0 7 -> -> 0 `i `uc ]
-[; ;Supervisorio.c: 36: TXSTAbits.TX9 = 0;
-"36
-[e = . . _TXSTAbits 0 6 -> -> 0 `i `uc ]
-[; ;Supervisorio.c: 37: TXSTAbits.TXEN = 1;
+[; ;Supervisorio.c: 37: TXSTAbits.CSRC = 0;
 "37
-[e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
-[; ;Supervisorio.c: 38: TXSTAbits.SYNC = 0;
+[e = . . _TXSTAbits 0 7 -> -> 0 `i `uc ]
+[; ;Supervisorio.c: 38: TXSTAbits.TX9 = 0;
 "38
-[e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
-[; ;Supervisorio.c: 39: TXSTAbits.BRGH = 1;
+[e = . . _TXSTAbits 0 6 -> -> 0 `i `uc ]
+[; ;Supervisorio.c: 39: TXSTAbits.TXEN = 1;
 "39
-[e = . . _TXSTAbits 0 2 -> -> 1 `i `uc ]
-[; ;Supervisorio.c: 40: TXSTAbits.TRMT = 1;
+[e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
+[; ;Supervisorio.c: 40: TXSTAbits.SYNC = 0;
 "40
-[e = . . _TXSTAbits 0 1 -> -> 1 `i `uc ]
-[; ;Supervisorio.c: 41: TXSTAbits.TX9D = 0;
+[e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
+[; ;Supervisorio.c: 41: TXSTAbits.BRGH = 1;
 "41
+[e = . . _TXSTAbits 0 2 -> -> 1 `i `uc ]
+[; ;Supervisorio.c: 42: TXSTAbits.TRMT = 1;
+"42
+[e = . . _TXSTAbits 0 1 -> -> 1 `i `uc ]
+[; ;Supervisorio.c: 43: TXSTAbits.TX9D = 0;
+"43
 [e = . . _TXSTAbits 0 0 -> -> 0 `i `uc ]
-[; ;Supervisorio.c: 44: RCSTAbits.SPEN = 1;
-"44
-[e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
-[; ;Supervisorio.c: 45: RCSTAbits.RX9 = 0;
-"45
-[e = . . _RCSTAbits 0 6 -> -> 0 `i `uc ]
-[; ;Supervisorio.c: 46: RCSTAbits.SREN = 0;
+[; ;Supervisorio.c: 46: RCSTAbits.SPEN = 1;
 "46
-[e = . . _RCSTAbits 0 5 -> -> 0 `i `uc ]
-[; ;Supervisorio.c: 47: RCSTAbits.CREN = 1;
+[e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
+[; ;Supervisorio.c: 47: RCSTAbits.RX9 = 0;
 "47
-[e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
-[; ;Supervisorio.c: 48: RCSTAbits.ADDEN = 0;
+[e = . . _RCSTAbits 0 6 -> -> 0 `i `uc ]
+[; ;Supervisorio.c: 48: RCSTAbits.SREN = 0;
 "48
-[e = . . _RCSTAbits 0 3 -> -> 0 `i `uc ]
-[; ;Supervisorio.c: 49: RCSTAbits.FERR = 0;
+[e = . . _RCSTAbits 0 5 -> -> 0 `i `uc ]
+[; ;Supervisorio.c: 49: RCSTAbits.CREN = 1;
 "49
-[e = . . _RCSTAbits 0 2 -> -> 0 `i `uc ]
-[; ;Supervisorio.c: 50: RCSTAbits.OERR = 0;
+[e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
+[; ;Supervisorio.c: 50: RCSTAbits.ADDEN = 0;
 "50
-[e = . . _RCSTAbits 0 1 -> -> 0 `i `uc ]
-[; ;Supervisorio.c: 51: RCSTAbits.RX9D = 0;
+[e = . . _RCSTAbits 0 3 -> -> 0 `i `uc ]
+[; ;Supervisorio.c: 51: RCSTAbits.FERR = 0;
 "51
+[e = . . _RCSTAbits 0 2 -> -> 0 `i `uc ]
+[; ;Supervisorio.c: 52: RCSTAbits.OERR = 0;
+"52
+[e = . . _RCSTAbits 0 1 -> -> 0 `i `uc ]
+[; ;Supervisorio.c: 53: RCSTAbits.RX9D = 0;
+"53
 [e = . . _RCSTAbits 0 0 -> -> 0 `i `uc ]
-[; ;Supervisorio.c: 54: PIE1bits.RCIE = 1;
-"54
-[e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
-[; ;Supervisorio.c: 55: PIR1bits.RCIF = 0;
-"55
-[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
-[; ;Supervisorio.c: 56: }
+[; ;Supervisorio.c: 56: PIE1bits.RCIE = 1;
 "56
+[e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
+[; ;Supervisorio.c: 57: PIR1bits.RCIF = 0;
+"57
+[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
+[; ;Supervisorio.c: 58: }
+"58
 [e :UE 100 ]
 }
-"59
-[v _USART_WriteChar `(v ~T0 @X0 1 ef1`uc ]
-"60
-{
-[; ;Supervisorio.c: 59: void USART_WriteChar(unsigned char USARTData)
-[; ;Supervisorio.c: 60: {
-[e :U _USART_WriteChar ]
-"59
-[v _USARTData `uc ~T0 @X0 1 r1 ]
-"60
-[f ]
-[; ;Supervisorio.c: 61: while(!PIR1bits.TXIF);
 "61
+[v _USART_WriteChar `(v ~T0 @X0 1 ef1`uc ]
+"62
+{
+[; ;Supervisorio.c: 61: void USART_WriteChar(unsigned char USARTData)
+[; ;Supervisorio.c: 62: {
+[e :U _USART_WriteChar ]
+"61
+[v _USARTData `uc ~T0 @X0 1 r1 ]
+"62
+[f ]
+[; ;Supervisorio.c: 63: while(!PIR1bits.TXIF);
+"63
 [e $U 102  ]
 [e :U 103 ]
 [e :U 102 ]
 [e $ ! != -> . . _PIR1bits 0 4 `i -> -> -> 0 `i `Vuc `i 103  ]
 [e :U 104 ]
-[; ;Supervisorio.c: 62: TXREG = USARTData;
-"62
+[; ;Supervisorio.c: 64: TXREG = USARTData;
+"64
 [e = _TXREG _USARTData ]
-[; ;Supervisorio.c: 63: }
-"63
+[; ;Supervisorio.c: 65: }
+"65
 [e :UE 101 ]
 }
-"66
+"68
 [v _USART_WriteString `(v ~T0 @X0 1 ef1`*Cuc ]
-"67
-{
-[; ;Supervisorio.c: 66: void USART_WriteString(const char *str)
-[; ;Supervisorio.c: 67: {
-[e :U _USART_WriteString ]
-"66
-[v _str `*Cuc ~T0 @X0 1 r1 ]
-"67
-[f ]
-[; ;Supervisorio.c: 69: while(*str != '\0')
 "69
+{
+[; ;Supervisorio.c: 68: void USART_WriteString(const char *str)
+[; ;Supervisorio.c: 69: {
+[e :U _USART_WriteString ]
+"68
+[v _str `*Cuc ~T0 @X0 1 r1 ]
+"69
+[f ]
+[; ;Supervisorio.c: 71: while(*str != '\0')
+"71
 [e $U 106  ]
 [e :U 107 ]
-[; ;Supervisorio.c: 70: {
-"70
-{
-[; ;Supervisorio.c: 72: USART_WriteChar(*str);
+[; ;Supervisorio.c: 72: {
 "72
-[e ( _USART_WriteChar (1 *U _str ]
-[; ;Supervisorio.c: 73: str++;
-"73
-[e ++ _str * -> -> 1 `i `x -> -> # *U _str `i `x ]
+{
+[; ;Supervisorio.c: 74: USART_WriteChar(*str);
 "74
+[e ( _USART_WriteChar (1 *U _str ]
+[; ;Supervisorio.c: 75: str++;
+"75
+[e ++ _str * -> -> 1 `i `x -> -> # *U _str `i `x ]
+"76
 }
 [e :U 106 ]
-"69
+"71
 [e $ != -> *U _str `ui -> 0 `ui 107  ]
 [e :U 108 ]
-[; ;Supervisorio.c: 74: }
-[; ;Supervisorio.c: 75: }
-"75
+[; ;Supervisorio.c: 76: }
+[; ;Supervisorio.c: 77: }
+"77
 [e :UE 105 ]
 }
-"78
+"80
 [v _USART_ReceiveChar `(uc ~T0 @X0 1 ef ]
-"79
+"81
 {
-[; ;Supervisorio.c: 78: unsigned char USART_ReceiveChar(void)
-[; ;Supervisorio.c: 79: {
+[; ;Supervisorio.c: 80: unsigned char USART_ReceiveChar(void)
+[; ;Supervisorio.c: 81: {
 [e :U _USART_ReceiveChar ]
 [f ]
-"80
-[v _USART_Data `uc ~T0 @X0 1 a ]
-[; ;Supervisorio.c: 80: unsigned char USART_Data;
-[; ;Supervisorio.c: 82: if (!OERR)
 "82
-[e $ ! ! _OERR 110  ]
-[; ;Supervisorio.c: 83: {
-"83
-{
-[; ;Supervisorio.c: 84: USART_Data = RCREG;
+[v _USART_Data `uc ~T0 @X0 1 a ]
+[; ;Supervisorio.c: 82: unsigned char USART_Data;
+[; ;Supervisorio.c: 84: if (!OERR)
 "84
-[e = _USART_Data _RCREG ]
-[; ;Supervisorio.c: 85: PIR1bits.RCIF = 0;
+[e $ ! ! _OERR 110  ]
+[; ;Supervisorio.c: 85: {
 "85
-[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
-"86
-}
-[; ;Supervisorio.c: 86: }
-[e $U 111  ]
-"87
-[e :U 110 ]
-[; ;Supervisorio.c: 87: else
-[; ;Supervisorio.c: 88: {
-"88
 {
-[; ;Supervisorio.c: 89: USART_WriteString("\n\r ------- ESTOURO DE PILHA ------- \n\r ");
-"89
-[e ( _USART_WriteString (1 :s 1C ]
-[; ;Supervisorio.c: 91: RCSTAbits.CREN = 0;
-"91
-[e = . . _RCSTAbits 0 4 -> -> 0 `i `uc ]
-[; ;Supervisorio.c: 92: USART_Data = RCREG;
-"92
+[; ;Supervisorio.c: 86: USART_Data = RCREG;
+"86
 [e = _USART_Data _RCREG ]
-[; ;Supervisorio.c: 93: RCSTAbits.CREN = 1;
-"93
-[e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
-[; ;Supervisorio.c: 94: PIR1bits.RCIF = 0;
-"94
+[; ;Supervisorio.c: 87: PIR1bits.RCIF = 0;
+"87
 [e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
+"88
+}
+[; ;Supervisorio.c: 88: }
+[e $U 111  ]
+"89
+[e :U 110 ]
+[; ;Supervisorio.c: 89: else
+[; ;Supervisorio.c: 90: {
+"90
+{
+[; ;Supervisorio.c: 91: USART_WriteString("\n\r ------- ESTOURO DE PILHA ------- \n\r ");
+"91
+[e ( _USART_WriteString (1 :s 1C ]
+[; ;Supervisorio.c: 93: RCSTAbits.CREN = 0;
+"93
+[e = . . _RCSTAbits 0 4 -> -> 0 `i `uc ]
+[; ;Supervisorio.c: 94: USART_Data = RCREG;
+"94
+[e = _USART_Data _RCREG ]
+[; ;Supervisorio.c: 95: RCSTAbits.CREN = 1;
 "95
+[e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
+[; ;Supervisorio.c: 96: PIR1bits.RCIF = 0;
+"96
+[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
+"97
 }
 [e :U 111 ]
-[; ;Supervisorio.c: 95: }
-[; ;Supervisorio.c: 97: return(USART_Data);
-"97
+[; ;Supervisorio.c: 97: }
+[; ;Supervisorio.c: 99: return(USART_Data);
+"99
 [e ) _USART_Data ]
 [e $UE 109  ]
-[; ;Supervisorio.c: 98: }
-"98
+[; ;Supervisorio.c: 100: }
+"100
 [e :UE 109 ]
 }
-"100
+"102
 [v _ADC_Init `(v ~T0 @X0 1 ef ]
-"101
+"103
 {
-[; ;Supervisorio.c: 100: void ADC_Init()
-[; ;Supervisorio.c: 101: {
+[; ;Supervisorio.c: 102: void ADC_Init()
+[; ;Supervisorio.c: 103: {
 [e :U _ADC_Init ]
 [f ]
-[; ;Supervisorio.c: 103: ADCON1bits.ADFM = 1;
-"103
-[e = . . _ADCON1bits 0 3 -> -> 1 `i `uc ]
-[; ;Supervisorio.c: 104: ADCON1bits.PCFG3 = 1;
-"104
-[e = . . _ADCON1bits 1 3 -> -> 1 `i `uc ]
-[; ;Supervisorio.c: 105: ADCON1bits.PCFG2 = 1;
+[; ;Supervisorio.c: 105: ADCON1bits.ADFM = 1;
 "105
-[e = . . _ADCON1bits 1 2 -> -> 1 `i `uc ]
-[; ;Supervisorio.c: 106: ADCON1bits.PCFG1 = 1;
+[e = . . _ADCON1bits 0 3 -> -> 1 `i `uc ]
+[; ;Supervisorio.c: 106: ADCON1bits.PCFG3 = 1;
 "106
-[e = . . _ADCON1bits 1 1 -> -> 1 `i `uc ]
-[; ;Supervisorio.c: 107: ADCON1bits.PCFG0 = 0;
+[e = . . _ADCON1bits 1 3 -> -> 1 `i `uc ]
+[; ;Supervisorio.c: 107: ADCON1bits.PCFG2 = 1;
 "107
+[e = . . _ADCON1bits 1 2 -> -> 1 `i `uc ]
+[; ;Supervisorio.c: 108: ADCON1bits.PCFG1 = 1;
+"108
+[e = . . _ADCON1bits 1 1 -> -> 1 `i `uc ]
+[; ;Supervisorio.c: 109: ADCON1bits.PCFG0 = 0;
+"109
 [e = . . _ADCON1bits 1 0 -> -> 0 `i `uc ]
-[; ;Supervisorio.c: 111: ADCON0bits.ADCS1 = 1;
-"111
+[; ;Supervisorio.c: 113: ADCON0bits.ADCS1 = 1;
+"113
 [e = . . _ADCON0bits 1 6 -> -> 1 `i `uc ]
-[; ;Supervisorio.c: 112: ADCON0bits.ADCS0 = 0;
-"112
+[; ;Supervisorio.c: 114: ADCON0bits.ADCS0 = 0;
+"114
 [e = . . _ADCON0bits 1 5 -> -> 0 `i `uc ]
-[; ;Supervisorio.c: 115: PIE1bits.ADIE = 0;
-"115
-[e = . . _PIE1bits 0 6 -> -> 0 `i `uc ]
-[; ;Supervisorio.c: 116: PIR1bits.ADIF = 0;
-"116
-[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
-[; ;Supervisorio.c: 117: }
+[; ;Supervisorio.c: 117: PIE1bits.ADIE = 0;
 "117
+[e = . . _PIE1bits 0 6 -> -> 0 `i `uc ]
+[; ;Supervisorio.c: 118: PIR1bits.ADIF = 0;
+"118
+[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
+[; ;Supervisorio.c: 119: }
+"119
 [e :UE 112 ]
 }
-"119
-[v _ADC_Read `(v ~T0 @X0 1 ef1`us ]
-"120
-{
-[; ;Supervisorio.c: 119: void ADC_Read(unsigned short channel)
-[; ;Supervisorio.c: 120: {
-[e :U _ADC_Read ]
-"119
-[v _channel `us ~T0 @X0 1 r1 ]
-"120
-[f ]
-[; ;Supervisorio.c: 121: ADCON0bits.CHS = channel;
 "121
-[e = . . _ADCON0bits 0 3 -> _channel `uc ]
-[; ;Supervisorio.c: 122: ADCON0bits.ADON = 1;
+[v _ADC_Read `(v ~T0 @X0 1 ef1`us ]
 "122
-[e = . . _ADCON0bits 0 0 -> -> 1 `i `uc ]
-[; ;Supervisorio.c: 124: _delay((unsigned long)((25)*(18432000/4000000.0)));
+{
+[; ;Supervisorio.c: 121: void ADC_Read(unsigned short channel)
+[; ;Supervisorio.c: 122: {
+[e :U _ADC_Read ]
+"121
+[v _channel `us ~T0 @X0 1 r1 ]
+"122
+[f ]
+[; ;Supervisorio.c: 123: ADCON0bits.CHS = channel;
+"123
+[e = . . _ADCON0bits 0 3 -> _channel `uc ]
+[; ;Supervisorio.c: 124: ADCON0bits.ADON = 1;
 "124
-[e ( __delay (1 -> * -> -> 25 `i `d / -> -> 18432000 `l `d .4000000.0 `ul ]
-[; ;Supervisorio.c: 126: ADCON0bits.GO = 1;
+[e = . . _ADCON0bits 0 0 -> -> 1 `i `uc ]
+[; ;Supervisorio.c: 126: _delay((unsigned long)((25)*(18432000/4000000.0)));
 "126
+[e ( __delay (1 -> * -> -> 25 `i `d / -> -> 18432000 `l `d .4000000.0 `ul ]
+[; ;Supervisorio.c: 128: ADCON0bits.GO = 1;
+"128
 [e = . . _ADCON0bits 1 1 -> -> 1 `i `uc ]
-[; ;Supervisorio.c: 127: while(ADCON0bits.GO_DONE);
-"127
+[; ;Supervisorio.c: 129: while(ADCON0bits.GO_DONE);
+"129
 [e $U 114  ]
 [e :U 115 ]
 [e :U 114 ]
 [e $ != -> . . _ADCON0bits 3 1 `i -> -> -> 0 `i `Vuc `i 115  ]
 [e :U 116 ]
-[; ;Supervisorio.c: 129: PIR1bits.ADIF = 0;
-"129
+[; ;Supervisorio.c: 131: PIR1bits.ADIF = 0;
+"131
 [e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
-[; ;Supervisorio.c: 130: }
-"130
+[; ;Supervisorio.c: 132: }
+"132
 [e :UE 113 ]
 }
-[v F1237 `(v ~T0 @X0 1 tf ]
-"132
-[v _ISR `IF1237 ~T0 @X0 1 e ]
-"133
-{
-[; ;Supervisorio.c: 132: void interrupt ISR(void)
-[; ;Supervisorio.c: 133: {
-[e :U _ISR ]
-[f ]
-[; ;Supervisorio.c: 135: if (PIR1bits.ADIF)
 "135
-[e $ ! != -> . . _PIR1bits 0 6 `i -> -> -> 0 `i `Vuc `i 118  ]
-[; ;Supervisorio.c: 136: {
+[v _TIMER1_Init `(v ~T0 @X0 1 ef ]
 "136
 {
-[; ;Supervisorio.c: 137: ADC_Read(0);
+[; ;Supervisorio.c: 135: void TIMER1_Init()
+[; ;Supervisorio.c: 136: {
+[e :U _TIMER1_Init ]
+[f ]
+[; ;Supervisorio.c: 137: T1CONbits.TMR1CS = 0;
 "137
-[e ( _ADC_Read (1 -> -> 0 `i `us ]
-[; ;Supervisorio.c: 138: ADCResult = ((ADRESH << 8) + ADRESL);
+[e = . . _T1CONbits 0 1 -> -> 0 `i `uc ]
+[; ;Supervisorio.c: 138: T1CONbits.T1OSCEN = 0;
 "138
-[e = _ADCResult -> + << -> _ADRESH `i -> 8 `i -> _ADRESL `i `us ]
-[; ;Supervisorio.c: 139: input = ADCResult * 0.004887585533;
+[e = . . _T1CONbits 0 3 -> -> 0 `i `uc ]
+[; ;Supervisorio.c: 139: T1CONbits.T1CKPS1 = 1;
 "139
-[e = _input -> * -> _ADCResult `d .0.004887585533 `f ]
-[; ;Supervisorio.c: 140: Display = ftoa(input, &status);
+[e = . . _T1CONbits 1 4 -> -> 1 `i `uc ]
+[; ;Supervisorio.c: 140: T1CONbits.T1CKPS0 = 1;
 "140
-[e = _Display ( _ftoa (2 , _input &U _status ]
-[; ;Supervisorio.c: 142: USART_WriteString(Display);
+[e = . . _T1CONbits 1 3 -> -> 1 `i `uc ]
+[; ;Supervisorio.c: 142: T1CONbits.TMR1ON = 1;
 "142
-[e ( _USART_WriteString (1 -> _Display `*Cuc ]
-[; ;Supervisorio.c: 144: _delay((unsigned long)((2)*(18432000/4000000.0)));
-"144
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 18432000 `l `d .4000000.0 `ul ]
-[; ;Supervisorio.c: 146: PIR1bits.ADIF = 0;
+[e = . . _T1CONbits 0 0 -> -> 1 `i `uc ]
+[; ;Supervisorio.c: 143: TMR1 = 7936;
+"143
+[e = _TMR1 -> -> 7936 `i `us ]
+[; ;Supervisorio.c: 145: PIR1bits.TMR1IF = 0;
+"145
+[e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
+[; ;Supervisorio.c: 146: PIE1bits.TMR1IE = 1;
 "146
-[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
-"147
-}
-[e :U 118 ]
+[e = . . _PIE1bits 0 0 -> -> 1 `i `uc ]
 [; ;Supervisorio.c: 147: }
-[; ;Supervisorio.c: 150: if (PIR1bits.RCIF)
-"150
-[e $ ! != -> . . _PIR1bits 0 5 `i -> -> -> 0 `i `Vuc `i 119  ]
-[; ;Supervisorio.c: 151: {
-"151
-{
-"152
-[v _resp `uc ~T0 @X0 1 a ]
-"153
-[v _byte2 `uc ~T0 @X0 1 a ]
-"154
-[v _byte1 `uc ~T0 @X0 1 a ]
-[; ;Supervisorio.c: 152: char resp;
-[; ;Supervisorio.c: 153: unsigned char byte2;
-[; ;Supervisorio.c: 154: unsigned char byte1;
-[; ;Supervisorio.c: 156: resp = USART_ReceiveChar();
-"156
-[e = _resp ( _USART_ReceiveChar ..  ]
-[; ;Supervisorio.c: 159: switch(resp)
-"159
-[e $U 121  ]
-[; ;Supervisorio.c: 160: {
-"160
-{
-[; ;Supervisorio.c: 161: case 'A' :
-"161
-[e :U 122 ]
-[; ;Supervisorio.c: 163: buffer[0] = '#';
-"163
-[e = *U + &U _buffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _buffer `ui `ux -> -> 35 `ui `uc ]
-[; ;Supervisorio.c: 164: buffer[1] = ':';
-"164
-[e = *U + &U _buffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _buffer `ui `ux -> -> 58 `ui `uc ]
-[; ;Supervisorio.c: 167: ADC_Read(0);
-"167
-[e ( _ADC_Read (1 -> -> 0 `i `us ]
-[; ;Supervisorio.c: 168: byte2 = ADRESH;
-"168
-[e = _byte2 _ADRESH ]
-[; ;Supervisorio.c: 169: byte1 = ADRESL;
-"169
-[e = _byte1 _ADRESL ]
-[; ;Supervisorio.c: 172: if (byte2 == '\0') byte2 = '0';
-"172
-[e $ ! == -> _byte2 `ui -> 0 `ui 123  ]
-[e = _byte2 -> -> 48 `ui `uc ]
-[e :U 123 ]
-[; ;Supervisorio.c: 173: if (byte1 == '\0') byte1 = '0';
-"173
-[e $ ! == -> _byte1 `ui -> 0 `ui 124  ]
-[e = _byte1 -> -> 48 `ui `uc ]
-[e :U 124 ]
-[; ;Supervisorio.c: 175: buffer[2] = byte2;
-"175
-[e = *U + &U _buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _buffer `ui `ux _byte2 ]
-[; ;Supervisorio.c: 176: buffer[3] = byte1;
-"176
-[e = *U + &U _buffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _buffer `ui `ux _byte1 ]
-[; ;Supervisorio.c: 178: buffer[4] = '0';
-"178
-[e = *U + &U _buffer * -> -> -> 4 `i `ui `ux -> -> # *U &U _buffer `ui `ux -> -> 48 `ui `uc ]
-[; ;Supervisorio.c: 179: buffer[5] = '0';
-"179
-[e = *U + &U _buffer * -> -> -> 5 `i `ui `ux -> -> # *U &U _buffer `ui `ux -> -> 48 `ui `uc ]
-[; ;Supervisorio.c: 181: buffer[6] = '0';
-"181
-[e = *U + &U _buffer * -> -> -> 6 `i `ui `ux -> -> # *U &U _buffer `ui `ux -> -> 48 `ui `uc ]
-[; ;Supervisorio.c: 182: buffer[7] = '0';
-"182
-[e = *U + &U _buffer * -> -> -> 7 `i `ui `ux -> -> # *U &U _buffer `ui `ux -> -> 48 `ui `uc ]
-[; ;Supervisorio.c: 183: buffer[8] = ';';
-"183
-[e = *U + &U _buffer * -> -> -> 8 `i `ui `ux -> -> # *U &U _buffer `ui `ux -> -> 59 `ui `uc ]
-[; ;Supervisorio.c: 185: USART_WriteString(buffer);
-"185
-[e ( _USART_WriteString (1 -> &U _buffer `*Cuc ]
-[; ;Supervisorio.c: 187: resp = '#';
-"187
-[e = _resp -> -> 35 `ui `uc ]
-[; ;Supervisorio.c: 189: break;
-"189
-[e $U 120  ]
-[; ;Supervisorio.c: 190: case 'B' :
-"190
-[e :U 125 ]
-[; ;Supervisorio.c: 191: RB4 = 1;
-"191
-[e = _RB4 -> -> 1 `i `b ]
-[; ;Supervisorio.c: 192: USART_WriteString("------------> valvula 1 ativada");
-"192
-[e ( _USART_WriteString (1 :s 2C ]
-[; ;Supervisorio.c: 193: resp = '#';
-"193
-[e = _resp -> -> 35 `ui `uc ]
-[; ;Supervisorio.c: 194: break;
-"194
-[e $U 120  ]
-[; ;Supervisorio.c: 196: case 'C' :
-"196
-[e :U 126 ]
-[; ;Supervisorio.c: 197: RB4 = 0;
-"197
-[e = _RB4 -> -> 0 `i `b ]
-[; ;Supervisorio.c: 198: USART_WriteString("------------> valvula 1 desativada");
-"198
-[e ( _USART_WriteString (1 :s 3C ]
-[; ;Supervisorio.c: 199: resp = '#';
-"199
-[e = _resp -> -> 35 `ui `uc ]
-[; ;Supervisorio.c: 200: break;
-"200
-[e $U 120  ]
-[; ;Supervisorio.c: 202: case 'D' :
-"202
-[e :U 127 ]
-[; ;Supervisorio.c: 203: RB5 = 1;
-"203
-[e = _RB5 -> -> 1 `i `b ]
-[; ;Supervisorio.c: 204: USART_WriteString("------------> valvula 2 ativada");
-"204
-[e ( _USART_WriteString (1 :s 4C ]
-[; ;Supervisorio.c: 205: resp = '#';
-"205
-[e = _resp -> -> 35 `ui `uc ]
-[; ;Supervisorio.c: 206: break;
-"206
-[e $U 120  ]
-[; ;Supervisorio.c: 208: case 'E' :
-"208
-[e :U 128 ]
-[; ;Supervisorio.c: 209: RB5 = 0;
-"209
-[e = _RB5 -> -> 0 `i `b ]
-[; ;Supervisorio.c: 210: USART_WriteString("------------> valvula 2 desativada");
-"210
-[e ( _USART_WriteString (1 :s 5C ]
-[; ;Supervisorio.c: 211: resp = '#';
-"211
-[e = _resp -> -> 35 `ui `uc ]
-[; ;Supervisorio.c: 212: break;
-"212
-[e $U 120  ]
-"213
-}
-[; ;Supervisorio.c: 213: }
-[e $U 120  ]
-"159
-[e :U 121 ]
-[e [\ _resp , $ -> -> 65 `ui `uc 122
- , $ -> -> 66 `ui `uc 125
- , $ -> -> 67 `ui `uc 126
- , $ -> -> 68 `ui `uc 127
- , $ -> -> 69 `ui `uc 128
- 120 ]
-"213
-[e :U 120 ]
-"214
-}
-[e :U 119 ]
-[; ;Supervisorio.c: 214: }
-[; ;Supervisorio.c: 215: }
-"215
+"147
 [e :UE 117 ]
 }
-"218
-[v _main `(v ~T0 @X0 1 ef ]
-"219
+[v F1240 `(v ~T0 @X0 1 tf ]
+"151
+[v _ISR `IF1240 ~T0 @X0 1 e ]
+"152
 {
-[; ;Supervisorio.c: 218: void main(void)
-[; ;Supervisorio.c: 219: {
-[e :U _main ]
+[; ;Supervisorio.c: 151: void interrupt ISR(void)
+[; ;Supervisorio.c: 152: {
+[e :U _ISR ]
 [f ]
-[; ;Supervisorio.c: 220: TRISA = 0b00011111;
-"220
-[e = _TRISA -> -> 31 `i `uc ]
-[; ;Supervisorio.c: 221: PORTA = 0b00011111;
+[; ;Supervisorio.c: 155: if(PIR1bits.TMR1IF == 1)
+"155
+[e $ ! == -> . . _PIR1bits 0 0 `i -> 1 `i 119  ]
+[; ;Supervisorio.c: 156: {
+"156
+{
+[; ;Supervisorio.c: 157: TMR1 = 7936;
+"157
+[e = _TMR1 -> -> 7936 `i `us ]
+[; ;Supervisorio.c: 158: if(cont1 == 10)
+"158
+[e $ ! == -> _cont1 `ui -> -> 10 `i `ui 120  ]
+[; ;Supervisorio.c: 159: {
+"159
+{
+[; ;Supervisorio.c: 160: sec++;
+"160
+[e ++ _sec -> -> 1 `i `ui ]
+[; ;Supervisorio.c: 161: cont1 = 0;
+"161
+[e = _cont1 -> -> 0 `i `us ]
+"163
+}
+[e :U 120 ]
+[; ;Supervisorio.c: 163: }
+[; ;Supervisorio.c: 164: PIR1bits.TMR1IF = 0;
+"164
+[e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
+"165
+}
+[e :U 119 ]
+[; ;Supervisorio.c: 165: }
+[; ;Supervisorio.c: 168: if (PIR1bits.ADIF)
+"168
+[e $ ! != -> . . _PIR1bits 0 6 `i -> -> -> 0 `i `Vuc `i 121  ]
+[; ;Supervisorio.c: 169: {
+"169
+{
+[; ;Supervisorio.c: 171: ADC_Read(0);
+"171
+[e ( _ADC_Read (1 -> -> 0 `i `us ]
+[; ;Supervisorio.c: 172: ADCResult = ((ADRESH << 8) + ADRESL);
+"172
+[e = _ADCResult -> + << -> _ADRESH `i -> 8 `i -> _ADRESL `i `us ]
+[; ;Supervisorio.c: 173: input = ADCResult * 0.004887585533;
+"173
+[e = _input -> * -> _ADCResult `d .0.004887585533 `f ]
+[; ;Supervisorio.c: 174: Display = ftoa(input, &status);
+"174
+[e = _Display ( _ftoa (2 , _input &U _status ]
+[; ;Supervisorio.c: 175: USART_WriteString(Display);
+"175
+[e ( _USART_WriteString (1 -> _Display `*Cuc ]
+[; ;Supervisorio.c: 176: _delay((unsigned long)((2)*(18432000/4000000.0)));
+"176
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 18432000 `l `d .4000000.0 `ul ]
+[; ;Supervisorio.c: 179: PIR1bits.ADIF = 0;
+"179
+[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
+"180
+}
+[e :U 121 ]
+[; ;Supervisorio.c: 180: }
+[; ;Supervisorio.c: 183: if (PIR1bits.RCIF)
+"183
+[e $ ! != -> . . _PIR1bits 0 5 `i -> -> -> 0 `i `Vuc `i 122  ]
+[; ;Supervisorio.c: 184: {
+"184
+{
+"185
+[v _resp `uc ~T0 @X0 1 a ]
+"186
+[v _byte2 `uc ~T0 @X0 1 a ]
+"187
+[v _byte1 `uc ~T0 @X0 1 a ]
+[; ;Supervisorio.c: 185: char resp;
+[; ;Supervisorio.c: 186: unsigned char byte2;
+[; ;Supervisorio.c: 187: unsigned char byte1;
+[; ;Supervisorio.c: 189: resp = USART_ReceiveChar();
+"189
+[e = _resp ( _USART_ReceiveChar ..  ]
+[; ;Supervisorio.c: 192: switch(resp)
+"192
+[e $U 124  ]
+[; ;Supervisorio.c: 193: {
+"193
+{
+[; ;Supervisorio.c: 194: case 'A' :
+"194
+[e :U 125 ]
+[; ;Supervisorio.c: 197: buffer[0] = '#';
+"197
+[e = *U + &U _buffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _buffer `ui `ux -> -> 35 `ui `uc ]
+[; ;Supervisorio.c: 198: buffer[1] = ':';
+"198
+[e = *U + &U _buffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _buffer `ui `ux -> -> 58 `ui `uc ]
+[; ;Supervisorio.c: 201: ADC_Read(0);
+"201
+[e ( _ADC_Read (1 -> -> 0 `i `us ]
+[; ;Supervisorio.c: 202: byte2 = ADRESH;
+"202
+[e = _byte2 _ADRESH ]
+[; ;Supervisorio.c: 203: byte1 = ADRESL;
+"203
+[e = _byte1 _ADRESL ]
+[; ;Supervisorio.c: 206: if (byte2 == '\0') byte2 = '0';
+"206
+[e $ ! == -> _byte2 `ui -> 0 `ui 126  ]
+[e = _byte2 -> -> 48 `ui `uc ]
+[e :U 126 ]
+[; ;Supervisorio.c: 207: if (byte1 == '\0') byte1 = '0';
+"207
+[e $ ! == -> _byte1 `ui -> 0 `ui 127  ]
+[e = _byte1 -> -> 48 `ui `uc ]
+[e :U 127 ]
+[; ;Supervisorio.c: 209: buffer[2] = byte2;
+"209
+[e = *U + &U _buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _buffer `ui `ux _byte2 ]
+[; ;Supervisorio.c: 210: buffer[3] = byte1;
+"210
+[e = *U + &U _buffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _buffer `ui `ux _byte1 ]
+[; ;Supervisorio.c: 212: buffer[4] = '0';
+"212
+[e = *U + &U _buffer * -> -> -> 4 `i `ui `ux -> -> # *U &U _buffer `ui `ux -> -> 48 `ui `uc ]
+[; ;Supervisorio.c: 213: buffer[5] = '0';
+"213
+[e = *U + &U _buffer * -> -> -> 5 `i `ui `ux -> -> # *U &U _buffer `ui `ux -> -> 48 `ui `uc ]
+[; ;Supervisorio.c: 215: buffer[6] = '0';
+"215
+[e = *U + &U _buffer * -> -> -> 6 `i `ui `ux -> -> # *U &U _buffer `ui `ux -> -> 48 `ui `uc ]
+[; ;Supervisorio.c: 216: buffer[7] = '0';
+"216
+[e = *U + &U _buffer * -> -> -> 7 `i `ui `ux -> -> # *U &U _buffer `ui `ux -> -> 48 `ui `uc ]
+[; ;Supervisorio.c: 217: buffer[8] = ';';
+"217
+[e = *U + &U _buffer * -> -> -> 8 `i `ui `ux -> -> # *U &U _buffer `ui `ux -> -> 59 `ui `uc ]
+[; ;Supervisorio.c: 219: USART_WriteString(buffer);
+"219
+[e ( _USART_WriteString (1 -> &U _buffer `*Cuc ]
+[; ;Supervisorio.c: 221: resp = '#';
 "221
-[e = _PORTA -> -> 31 `i `uc ]
-[; ;Supervisorio.c: 222: TRISB = 0b00000000;
-"222
-[e = _TRISB -> -> 0 `i `uc ]
-[; ;Supervisorio.c: 223: PORTB = 0b00000000;
+[e = _resp -> -> 35 `ui `uc ]
+[; ;Supervisorio.c: 223: break;
 "223
-[e = _PORTB -> -> 0 `i `uc ]
-[; ;Supervisorio.c: 224: TRISC = 0b10000000;
+[e $U 123  ]
+[; ;Supervisorio.c: 224: case 'B' :
 "224
-[e = _TRISC -> -> 128 `i `uc ]
-[; ;Supervisorio.c: 225: PORTC = 0b11000000;
+[e :U 128 ]
+[; ;Supervisorio.c: 225: RB4 = 1;
 "225
-[e = _PORTC -> -> 192 `i `uc ]
-[; ;Supervisorio.c: 226: TRISD = 0b00000000;
+[e = _RB4 -> -> 1 `i `b ]
+[; ;Supervisorio.c: 226: USART_WriteString("------------> valvula 1 ativada");
 "226
-[e = _TRISD -> -> 0 `i `uc ]
-[; ;Supervisorio.c: 227: PORTD = 0b00000000;
+[e ( _USART_WriteString (1 :s 2C ]
+[; ;Supervisorio.c: 227: resp = '#';
 "227
-[e = _PORTD -> -> 0 `i `uc ]
-[; ;Supervisorio.c: 228: TRISE = 0b00000111;
+[e = _resp -> -> 35 `ui `uc ]
+[; ;Supervisorio.c: 228: break;
 "228
-[e = _TRISE -> -> 7 `i `uc ]
-[; ;Supervisorio.c: 229: PORTE = 0b00000111;
-"229
-[e = _PORTE -> -> 7 `i `uc ]
-[; ;Supervisorio.c: 231: USART_Init(115200);
+[e $U 123  ]
+[; ;Supervisorio.c: 230: case 'C' :
+"230
+[e :U 129 ]
+[; ;Supervisorio.c: 231: RB4 = 0;
 "231
-[e ( _USART_Init (1 -> 115200 `l ]
-[; ;Supervisorio.c: 232: ADC_Init();
+[e = _RB4 -> -> 0 `i `b ]
+[; ;Supervisorio.c: 232: USART_WriteString("------------> valvula 1 desativada");
 "232
-[e ( _ADC_Init ..  ]
-[; ;Supervisorio.c: 234: INTCONbits.PEIE = 1;
+[e ( _USART_WriteString (1 :s 3C ]
+[; ;Supervisorio.c: 233: resp = '#';
+"233
+[e = _resp -> -> 35 `ui `uc ]
+[; ;Supervisorio.c: 234: break;
 "234
-[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
-[; ;Supervisorio.c: 235: INTCONbits.GIE = 1;
-"235
-[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-[; ;Supervisorio.c: 238: USART_WriteString("Inicializando...");
+[e $U 123  ]
+[; ;Supervisorio.c: 236: case 'D' :
+"236
+[e :U 130 ]
+[; ;Supervisorio.c: 237: RB5 = 1;
+"237
+[e = _RB5 -> -> 1 `i `b ]
+[; ;Supervisorio.c: 238: USART_WriteString("------------> valvula 2 ativada");
 "238
-[e ( _USART_WriteString (1 :s 6C ]
-[; ;Supervisorio.c: 240: _delay((unsigned long)((1000)*(18432000/4000.0)));
+[e ( _USART_WriteString (1 :s 4C ]
+[; ;Supervisorio.c: 239: resp = '#';
+"239
+[e = _resp -> -> 35 `ui `uc ]
+[; ;Supervisorio.c: 240: break;
 "240
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
-[; ;Supervisorio.c: 242: while(1)
+[e $U 123  ]
+[; ;Supervisorio.c: 242: case 'E' :
 "242
 [e :U 131 ]
-[; ;Supervisorio.c: 243: {
+[; ;Supervisorio.c: 243: RB5 = 0;
 "243
-{
+[e = _RB5 -> -> 0 `i `b ]
+[; ;Supervisorio.c: 244: USART_WriteString("------------> valvula 2 desativada");
+"244
+[e ( _USART_WriteString (1 :s 5C ]
+[; ;Supervisorio.c: 245: resp = '#';
 "245
-}
-[e :U 130 ]
-"242
-[e $U 131  ]
-[e :U 132 ]
-[; ;Supervisorio.c: 245: }
-[; ;Supervisorio.c: 246: }
+[e = _resp -> -> 35 `ui `uc ]
+[; ;Supervisorio.c: 246: break;
 "246
-[e :UE 129 ]
+[e $U 123  ]
+"247
+}
+[; ;Supervisorio.c: 247: }
+[e $U 123  ]
+"192
+[e :U 124 ]
+[e [\ _resp , $ -> -> 65 `ui `uc 125
+ , $ -> -> 66 `ui `uc 128
+ , $ -> -> 67 `ui `uc 129
+ , $ -> -> 68 `ui `uc 130
+ , $ -> -> 69 `ui `uc 131
+ 123 ]
+"247
+[e :U 123 ]
+"248
+}
+[e :U 122 ]
+[; ;Supervisorio.c: 248: }
+[; ;Supervisorio.c: 249: }
+"249
+[e :UE 118 ]
+}
+"252
+[v _main `(v ~T0 @X0 1 ef ]
+"253
+{
+[; ;Supervisorio.c: 252: void main(void)
+[; ;Supervisorio.c: 253: {
+[e :U _main ]
+[f ]
+[; ;Supervisorio.c: 254: TRISA = 0b00000001;
+"254
+[e = _TRISA -> -> 1 `i `uc ]
+[; ;Supervisorio.c: 255: PORTA = 0b00000001;
+"255
+[e = _PORTA -> -> 1 `i `uc ]
+[; ;Supervisorio.c: 256: TRISB = 0b00000000;
+"256
+[e = _TRISB -> -> 0 `i `uc ]
+[; ;Supervisorio.c: 257: PORTB = 0b00000000;
+"257
+[e = _PORTB -> -> 0 `i `uc ]
+[; ;Supervisorio.c: 258: TRISC = 0b10000000;
+"258
+[e = _TRISC -> -> 128 `i `uc ]
+[; ;Supervisorio.c: 259: PORTC = 0b11000000;
+"259
+[e = _PORTC -> -> 192 `i `uc ]
+[; ;Supervisorio.c: 260: TRISD = 0b00000000;
+"260
+[e = _TRISD -> -> 0 `i `uc ]
+[; ;Supervisorio.c: 261: PORTD = 0b00000000;
+"261
+[e = _PORTD -> -> 0 `i `uc ]
+[; ;Supervisorio.c: 262: TRISE = 0b00000111;
+"262
+[e = _TRISE -> -> 7 `i `uc ]
+[; ;Supervisorio.c: 263: PORTE = 0b00000111;
+"263
+[e = _PORTE -> -> 7 `i `uc ]
+[; ;Supervisorio.c: 265: USART_Init(115200);
+"265
+[e ( _USART_Init (1 -> 115200 `l ]
+[; ;Supervisorio.c: 266: ADC_Init();
+"266
+[e ( _ADC_Init ..  ]
+[; ;Supervisorio.c: 268: INTCONbits.PEIE = 1;
+"268
+[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
+[; ;Supervisorio.c: 269: INTCONbits.GIE = 1;
+"269
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+[; ;Supervisorio.c: 270: _delay((unsigned long)((400)*(18432000/4000.0)));
+"270
+[e ( __delay (1 -> * -> -> 400 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
+[; ;Supervisorio.c: 271: TIMER1_Init();
+"271
+[e ( _TIMER1_Init ..  ]
+[; ;Supervisorio.c: 274: while(1)
+"274
+[e :U 134 ]
+[; ;Supervisorio.c: 275: {
+"275
+{
+"277
+}
+[e :U 133 ]
+"274
+[e $U 134  ]
+[e :U 135 ]
+[; ;Supervisorio.c: 277: }
+[; ;Supervisorio.c: 278: }
+"278
+[e :UE 132 ]
 }
 [a 5C 45 45 45 45 45 45 45 45 45 45 45 45 62 32 118 97 108 118 117 108 97 32 50 32 100 101 115 97 116 105 118 97 100 97 0 ]
 [a 3C 45 45 45 45 45 45 45 45 45 45 45 45 62 32 118 97 108 118 117 108 97 32 49 32 100 101 115 97 116 105 118 97 100 97 0 ]
 [a 4C 45 45 45 45 45 45 45 45 45 45 45 45 62 32 118 97 108 118 117 108 97 32 50 32 97 116 105 118 97 100 97 0 ]
 [a 2C 45 45 45 45 45 45 45 45 45 45 45 45 62 32 118 97 108 118 117 108 97 32 49 32 97 116 105 118 97 100 97 0 ]
-[a 6C 73 110 105 99 105 97 108 105 122 97 110 100 111 46 46 46 0 ]
 [a 1C 10 13 32 45 45 45 45 45 45 45 32 69 83 84 79 85 82 79 32 68 69 32 80 73 76 72 65 32 45 45 45 45 45 45 45 32 10 13 32 0 ]
