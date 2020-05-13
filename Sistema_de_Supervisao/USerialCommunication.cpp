@@ -48,7 +48,7 @@ Thread *ProcessaGrafico;
 
 //------- Gráfico de sinais ------------------------------------------
 
-FILE *arq_dados;
+FILE *arq_dadosdat, *arq_dadostxt;
 
 unsigned int max_tela = 100;
 unsigned int i = 0;
@@ -103,7 +103,7 @@ void __fastcall TFSerialPort::FormCreate(TObject *Sender)
     GraficoLinha->Refresh();
 
     // Decalaração do ponteiro do arquivo que armazena os dados.
-    arq_dados = fopen("dados.dat", writeBin);
+    //arq_dados = fopen("dados.dat", writeBin);
 
     // Verifica quais portas seriais estão disponíveis/conectadas.
     vector <AnsiString> asDetectedPorts;
@@ -140,7 +140,8 @@ void __fastcall TFSerialPort::BtOpenPortClick(TObject *Sender)
     LeArquivo = false;
     Log->Lines->Add("Porta Serial Aberta...");
     // Decalaração do ponteiro do arquivo que armazena os dados.
-    arq_dados = fopen("dados.txt","w");
+    arq_dadostxt = fopen("dados.txt","w");
+    arq_dadosdat = fopen("dados.dat",writeBin);
 
     // Declaração da thread para leitura dos pacotes e plotagem do gráfico.
     ProcessaGrafico = new Thread(true);
@@ -182,7 +183,8 @@ void __fastcall TFSerialPort::BtClosePortClick(TObject *Sender)
     PortaSerial = NULL;
 
     //Fecha o arquivo e salva alterações.
-    fclose(arq_dados);
+    fclose(arq_dadostxt);
+    fclose(arq_dadosdat);
 }
 
 //---------------------------------------------------------------------------
@@ -291,25 +293,40 @@ void __fastcall TFSerialPort::Abri1Click(TObject *Sender)
         LeArquivo = true;
 
         // Fecha o ponteiro do arquivo de dados caso esteja aberto.
-        if (arq_dados != NULL)
+        if (arq_dadostxt != NULL)
         {
-            fclose(arq_dados);
+            fclose(arq_dadostxt);
+        }
+             // Fecha o ponteiro do arquivo de dados caso esteja aberto.
+        if (arq_dadosdat != NULL)
+        {
+            fclose(arq_dadosdat);
         }
 
         // Atribuição do nome do arquivo selecionado para utilização global.
         NomeArquivoDeDados = OpenDialog1->FileName;
 
         // Abertura do arquivo para verificação configuração inicial.
-        arq_dados = fopen(NomeArquivoDeDados.c_str(), readBin);
+        arq_dadosdat = fopen(NomeArquivoDeDados.c_str(), readBin);
 
         // Posiciona o Ponteiro do Arquivo.
         PosicaoAtual = 0;
-        fseek(arq_dados, 0, 0);
-        fseek(arq_dados, PosicaoAtual, 1);  // Modificar a posição do ponteiro de arquivo para buscar mais janelas de pontos.
+        fseek(arq_dadosdat, 0, 0);
+        fseek(arq_dadosdat, PosicaoAtual, 1);  // Modificar a posição do ponteiro de arquivo para buscar mais janelas de pontos.
 
         // Posiciona o Ponteiro no fim do Arquivo.
         //fseek(arq_dados, 0, 2);
         //PosicaoFinal = ftell(arq_dados);
+
+                // Abertura do arquivo para verificação configuração inicial.
+        arq_dadostxt = fopen(NomeArquivoDeDados.c_str(), read);
+
+        // Posiciona o Ponteiro do Arquivo.
+        PosicaoAtual = 0;
+        fseek(arq_dadostxt, 0, 0);
+        fseek(arq_dadostxt, PosicaoAtual, 1);  // Modificar a posição do ponteiro de arquivo para buscar mais janelas de pontos.
+
+
 
         // Limpa todas as séries criadas.
         GraficoLinha->Series[i]->Clear();
@@ -324,8 +341,8 @@ void __fastcall TFSerialPort::Abri1Click(TObject *Sender)
         for (unsigned int i = 0; i < 100; i++)
         {
              // Realiza a Leitura da Frequencia de Amostragem do arquivo.
-             fscanf(arq_dados,"%f", &tensao);
-             GraficoLinha->Series[0]->YValues->Value[i] = tensao;
+             fscanf(arq_dadosdat,"%lf", &itens[Tatual]);
+             GraficoLinha->Series[0]->YValues->Value[i] = itens[Tatual];
         }
 
         GraficoLinha->Refresh();
@@ -424,8 +441,8 @@ void __fastcall Thread::Execute()
             {
                 //Gravar em outro arquivo
             }else{ //grava no arquivo
-               // result = fwrite (&itens[Tatual], sizeof(double), 1, arq_dados);
-                    fprintf(arq_dados,"%0.3f\n", itens[Tatual]);
+                fwrite (&itens[Tatual], sizeof(double), 1, arq_dadosdat);
+                fprintf(arq_dadostxt,"%0.3f\n", itens[Tatual]);
 
             }
 

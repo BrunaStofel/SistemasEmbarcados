@@ -1,5 +1,5 @@
 object FSerialPort: TFSerialPort
-  Left = 465
+  Left = 355
   Top = 137
   HorzScrollBar.Visible = False
   VertScrollBar.Visible = False

@@ -150,7 +150,7 @@ void TIMER1_Init()
 	T1CONbits.T1OSCEN = 0;		//oscilador
 	T1CONbits.T1CKPS1 = 1;      //configuracao do preescaler para 1:8
 	T1CONbits.T1CKPS0 = 1;      //configuracao do preescaler para 1:8
-	//T1CONbits.nT1SYNC = 1; verificar
+
 	T1CONbits.TMR1ON = 1;       //liga o timer
 	TMR1 = 7936;				//valor para iniciar a contagem Contagem de 0,1s, logo 0,1*10=1segundo
 
@@ -162,7 +162,7 @@ void TIMER1_Init()
 //-----------------------------------------------------------------------------
 void interrupt ISR(void)
 {
-
+	//T1CONbits.nT1SYNC = 1; verificar
  // ***------------------ Interrupcoes do TIMER1 ------------------***
 // Interrupção do TIMER1 para a frequência de amostragem do sistema.
     if(PIR1bits.TMR1IF)
