@@ -1,9 +1,11 @@
 //---------------------------------------------------------------------------
 
 #include <vcl.h>
-#include <stdio.h>  
+#include <stdio.h>
 #include <vector.h>
 #include <string.h>
+#include <time.h>
+
 #pragma hdrstop
 
 #include "USerialCommunication.h"
@@ -12,6 +14,19 @@
 #pragma package(smart_init)
 #pragma resource "*.dfm"
 
+#define read        "r"				// Abre um arquivo-texto para leitura
+#define write       "w"				// Cria um arq-txt para escrita
+#define append      "a"				// Adiciona dados no fianl de um arq txt
+#define readBin     "rb"			// Abre um arq-binario para leitura
+#define writeBin    "wb"			// cria um arq-binario para escrita
+#define appendBin   "ab"			// Adiciona dados no final de um arq binario
+#define readMais    "r+"			// Abre arq-txt para Leitura/escrita
+#define writeMais   "w+"			// Cria arq-txt para Leitura/escrita
+#define apendMais   "a+"			// Anexa ou cria um arq-txt para Leitura/escrita
+#define readBinMais "r+b"			// Abre um arq-binario para leitura/escrita
+#define writeBinMais "w+b"			// Cria um arq-binario para leitura/escrita
+#define appendBinMais "a+b"			// anexa ou cria um arq-binario para leitura/escrita
+
 TFSerialPort *FSerialPort;
 
 SerialPort *PortaSerial;
@@ -19,8 +34,8 @@ SerialPort *PortaSerial;
 bool atuador1 = false;
 bool atuador2 = false;
 
-double tensao1 = 0;
-int valor = 0;
+//double tensao1 = 0;
+int valor, Tatual = 0;
 
 AnsiString saida;
 
@@ -38,7 +53,6 @@ unsigned int posicao_do_grafico = 0;
 unsigned char buffer[256] = {0};
 bool LeArquivo = false;
 
-
 //Declaração de Variáveis. --------------------------------------------------
 AnsiString NomeArquivoDeDados;
 
@@ -52,8 +66,11 @@ unsigned int TamanhoDoRegistro;
 unsigned int NumeroDeAmostras;
 unsigned int TamanhoDaEpoca;
 unsigned int Deslocamento;
-
+const int hourToSec = 3600; // 60sX60min
 float tensao = 0;
+
+double itens[hourToSec];
+
 //---------------------------------------------------------------------------
 
 __fastcall TFSerialPort::TFSerialPort(TComponent* Owner)
@@ -81,13 +98,8 @@ void __fastcall TFSerialPort::FormCreate(TObject *Sender)
     // Atualiza o chart.
     GraficoLinha->Refresh();
 
-
     // Decalaração do ponteiro do arquivo que armazena os dados.
-    arq_dados = fopen("dados.txt","w");
-
-    //------- Gráfico de sinais ------------------------------------------
-
-
+    arq_dados = fopen("dados.dat", writeBin);
 
     // Verifica quais portas seriais estão disponíveis/conectadas.
     vector <AnsiString> asDetectedPorts;
@@ -102,139 +114,17 @@ void __fastcall TFSerialPort::FormCreate(TObject *Sender)
 }
 
 //---------------------------------------------------------------------------
-/*
-    unsigned char buffer[100] = {0};
-    double tensao1 = 0;
-    int valor = 0;
-    AnsiString saida;
-
-    //
-
-    //Envia o buffer pela porta serial.
-    PortaSerial->WriteABuffer("A", 1);
-
     //Instante de tempo para receber resposta do mestre.
-    Sleep(50);
-
+//    Sleep(50);
     //Armazena em buffer a resposta enviada pelo mestre com as temperaturas.
-     strcpy(buffer, PortaSerial->ReadABuffer());
-
-    //------------------------------------------------------------------------
-    // AQUISIÇÃO DOS PACOTES DE DADOS DE MODO CONTÍNUO.
-    //------------------------------------------------------------------------
-
-    //Verificação e Validação do pacote de dados recebido.
-    if (buffer[0] == '#' && buffer[1] == ':' && buffer[8] == ';')
-    {
-        //Elimina o zero ASCII e coloca o Zero numérico para a conversão.
-        if (buffer[2] == '0') buffer[2] = 0x00;
-        if (buffer[3] == '0') buffer[3] = 0x00;
-        if (buffer[4] == '0') buffer[4] = 0x00;
-        if (buffer[5] == '0') buffer[5] = 0x00;
-        if (buffer[6] == '0') buffer[6] = 0x00;
-        if (buffer[7] == '0') buffer[7] = 0x00;
-
-        //Calculo da temperatura conforme os bytes recebidos (10 bits).
-        valor = (buffer[2] << 8) + (buffer[3]);
-        tensao1 = (valor * 0.004887585532749);
-
-        //------- Gráfico de sinais ------------------------------------------
-
-        //Verificação do fim do gráfico.
-        if (posicao_do_grafico == max_tela+1)
-        {
-            posicao_do_grafico = 0;
-        }
-
-        //Plotagem dos dados.
-        GraficoLinha->Series[0]->YValues->Value[posicao_do_grafico] = tensao1;
-
-        //Incremento da posição do gráfico.
-        posicao_do_grafico++;
-
-        //Atualização do chart com os novos dados.
-        GraficoLinha->Refresh();
-
-
+//     strcpy(buffer, PortaSerial->ReadABuffer());
+//------------------------------------------------------------------------
         // Grava o canal 1 no arquivo.
-        fprintf(arq_dados,"%0.2f\n", tensao1);
-
+//        fprintf(arq_dados,"%0.2f\n", tensao1);
         //------- Gráfico de sinais -----------------------------------------
-        saida ="Tensao1: "  + FloatToStrF(tensao1, ffFixed,10,2) + " [V] ";
-
-        //Apresenta a saída.
-        Log->Lines->Add(saida);
-    }
-    else
-    {
-        //Saída indicando erro de recebimento de pacotes.
-        saida = saida + "\nErro no recebimento do pacote de dados!";
-
-        //Apresenta a saída.
-        Log->Lines->Add(saida);
-    }
-}
-
+//        saida ="Tensao1: "  + FloatToStrF(tensao1, ffFixed,10,2) + " [V] ";
 //---------------------------------------------------------------------------
-*/
-  /*
-    char buff[100];
-
-    if (PortaSerial != NULL)
-    {
-        if (!atuador1)
-        {
-            //Envia o buffer pela porta serial.
-            PortaSerial->WriteABuffer("B",2);
-            Sleep(100);
-            strcpy(buff,PortaSerial->ReadABuffer());
-
-
-        }
-        else
-        {
-            //Envia o buffer pela porta serial.
-            PortaSerial->WriteABuffer("C",2);
-            Sleep(100);
-            strcpy(buff,PortaSerial->ReadABuffer());
-
-
-        }
-        
-        Log->Lines->Add(buff);
-    }
-}
-
 //---------------------------------------------------------------------------
-  *//*
-
-    char buff[100];
-
-    if (PortaSerial != NULL)
-    {
-        if (!atuador2)
-        {
-            //Envia o buffer pela porta serial.
-            PortaSerial->WriteABuffer("D",2);
-            Sleep(100);
-
-            strcpy(buff,PortaSerial->ReadABuffer());
-
-        }
-        else
-        {
-            //Envia o buffer pela porta serial.
-            PortaSerial->WriteABuffer("E",2);
-            Sleep(100);
-            strcpy(buff,PortaSerial->ReadABuffer());
-
-          
-        }
-
-        Log->Lines->Add(buff);
-    }
-}
-*/
 //---------------------------------------------------------------------------
 void __fastcall TFSerialPort::BtOpenPortClick(TObject *Sender)
 {
@@ -381,84 +271,11 @@ void __fastcall TFSerialPort::SalvarComo1Click(TObject *Sender)
                 MessageDlg("Não há padrões selecionados", mtError, TMsgDlgButtons() << mbOK,0);
 
         }
-
         fclose(arq);
     }
 }
 
 //---------------------------------------------------------------------------
-
-
-/*
-
-
-
- FILE *arq_conjuntos;
-  AnsiString nome_arquivo_conjuntos;
-  bool padroes_sem_valores=false;
-
-  if (!FLBConjuntoTreinamento->FileName.IsEmpty())
-  {
-    //Sugere o nome do arquivo em edição.
-    SDConjuntos->FileName=FLBConjuntoTreinamento->FileName;
-  }
-  else
-  {
-    //Sugere o nome do arquivo em edição.
-    SDConjuntos->FileName = "Arquivo";
-  }
-
-  //Verificação se foi incluido algum padrão para ser salvo.
-  if (numero_arquivos > 0)
-  {
-    for (int a = 0; a < SGArquivosPadroes->RowCount - 1; a++)
-    {
-      if (SGArquivosPadroes->Cells[3][a + 1].IsEmpty())
-      {
-        padroes_sem_valores = true;
-      }
-    }
-
-    if (!padroes_sem_valores)
-    {
-      //Abre janela para salvar o arquivo de conjunto de padrões.
-      if (SDConjuntos->Execute())
-      {
-        nome_arquivo_conjuntos = SDConjuntos->FileName;
-        arq_conjuntos = fopen(nome_arquivo_conjuntos.c_str(),"w");
-
-        numero_padroes = SGArquivosPadroes->RowCount - 1;
-        fprintf(arq_conjuntos,"%d\n", numero_padroes);
-        fprintf(arq_conjuntos,"%d\n", numero_amostras_padrao);
-
-        for (int a = 0; a < SGArquivosPadroes->RowCount - 1; a++)
-        {
-          fprintf(arq_conjuntos,"\n%s\t", SGArquivosPadroes->Cells[0][a + 1]);
-          fprintf(arq_conjuntos,"%d", StrToInt(SGArquivosPadroes->Cells[3][a + 1]));
-        }
-
-        //Atualiza o FileListBox dos Conjuntos de treinamento e validação.
-        FLBConjuntoTreinamento->Update();
-
-        //Fecha o arquivo e salva alterações.
-        fclose(arq_conjuntos);
-      }
-    }
-    else
-    {
-      MessageDlg("Padrões selecionados sem valor correspondente", mtError, TMsgDlgButtons() << mbOK,0);
-    }
-  }
-  else
-  {
-    MessageDlg("Não há padrões selecionados", mtError, TMsgDlgButtons() << mbOK,0);
-  }
-
-
-
-*/
-
-
 void __fastcall TFSerialPort::Abri1Click(TObject *Sender)
 {
     // Atribui o diretório inicial dos arquivos.
@@ -479,7 +296,7 @@ void __fastcall TFSerialPort::Abri1Click(TObject *Sender)
         NomeArquivoDeDados = OpenDialog1->FileName;
 
         // Abertura do arquivo para verificação configuração inicial.
-        arq_dados = fopen(NomeArquivoDeDados.c_str(), "rb");
+        arq_dados = fopen(NomeArquivoDeDados.c_str(), readBin);
 
         // Posiciona o Ponteiro do Arquivo.
         PosicaoAtual = 0;
@@ -516,7 +333,7 @@ void __fastcall TFSerialPort::Abri1Click(TObject *Sender)
 void __fastcall TFSerialPort::AtualizaGrafico()
 {
     // Plota a amostra no gráfico.
-    FSerialPort->GraficoLinha->Series[0]->YValues->Value[posicao_do_grafico] = tensao1;
+    FSerialPort->GraficoLinha->Series[0]->YValues->Value[posicao_do_grafico] = itens[Tatual];
 }
 
 
@@ -536,6 +353,7 @@ __fastcall Thread::Thread(bool CreateSuspended)
 void __fastcall Thread::Execute()
 {
     AnsiString check;
+   // char timeStr[9];
 
     while(!Terminated)
     {
@@ -573,35 +391,9 @@ void __fastcall Thread::Execute()
                 check = "PACOTE INVÁLIDO";
 
 
-     /*
-
-
-    while (RxBytes > 0)
-    {
-        FT_Read(Dev->Handle,Buf,RxBytes < 256 ? RxBytes : 256,&BytesRead);
-        RxBytes -= BytesRead;
-
-        if (!Dev->RxFile)
-        {
-            char *s = Buf;
-            while (BytesRead--)
-                W->PutChar(*s++);
-
-            W->PutStr(Buf,BytesRead);
-            W->Flush();
-        }
-        else
-        {
-            fwrite(Buf,1,BytesRead,Dev->RxFile);
-        }
-    }
-
-       */
-
-
             // Calculo da temperatura conforme os bytes recebidos (10 bits).
             valor = (buffer1[3] << 8) + (buffer1[4]);
-            tensao1 = (valor * 0.004887585532749)*100;
+            itens[Tatual] = (valor * 0.004887585532749)*100;
 
             //------- Gráfico de sinais ------------------------------------------
 
@@ -621,12 +413,22 @@ void __fastcall Thread::Execute()
             FSerialPort->GraficoLinha->Refresh();
 
             // Grava o canal 1 no arquivo.
-            fprintf(arq_dados,"%0.3f\n", tensao1);
+            char timeStr[9];
+            _strtime( timeStr );
+//            char hora[9] = timeStr;
+            if(itens[Tatual] >= hourToSec)
+            {
+                //Gravar em outro arquivo
+            }else{ //grava no arquivo
+               // result = fwrite (&itens[Tatual], sizeof(double), 1, arq_dados);
+                    fprintf(arq_dados,"%0.3f\n", itens[Tatual]);
+
+            }
 
             //------- Gráfico de sinais ------------------------------------------
 
             // Apresenta a saída.
-            saida = saida + "Temperatura: "  + FloatToStrF(tensao1, ffFixed,10,3) + " [V] " +
+            saida = saida + "Temperatura: "  + FloatToStrF(itens[Tatual], ffFixed,10,3) + " [V] " +
                             " inteiro: " + IntToStr(valor) + " - " + check;
 
             FSerialPort->Log->Lines->Add(saida);
@@ -641,5 +443,14 @@ void __fastcall Thread::Execute()
         }
     }
 }
+
+
+void __fastcall TFSerialPort::horalabelClick(TObject *Sender)
+{
+   char timeStr[9];
+   _strtime( timeStr );
+   horalabel->SetTextBuf(timeStr);
+}
+//---------------------------------------------------------------------------
 
 

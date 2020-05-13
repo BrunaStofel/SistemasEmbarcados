@@ -61,6 +61,7 @@ __published:	// IDE-managed Components
         TChart *GraficoLinha;
         TLineSeries *Series2;
         TDateTimePicker *tempo;
+        TLabel *horalabel;
     void __fastcall BtClosePortClick(TObject *Sender);
     void __fastcall BtOpenPortClick(TObject *Sender);
     void __fastcall Sair1Click(TObject *Sender);
@@ -71,6 +72,7 @@ __published:	// IDE-managed Components
     void __fastcall GraficoLinhaAfterDraw(TObject *Sender);
     void __fastcall SalvarComo1Click(TObject *Sender);
         void __fastcall Abri1Click(TObject *Sender);
+        void __fastcall horalabelClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
     __fastcall TFSerialPort(TComponent* Owner);

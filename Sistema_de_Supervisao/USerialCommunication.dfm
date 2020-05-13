@@ -1,6 +1,6 @@
 object FSerialPort: TFSerialPort
-  Left = 289
-  Top = 109
+  Left = 325
+  Top = 61
   HorzScrollBar.Visible = False
   VertScrollBar.Visible = False
   BorderStyle = bsSingle
@@ -223,6 +223,14 @@ object FSerialPort: TFSerialPort
         Font.Name = 'Arial'
         Font.Style = [fsBold]
         ParentFont = False
+      end
+      object horalabel: TLabel
+        Left = 624
+        Top = 8
+        Width = 23
+        Height = 13
+        Caption = 'Hora'
+        OnClick = horalabelClick
       end
       object GroupBox1: TGroupBox
         Left = 0
