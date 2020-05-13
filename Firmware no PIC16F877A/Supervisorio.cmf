@@ -18,62 +18,47 @@ config CONFIG 0 2007 2007 1 2
 $Supervisorio.obj
 cinit CODE 0 15 15 13 2
 intentry CODE 0 4 4 E 2
-text24 CODE 0 7E6 7E6 18 2
-text23 CODE 0 CC8 CC8 8 2
-text22 CODE 0 D5B D5B 23 2
-text21 CODE 0 D24 D24 1B 2
-text20 CODE 0 77E 77E 68 2
-text19 CODE 0 D10 D10 14 2
-text18 CODE 0 E86 E86 5D 2
-text17 CODE 0 5F1 5F1 D3 2
-text16 CODE 0 CD0 CD0 8 2
-text15 CODE 0 36C 36C 107 2
-text14 CODE 0 D3F D3F 1C 2
-text13 CODE 0 EE3 EE3 8E 2
-text12 CODE 0 4D1 4D1 2B 2
-text11 CODE 0 473 473 5E 2
-text10 CODE 0 DE9 DE9 4E 2
-text9 CODE 0 D7E D7E 23 2
-text8 CODE 0 CE0 CE0 E 2
-text7 CODE 0 28 28 23C 2
-text6 CODE 0 6C4 6C4 BA 2
-text5 CODE 0 264 264 108 2
-text4 CODE 0 CFE CFE 12 2
-text3 CODE 0 CEE CEE 10 2
-text2 CODE 0 F71 F71 8F 2
-text1 CODE 0 DA1 DA1 48 2
-maintext CODE 0 E37 E37 4F 2
-cstackBANK0 BANK0 1 20 20 3B 1
-cstackCOMMON COMMON 1 70 70 E 1
-cstackBANK1 BANK1 1 A0 A0 1C 1
-clrtext CODE 0 CD8 CD8 8 2
-bssBANK1 BANK1 1 BC BC 11 1
-bssBANK0 BANK0 1 5B 5B 15 1
-strings STRING 0 500 500 F1 2
+text9 CODE 0 264 264 18 2
+text8 CODE 0 2A6 2A6 8 2
+text7 CODE 0 22E 22E 1C 2
+text6 CODE 0 24A 24A 1A 2
+text5 CODE 0 28 28 91 2
+text4 CODE 0 27C 27C 12 2
+text3 CODE 0 28E 28E 10 2
+text2 CODE 0 B9 B9 8F 2
+text1 CODE 0 195 195 4A 2
+maintext CODE 0 148 148 4D 2
+cstackBANK0 BANK0 1 20 20 1C 1
+cstackCOMMON COMMON 1 70 70 C 1
+clrtext CODE 0 29E 29E 8 2
+dataBANK0 BANK0 1 54 54 1 1
+bssBANK0 BANK0 1 3C 3C 18 1
+bssCOMMON COMMON 1 7C 7C 2 1
+strings STRING 0 200 200 2E 2
+idataBANK0 CODE 0 2AE 2AE 1 2
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-BANK1 00CD-00EF 1
+BANK0 0055-006F 1
+BANK1 00A0-00EF 1
 BANK2 0110-016F 1
 BANK3 0190-01EF 1
 CODE 0003-0003 2
-CODE 04FC-04FF 2
-CODE 07FE-0CC7 2
-CODE 1000-1FFF 2
+CODE 01DF-01FF 2
+CODE 02AF-1FFF 2
 CONST 0003-0003 2
-CONST 04FC-04FF 2
-CONST 07FE-0CC7 2
-CONST 1000-1FFF 2
+CONST 01DF-01FF 2
+CONST 02AF-1FFF 2
 EEDATA 2100-21FF 2
 ENTRY 0003-0003 2
-ENTRY 04FC-04FF 2
-ENTRY 07FE-0CC7 2
-ENTRY 1000-1FFF 2
+ENTRY 01DF-01FF 2
+ENTRY 02AF-1FFF 2
 IDLOC 2000-2003 2
-RAM 00CD-00EF 1
+RAM 0055-006F 1
+RAM 00A0-00EF 1
 RAM 0110-016F 1
 RAM 0190-01EF 1
 SFR0 0000-001F 1
@@ -82,13 +67,11 @@ SFR2 0100-010F 1
 SFR3 0180-018F 1
 STACK 0110-016F 1
 STRCODE 0003-0003 2
-STRCODE 04FC-04FF 2
-STRCODE 07FE-0CC7 2
-STRCODE 1000-1FFF 2
+STRCODE 01DF-01FF 2
+STRCODE 02AF-1FFF 2
 STRING 0003-0003 2
-STRING 04FC-04FF 2
-STRING 07FE-0CC7 2
-STRING 1000-1FFF 2
+STRING 01DF-01FF 2
+STRING 02AF-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -103,423 +86,176 @@ STRING 1000-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $Supervisorio.obj
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":151 4 intentry CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":568 15 cinit CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":571 15 cinit CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":620 15 cinit CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":621 16 cinit CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":622 17 cinit CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":623 18 cinit CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":624 19 cinit CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":627 1E cinit CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":628 1F cinit CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":629 20 cinit CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":630 21 cinit CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":636 24 cinit CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":637 24 cinit CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":638 25 cinit CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":492 28 text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":542 2B text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":545 2F text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":547 3F text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":550 43 text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":551 4E text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":555 4F text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":557 51 text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":606 52 text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":607 60 text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":609 64 text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":610 7D text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":611 94 text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":620 A2 text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":622 AE text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":630 B2 text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":631 B4 text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":632 C2 text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":631 EF text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":635 F0 text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":644 F4 text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":650 F5 text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":652 F5 text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":653 F6 text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":827 F7 text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":831 FB text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":644 FC text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":831 113 text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":1290 113 text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":1291 115 text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":1295 125 text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":1299 137 text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":1300 141 text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":1314 147 text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":1315 14D text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":1314 181 text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":1348 189 text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":1349 19A text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":1350 1A1 text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":1351 1B4 text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":1390 1BB text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":1391 1CE text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":1393 1DC text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":1437 1E0 text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":1439 1E4 text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":1440 1EF text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":1498 1F6 text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":1533 245 text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":1483 250 text7 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":1547 25F text7 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":151 264 text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":155 264 text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":157 266 text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":158 26A text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":160 26F text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":161 275 text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":164 277 text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":168 278 text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":171 27A text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":172 283 text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":173 28F text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":174 2B5 text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":175 2C9 text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":176 2D2 text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":179 2D9 text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":183 2DC text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":189 2DE text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":192 2E8 text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":197 2E9 text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":198 2ED text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":201 2F1 text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":202 2FA text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":203 300 text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":206 308 text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":207 30F text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":209 316 text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":210 31A text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":212 31E text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":213 322 text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":215 326 text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":216 32A text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":217 32E text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":219 332 text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":224 336 text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":225 336 text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":226 337 text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":230 339 text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":231 339 text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":232 33A text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":236 33C text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":237 33C text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":238 33D text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":242 33F text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":243 33F text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":244 340 text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":245 349 text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":247 34F text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":192 350 text5 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":249 361 text5 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":86 36C text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":90 36C text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":91 37A text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":92 386 text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":93 395 text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":94 39C text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":96 3AB text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":97 3AF text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":98 3B0 text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":99 3B1 text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":100 3B2 text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":101 3B3 text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":102 3B4 text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":103 3BA text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":104 3BB text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":106 3C1 text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":110 3C5 text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":111 3CD text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":112 3CF text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":114 3DA text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":115 3E2 text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":113 3E6 text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":117 3EB text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":121 3EF text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":122 3F7 text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":123 3F9 text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":125 404 text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":126 40C text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":124 410 text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":129 414 text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":131 416 text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":132 41C text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":134 426 text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":136 428 text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":137 42E text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":139 438 text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":140 439 text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":141 447 text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":142 449 text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":143 44F text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":144 459 text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c":146 45B text15 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c":6 473 text11 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c":14 473 text11 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c":15 47B text11 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c":16 481 text11 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c":17 483 text11 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c":18 485 text11 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c":19 48E text11 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c":17 492 text11 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c":22 493 text11 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c":23 49C text11 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c":24 4AC text11 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c":25 4BA text11 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c":27 4BB text11 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c":28 4C4 text11 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c":30 4C8 text11 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lltoft.c":35 4D1 text12 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lltoft.c":38 4D1 text12 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lltoft.c":41 4D5 text12 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lltoft.c":42 4D9 text12 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lltoft.c":43 4E2 text12 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lltoft.c":41 4E6 text12 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lltoft.c":45 4E7 text12 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftmul.c":62 5F1 text17 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftmul.c":67 5F1 text17 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftmul.c":68 602 text17 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftmul.c":69 609 text17 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftmul.c":70 618 text17 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftmul.c":71 61F text17 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftmul.c":72 624 text17 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftmul.c":73 636 text17 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftmul.c":74 648 text17 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftmul.c":75 64C text17 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftmul.c":77 64D text17 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftmul.c":78 64E text17 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftmul.c":79 654 text17 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftmul.c":134 65A text17 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftmul.c":136 65E text17 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftmul.c":137 660 text17 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftmul.c":138 66E text17 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftmul.c":139 676 text17 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftmul.c":140 67E text17 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftmul.c":143 682 text17 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftmul.c":145 686 text17 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftmul.c":146 688 text17 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftmul.c":147 696 text17 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftmul.c":148 69E text17 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftmul.c":149 6A6 text17 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftmul.c":156 6AA text17 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftoa.c":6 6C4 text6 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftoa.c":9 6C4 text6 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftoa.c":12 6CA text6 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftoa.c":13 6DD text6 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftoa.c":14 6EA text6 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftoa.c":16 6FD text6 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftoa.c":17 714 text6 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftoa.c":18 73C text6 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftoa.c":19 764 text6 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftoa.c":20 77C text6 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\float.c":62 77E text20 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\float.c":64 77E text20 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\float.c":65 786 text20 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\float.c":67 78D text20 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\float.c":68 791 text20 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\float.c":66 799 text20 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\float.c":71 79E text20 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\float.c":72 7A2 text20 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\float.c":73 7AC text20 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\float.c":70 7B4 text20 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\float.c":74 7B4 text20 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\float.c":76 7B9 text20 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\float.c":77 7BB text20 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\float.c":75 7C3 text20 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\float.c":79 7C5 text20 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\float.c":80 7C7 text20 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\float.c":81 7CD text20 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\float.c":82 7CF text20 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\float.c":83 7E1 text20 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\float.c":84 7E4 text20 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\float.c":86 7E5 text20 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":121 7E6 text24 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":123 7E6 text24 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":124 7F2 text24 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":126 7F3 text24 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":128 7F7 text24 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":129 7FA text24 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":131 7FC text24 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":132 7FD text24 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":61 CC8 text23 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":63 CC9 text23 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":64 CCD text23 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":65 CCF text23 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftneg.c":15 CD0 text16 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftneg.c":17 CD0 text16 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftneg.c":18 CD5 text16 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftneg.c":20 CD7 text16 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":607 CD8 clrtext CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":608 CD8 clrtext CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":609 CD9 clrtext CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":610 CD9 clrtext CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":611 CDA clrtext CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":612 CDB clrtext CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":613 CDC clrtext CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":614 CDD clrtext CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":615 CDE clrtext CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":616 CDF clrtext CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\isdigit.c":8 CE0 text8 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\isdigit.c":14 CE1 text8 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":135 CEE text3 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":137 CEE text3 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":138 CF1 text3 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":139 CF2 text3 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":140 CF3 text3 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":142 CF4 text3 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":143 CF5 text3 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":145 CF9 text3 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":146 CFA text3 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":147 CFD text3 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":102 CFE text4 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":105 CFE text4 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":106 D01 text4 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":107 D02 text4 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":108 D03 text4 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":109 D04 text4 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":113 D05 text4 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":114 D08 text4 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":117 D09 text4 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":118 D0C text4 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":119 D0F text4 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwtoft.c":28 D10 text19 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwtoft.c":30 D10 text19 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":80 D24 text21 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":84 D24 text21 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":86 D28 text21 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":91 D2D text21 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":93 D34 text21 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":94 D37 text21 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":95 D3B text21 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":96 D3C text21 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":99 D3D text21 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftsub.c":18 D3F text14 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftsub.c":23 D3F text14 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftsub.c":24 D43 text14 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":68 D5B text22 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":71 D5B text22 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":74 D69 text22 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":75 D79 text22 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":71 D7D text22 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul16.c":15 D7E text9 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul16.c":43 D7E text9 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul16.c":45 D80 text9 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul16.c":46 D82 text9 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul16.c":47 D88 text9 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul16.c":48 D8F text9 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul16.c":49 D96 text9 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul16.c":52 D9A text9 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":24 DA1 text1 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":30 DA1 text1 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":33 DA4 text1 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":34 DCF text1 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":37 DD1 text1 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":38 DD2 text1 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":39 DD3 text1 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":40 DD4 text1 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":41 DD5 text1 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":42 DD6 text1 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":43 DD7 text1 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":46 DD8 text1 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":47 DDB text1 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":48 DDC text1 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":49 DDD text1 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":50 DDE text1 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":51 DDF text1 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":52 DE0 text1 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":53 DE1 text1 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":56 DE2 text1 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":57 DE5 text1 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":58 DE8 text1 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\llmod.c":6 DE9 text10 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\llmod.c":13 DE9 text10 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\llmod.c":14 DF1 text10 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\llmod.c":15 DF3 text10 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\llmod.c":16 DF5 text10 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\llmod.c":17 DFE text10 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\llmod.c":15 E02 text10 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\llmod.c":20 E03 text10 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\llmod.c":21 E13 text10 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\llmod.c":22 E21 text10 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\llmod.c":23 E2A text10 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\llmod.c":25 E2E text10 CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":252 E37 maintext CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":254 E37 maintext CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":255 E3B maintext CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":256 E3F maintext CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":257 E42 maintext CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":258 E45 maintext CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":259 E49 maintext CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":260 E4D maintext CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":261 E50 maintext CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":262 E53 maintext CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":263 E57 maintext CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":265 E5B maintext CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":266 E6A maintext CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":268 E6F maintext CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":269 E70 maintext CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":270 E71 maintext CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":271 E80 maintext CODE
-"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":274 E85 maintext CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftge.c":4 E86 text18 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftge.c":6 E86 text18 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftge.c":7 E88 text18 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftge.c":8 EAD text18 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftge.c":9 EAF text18 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftge.c":10 ED4 text18 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftge.c":11 ED6 text18 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftge.c":12 ED8 text18 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\fttol.c":44 EE3 text13 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\fttol.c":49 EE3 text13 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\fttol.c":50 EF4 text13 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\fttol.c":51 EFD text13 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\fttol.c":52 F0F text13 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\fttol.c":53 F10 text13 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\fttol.c":54 F16 text13 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\fttol.c":55 F1D text13 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\fttol.c":56 F1F text13 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\fttol.c":57 F21 text13 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\fttol.c":58 F26 text13 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\fttol.c":60 F2F text13 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\fttol.c":61 F38 text13 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\fttol.c":63 F3F text13 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\fttol.c":64 F43 text13 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\fttol.c":66 F4C text13 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\fttol.c":67 F55 text13 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\fttol.c":65 F57 text13 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\fttol.c":70 F5A text13 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\fttol.c":71 F5D text13 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\fttol.c":72 F68 text13 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":6 F71 text2 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":14 F71 text2 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":15 F74 text2 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":16 F76 text2 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":17 F81 text2 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":18 F83 text2 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":19 F83 text2 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":20 F85 text2 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":21 F90 text2 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":23 F94 text2 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":24 F9C text2 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":25 FA2 text2 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":26 FA4 text2 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":27 FA6 text2 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":28 FAF text2 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":26 FB3 text2 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":31 FB4 text2 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":32 FBD text2 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":33 FCD text2 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":34 FDB text2 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":36 FDC text2 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":37 FE5 text2 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":39 FE9 text2 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":40 FEC text2 CODE
-"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":41 FF7 text2 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":163 4 intentry CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":332 15 cinit CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":335 15 cinit CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":402 15 cinit CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":403 16 cinit CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":406 17 cinit CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":407 18 cinit CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":408 19 cinit CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":409 1A cinit CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":410 1B cinit CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":415 20 cinit CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":416 23 cinit CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":422 24 cinit CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":423 24 cinit CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":424 25 cinit CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":163 28 text5 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":168 28 text5 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":170 2A text5 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":171 2E text5 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":173 33 text5 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":174 39 text5 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":177 3B text5 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":181 3C text5 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":184 3D text5 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":188 3E text5 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":190 40 text5 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":193 4A text5 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":197 4B text5 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":198 4F text5 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":199 53 text5 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":201 57 text5 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":202 60 text5 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":203 66 text5 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":205 6C text5 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":206 72 text5 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":208 76 text5 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":209 77 text5 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":211 7C text5 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":212 86 text5 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":209 8E text5 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":214 96 text5 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":215 9C text5 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":217 A2 text5 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":219 A8 text5 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":193 A9 text5 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":221 AE text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":6 B9 text2 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":14 B9 text2 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":15 BC text2 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":16 BE text2 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":17 C9 text2 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":18 CB text2 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":19 CB text2 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":20 CD text2 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":21 D8 text2 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":23 DC text2 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":24 E4 text2 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":25 EA text2 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":26 EC text2 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":27 EE text2 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":28 F7 text2 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":26 FB text2 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":31 FC text2 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":32 105 text2 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":33 115 text2 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":34 123 text2 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":36 124 text2 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":37 12D text2 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":39 131 text2 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":40 134 text2 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c":41 13F text2 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":224 148 maintext CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":226 148 maintext CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":227 14C maintext CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":228 150 maintext CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":229 153 maintext CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":230 156 maintext CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":231 15A maintext CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":232 15E maintext CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":233 161 maintext CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":234 164 maintext CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":235 168 maintext CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":237 16C maintext CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":238 179 maintext CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":240 17E maintext CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":241 17F maintext CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":242 180 maintext CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":243 18F maintext CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":246 194 maintext CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":34 195 text1 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":40 195 text1 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":43 198 text1 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":44 1C3 text1 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":47 1C7 text1 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":48 1C8 text1 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":49 1C9 text1 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":50 1CA text1 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":51 1CB text1 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":52 1CC text1 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":53 1CD text1 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":56 1CE text1 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":57 1D1 text1 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":58 1D2 text1 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":59 1D3 text1 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":60 1D4 text1 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":61 1D5 text1 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":62 1D6 text1 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":63 1D7 text1 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":66 1D8 text1 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":67 1DB text1 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":68 1DE text1 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":78 22E text7 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":81 22F text7 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":84 239 text7 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":85 245 text7 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":81 249 text7 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":90 24A text6 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":94 24A text6 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":96 24E text6 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":97 24F text6 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":98 253 text6 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":103 255 text6 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":105 259 text6 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":106 25C text6 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":107 260 text6 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":108 261 text6 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":111 262 text6 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":133 264 text9 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":135 264 text9 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":136 270 text9 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":138 271 text9 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":140 275 text9 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":141 278 text9 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":143 27A text9 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":144 27B text9 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":114 27C text4 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":117 27C text4 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":118 27F text4 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":119 280 text4 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":120 281 text4 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":121 282 text4 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":125 283 text4 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":126 286 text4 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":129 287 text4 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":130 28A text4 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":131 28D text4 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":147 28E text3 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":149 28E text3 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":150 291 text3 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":151 292 text3 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":152 293 text3 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":154 294 text3 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":155 295 text3 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":157 299 text3 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":158 29A text3 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":159 29D text3 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":389 29E clrtext CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":390 29E clrtext CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":391 29F clrtext CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":392 29F clrtext CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":393 2A0 clrtext CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":394 2A1 clrtext CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":395 2A2 clrtext CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":396 2A3 clrtext CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":397 2A4 clrtext CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.as":398 2A5 clrtext CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":71 2A6 text8 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":73 2A7 text8 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":74 2AB text8 CODE
+"C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c":75 2AD text8 CODE
 $startup.obj
 "C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\startup.as":39 0 functab CODE
 "C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\startup.as":40 0 functab CODE
@@ -543,47 +279,32 @@ $startup.obj
 # was defined in a psect then <psect> will be "-". File-name
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
-___aldiv@counter A9 0 BANK1 1 cstackBANK1 Supervisorio.obj
-___lldiv@counter 7D 0 COMMON 1 cstackCOMMON Supervisorio.obj
-sprintf@f 2A 0 BANK0 1 cstackBANK0 Supervisorio.obj
-___lltoft@c 78 0 COMMON 1 cstackCOMMON Supervisorio.obj
-___lwtoft@c 78 0 COMMON 1 cstackCOMMON Supervisorio.obj
-__end_of___ftneg 19B0 0 CODE 0 text16 Supervisorio.obj
-_RB4 34 0 ABS 0 - Supervisorio.obj
-_RB5 35 0 ABS 0 - Supervisorio.obj
+___aldiv@counter 29 0 BANK0 1 cstackBANK0 Supervisorio.obj
 __S0 2008 0 ABS 0 - -
-__S1 CD 0 ABS 0 - -
+__S1 7E 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
-_ISR 4C8 0 CODE 0 text5 Supervisorio.obj
+_ISR 50 0 CODE 0 text5 Supervisorio.obj
 __Hintentry 24 0 CODE 0 intentry -
+_LOW 7D 0 COMMON 1 bssCOMMON Supervisorio.obj
 __Lintentry 8 0 CODE 0 intentry -
 __size_of_USART_WriteString 0 0 ABS 0 - Supervisorio.obj
 __pintentry 8 0 CODE 0 intentry Supervisorio.obj
-_sec 62 0 BANK0 1 bssBANK0 Supervisorio.obj
-___ftadd@f1 78 0 COMMON 1 cstackCOMMON Supervisorio.obj
+_sec 4F 0 BANK0 1 bssBANK0 Supervisorio.obj
 __CFG_PWRTE$ON 0 0 ABS 0 - Supervisorio.obj
 _TMR1 E 0 ABS 0 - Supervisorio.obj
-_ADC_Read FCC 0 CODE 0 text24 Supervisorio.obj
-__size_of___ftsub 0 0 ABS 0 - Supervisorio.obj
-___ftneg@f1 70 0 COMMON 1 cstackCOMMON Supervisorio.obj
+_ADC_Read 4C8 0 CODE 0 text9 Supervisorio.obj
+_HIGH 7C 0 COMMON 1 bssCOMMON Supervisorio.obj
 _OERR C1 0 ABS 0 - Supervisorio.obj
-___ftadd@f2 7B 0 COMMON 1 cstackCOMMON Supervisorio.obj
-___ftsub@f1 2A 0 BANK0 1 cstackBANK0 Supervisorio.obj
-_ftoa D88 0 CODE 0 text6 Supervisorio.obj
-_main 1C6E 0 CODE 0 maintext Supervisorio.obj
+_main 290 0 CODE 0 maintext Supervisorio.obj
 ___sp 0 0 STACK 2 stack startup.obj
 btemp 7E 0 ABS 0 - Supervisorio.obj
 ltemp 7E 0 ABS 0 - Supervisorio.obj
 ttemp 7E 0 ABS 0 - Supervisorio.obj
 wtemp 7E 0 ABS 0 - Supervisorio.obj
+_resp 54 0 BANK0 1 dataBANK0 Supervisorio.obj
 start 24 0 CODE 0 init startup.obj
-?___ftadd 78 0 COMMON 1 cstackCOMMON Supervisorio.obj
-___fttol@f1 30 0 BANK0 1 cstackBANK0 Supervisorio.obj
-___ftsub@f2 27 0 BANK0 1 cstackBANK0 Supervisorio.obj
-___ftmul@f1 20 0 BANK0 1 cstackBANK0 Supervisorio.obj
-__end_of___aldiv 2000 0 CODE 0 text2 Supervisorio.obj
-___fttol@lval 39 0 BANK0 1 cstackBANK0 Supervisorio.obj
+__end_of___aldiv 290 0 CODE 0 text2 Supervisorio.obj
 _RCREG 1A 0 ABS 0 - Supervisorio.obj
 _TRISA 85 0 ABS 0 - Supervisorio.obj
 _TRISB 86 0 ABS 0 - Supervisorio.obj
@@ -608,10 +329,9 @@ ltemp2 86 0 ABS 0 - Supervisorio.obj
 ttemp2 84 0 ABS 0 - Supervisorio.obj
 wtemp2 82 0 ABS 0 - Supervisorio.obj
 ltemp3 80 0 ABS 0 - Supervisorio.obj
-_cont1 60 0 BANK0 1 bssBANK0 Supervisorio.obj
+_cont1 4D 0 BANK0 1 bssBANK0 Supervisorio.obj
 ttemp3 87 0 ABS 0 - Supervisorio.obj
 wtemp3 84 0 ABS 0 - Supervisorio.obj
-___ftmul@f2 23 0 BANK0 1 cstackBANK0 Supervisorio.obj
 ttemp4 7F 0 ABS 0 - Supervisorio.obj
 wtemp4 86 0 ABS 0 - Supervisorio.obj
 wtemp5 88 0 ABS 0 - Supervisorio.obj
@@ -619,42 +339,27 @@ wtemp6 7F 0 ABS 0 - Supervisorio.obj
 interrupt_function 8 0 CODE 0 intentry Supervisorio.obj
 __Hconfig 4010 0 CONFIG 0 config -
 __Lconfig 400E 0 CONFIG 0 config -
-?___ftneg 70 0 COMMON 1 cstackCOMMON Supervisorio.obj
-___ftpack EFC 0 CODE 0 text20 Supervisorio.obj
-?___llmod 20 0 BANK0 1 cstackBANK0 Supervisorio.obj
-ftoa@f 44 0 BANK0 1 cstackBANK0 Supervisorio.obj
-__end_of__stringtab A20 0 STRING 0 strings Supervisorio.obj
-ftoa@l 4D 0 BANK0 1 cstackBANK0 Supervisorio.obj
-__end_of_TIMER1_Init 19FC 0 CODE 0 text3 Supervisorio.obj
+__end_of__stringtab 40C 0 STRING 0 strings Supervisorio.obj
+__end_of_TIMER1_Init 53C 0 CODE 0 text3 Supervisorio.obj
 __Hram 0 0 ABS 0 ram -
-?___ftsub 27 0 BANK0 1 cstackBANK0 Supervisorio.obj
 __Lram 0 0 ABS 0 ram -
-__end_of__stringdata BE2 0 STRING 0 strings Supervisorio.obj
-___ftge@ff1 70 0 COMMON 1 cstackCOMMON Supervisorio.obj
-?_sprintf 2A 0 BANK0 1 cstackBANK0 Supervisorio.obj
-_input 5B 0 BANK0 1 bssBANK0 Supervisorio.obj
-__end_of_USART_WriteChar 19A0 0 CODE 0 text23 Supervisorio.obj
-___ftmul@cntr 2E 0 BANK0 1 cstackBANK0 Supervisorio.obj
-__size_of___ftadd 0 0 ABS 0 - Supervisorio.obj
-_ADC_Init 19FC 0 CODE 0 text4 Supervisorio.obj
-__end_of_ISR 6D8 0 CODE 0 text5 Supervisorio.obj
+_ativa 4B 0 BANK0 1 bssBANK0 Supervisorio.obj
+__end_of__stringdata 45C 0 STRING 0 strings Supervisorio.obj
+_input 46 0 BANK0 1 bssBANK0 Supervisorio.obj
+__end_of_USART_WriteChar 55C 0 CODE 0 text8 Supervisorio.obj
+_ADC_Init 4F8 0 CODE 0 text4 Supervisorio.obj
+__end_of_ISR 172 0 CODE 0 text5 Supervisorio.obj
 __Hfunctab 0 0 CODE 0 functab -
 __Lfunctab 0 0 CODE 0 functab -
-___ftge@ff2 73 0 COMMON 1 cstackCOMMON Supervisorio.obj
 __Hcommon 0 0 ABS 0 common -
 __Lcommon 0 0 ABS 0 common -
-?___fttol 30 0 BANK0 1 cstackBANK0 Supervisorio.obj
 _PIE1bits 8C 0 ABS 0 - Supervisorio.obj
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 _PIR1bits C 0 ABS 0 - Supervisorio.obj
-?___ftmul 20 0 BANK0 1 cstackBANK0 Supervisorio.obj
-sprintf@ap 39 0 BANK0 1 cstackBANK0 Supervisorio.obj
+ISR@index 7B 0 COMMON 1 cstackCOMMON Supervisorio.obj
 ___int_sp 0 0 STACK 2 stack startup.obj
-?___aldiv A0 0 BANK1 1 cstackBANK1 Supervisorio.obj
-?___lldiv 70 0 COMMON 1 cstackCOMMON Supervisorio.obj
-___lltoft 9A2 0 CODE 0 text12 Supervisorio.obj
-___lwtoft 1A20 0 CODE 0 text19 Supervisorio.obj
+?___aldiv 20 0 BANK0 1 cstackBANK0 Supervisorio.obj
 _ADRESH 1E 0 ABS 0 - Supervisorio.obj
 __Habs1 0 0 ABS 0 abs1 -
 __Labs1 0 0 ABS 0 abs1 -
@@ -667,232 +372,143 @@ __Hsfr2 0 0 ABS 0 sfr2 -
 __Lsfr2 0 0 ABS 0 sfr2 -
 __Hsfr3 0 0 ABS 0 sfr3 -
 __Lsfr3 0 0 ABS 0 sfr3 -
-___ftmul@f3_as_product 2B 0 BANK0 1 cstackBANK0 Supervisorio.obj
-__end_of___ftpack FCC 0 CODE 0 text20 Supervisorio.obj
-?___ftpack 70 0 COMMON 1 cstackCOMMON Supervisorio.obj
-_TIMER1_Init 19DC 0 CODE 0 text3 Supervisorio.obj
-__size_of___ftpack 0 0 ABS 0 - Supervisorio.obj
-__end_of_dpowers A70 0 STRING 0 strings Supervisorio.obj
-__size_of___fttol 0 0 ABS 0 - Supervisorio.obj
+_TIMER1_Init 51C 0 CODE 0 text3 Supervisorio.obj
 __size_of_ADC_Read 0 0 ABS 0 - Supervisorio.obj
-___ftadd@sign 24 0 BANK0 1 cstackBANK0 Supervisorio.obj
 __Hcode 0 0 ABS 0 code -
 __Lcode 0 0 ABS 0 code -
-ftoa@cp 51 0 BANK0 1 cstackBANK0 Supervisorio.obj
-___ftge 1D0C 0 CODE 0 text18 Supervisorio.obj
 stackhi 0 0 ABS 0 - startup.obj
-sprintf@sp 3E 0 BANK0 1 cstackBANK0 Supervisorio.obj
 __HcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 Supervisorio.obj
-_buffer 65 0 BANK0 1 bssBANK0 Supervisorio.obj
+_buffer 3C 0 BANK0 1 bssBANK0 Supervisorio.obj
 stacklo 0 0 ABS 0 - startup.obj
 saved_w 7E 0 ABS 0 - Supervisorio.obj
 __Hinit 24 0 CODE 0 init -
 __Linit 24 0 CODE 0 init -
-___wmul 1AFC 0 CODE 0 text9 Supervisorio.obj
-__end_of_main 1D0C 0 CODE 0 maintext Supervisorio.obj
-__size_of___lwtoft 0 0 ABS 0 - Supervisorio.obj
+__end_of_main 32A 0 CODE 0 maintext Supervisorio.obj
 __Htext 0 0 ABS 0 text -
 __Ltext 0 0 ABS 0 text -
-_status 6E 0 BANK0 1 bssBANK0 Supervisorio.obj
-sprintf@width 3F 0 BANK0 1 cstackBANK0 Supervisorio.obj
-___wmul@multiplier 70 0 COMMON 1 cstackCOMMON Supervisorio.obj
-__size_of___ftneg 0 0 ABS 0 - Supervisorio.obj
-__end_of___lwtoft 1A48 0 CODE 0 text19 Supervisorio.obj
-___ftmul@sign 2F 0 BANK0 1 cstackBANK0 Supervisorio.obj
+_status 51 0 BANK0 1 bssBANK0 Supervisorio.obj
+__HdataBANK0 0 0 ABS 0 dataBANK0 -
+__LdataBANK0 0 0 ABS 0 dataBANK0 -
+__pdataBANK0 54 0 BANK0 1 dataBANK0 Supervisorio.obj
 end_of_initialization 48 0 CODE 0 cinit Supervisorio.obj
-___aldiv@sign AA 0 BANK1 1 cstackBANK1 Supervisorio.obj
+___aldiv@sign 2A 0 BANK0 1 cstackBANK0 Supervisorio.obj
 __size_of_ISR 0 0 ABS 0 - Supervisorio.obj
-___wmul@multiplicand 72 0 COMMON 1 cstackCOMMON Supervisorio.obj
 USART_WriteChar@USARTData 70 0 COMMON 1 cstackCOMMON Supervisorio.obj
-__stringtab A00 0 STRING 0 strings Supervisorio.obj
+__stringtab 400 0 STRING 0 strings Supervisorio.obj
 __size_of_ADC_Init 0 0 ABS 0 - Supervisorio.obj
 _RCSTAbits 18 0 ABS 0 - Supervisorio.obj
-__end_of___ftadd 8E6 0 CODE 0 text15 Supervisorio.obj
-__end_of___lltoft 9F8 0 CODE 0 text12 Supervisorio.obj
+_PORTBbits 6 0 ABS 0 - Supervisorio.obj
 _TXSTAbits 98 0 ABS 0 - Supervisorio.obj
 _T1CONbits 10 0 ABS 0 - Supervisorio.obj
 __Hstrings 0 0 ABS 0 strings -
 __Lstrings 0 0 ABS 0 strings -
-__pstrings A00 0 STRING 0 strings Supervisorio.obj
-?___lltoft 78 0 COMMON 1 cstackCOMMON Supervisorio.obj
-?___lwtoft 78 0 COMMON 1 cstackCOMMON Supervisorio.obj
-__size_of___lltoft 0 0 ABS 0 - Supervisorio.obj
-__end_of_USART_ReceiveChar 1A7E 0 CODE 0 text21 Supervisorio.obj
+__pstrings 400 0 STRING 0 strings Supervisorio.obj
+__end_of_USART_ReceiveChar 4C8 0 CODE 0 text6 Supervisorio.obj
 __Hbank0 0 0 ABS 0 bank0 -
 __Lbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Lbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
 __Lbank2 0 0 ABS 0 bank2 -
-_ADCResult 5E 0 BANK0 1 bssBANK0 Supervisorio.obj
+_ADCResult 49 0 BANK0 1 bssBANK0 Supervisorio.obj
 __Hbank3 0 0 ABS 0 bank3 -
 __Lbank3 0 0 ABS 0 bank3 -
 ___latbits 2 0 ABS 0 - Supervisorio.obj
-___ftmul@exp 2A 0 BANK0 1 cstackBANK0 Supervisorio.obj
 __Hpowerup 0 0 CODE 0 powerup -
 __Lpowerup 0 0 CODE 0 powerup -
-__ptext1 1B42 0 CODE 0 text1 Supervisorio.obj
-__ptext2 1EE2 0 CODE 0 text2 Supervisorio.obj
-__ptext3 19DC 0 CODE 0 text3 Supervisorio.obj
-__ptext4 19FC 0 CODE 0 text4 Supervisorio.obj
-__ptext5 4C8 0 CODE 0 text5 Supervisorio.obj
-__ptext6 D88 0 CODE 0 text6 Supervisorio.obj
-__ptext7 50 0 CODE 0 text7 Supervisorio.obj
-__HcstackBANK1 0 0 ABS 0 cstackBANK1 -
-__LcstackBANK1 0 0 ABS 0 cstackBANK1 -
-__ptext8 19C0 0 CODE 0 text8 Supervisorio.obj
-__ptext9 1AFC 0 CODE 0 text9 Supervisorio.obj
-__pcstackBANK1 A0 0 BANK1 1 cstackBANK1 Supervisorio.obj
+__ptext1 32A 0 CODE 0 text1 Supervisorio.obj
+__ptext2 172 0 CODE 0 text2 Supervisorio.obj
+__ptext3 51C 0 CODE 0 text3 Supervisorio.obj
+__ptext4 4F8 0 CODE 0 text4 Supervisorio.obj
+__ptext5 50 0 CODE 0 text5 Supervisorio.obj
+__ptext6 494 0 CODE 0 text6 Supervisorio.obj
+__ptext7 45C 0 CODE 0 text7 Supervisorio.obj
+__ptext8 54C 0 CODE 0 text8 Supervisorio.obj
+__ptext9 4C8 0 CODE 0 text9 Supervisorio.obj
 __Hclrtext 0 0 ABS 0 clrtext -
 __Lclrtext 0 0 ABS 0 clrtext -
-_USART_WriteChar 1990 0 CODE 0 text23 Supervisorio.obj
+_USART_WriteChar 54C 0 CODE 0 text8 Supervisorio.obj
 __end_of__initialization 48 0 CODE 0 cinit Supervisorio.obj
 __size_of_USART_Init 0 0 ABS 0 - Supervisorio.obj
-___ftadd 6D8 0 CODE 0 text15 Supervisorio.obj
-USART_WriteString@str 71 0 COMMON 1 cstackCOMMON Supervisorio.obj
-__size_of_ftoa 0 0 ABS 0 - Supervisorio.obj
+ISR@checksum 7A 0 COMMON 1 cstackCOMMON Supervisorio.obj
+USART_WriteString@str 72 0 COMMON 1 cstackCOMMON Supervisorio.obj
 __Hidloc 0 0 IDLOC 0 idloc -
-ftoa@buf BC 0 BANK1 1 bssBANK1 Supervisorio.obj
 __Lidloc 0 0 IDLOC 0 idloc -
 __Hstack 0 0 STACK 2 stack -
 __Lstack 0 0 STACK 2 stack -
-___ftneg 19A0 0 CODE 0 text16 Supervisorio.obj
-ftoa@rem 49 0 BANK0 1 cstackBANK0 Supervisorio.obj
-___llmod 1BD2 0 CODE 0 text10 Supervisorio.obj
-__end_of___lldiv 9A2 0 CODE 0 text11 Supervisorio.obj
 __size_of_TIMER1_Init 0 0 ABS 0 - Supervisorio.obj
 __Hspace_0 2008 0 ABS 0 - -
 __Lspace_0 0 0 ABS 0 - -
-___ftsub 1A7E 0 CODE 0 text14 Supervisorio.obj
-___ftpack@sign 74 0 COMMON 1 cstackCOMMON Supervisorio.obj
-_sprintf 50 0 CODE 0 text7 Supervisorio.obj
-__Hspace_1 CD 0 ABS 0 - -
+__Hspace_1 7E 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
-___ftadd@exp1 26 0 BANK0 1 cstackBANK0 Supervisorio.obj
-ISR@resp 58 0 BANK0 1 cstackBANK0 Supervisorio.obj
 __Hspace_2 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
-USART_Init@BR B8 0 BANK1 1 cstackBANK1 Supervisorio.obj
-___fttol 1DC6 0 CODE 0 text13 Supervisorio.obj
-?___wmul 70 0 COMMON 1 cstackCOMMON Supervisorio.obj
-_isdigit 19C0 0 CODE 0 text8 Supervisorio.obj
+USART_Init@BR 38 0 BANK0 1 cstackBANK0 Supervisorio.obj
 __Hcinit 50 0 CODE 0 cinit -
-___ftmul BE2 0 CODE 0 text17 Supervisorio.obj
 __Lcinit 2A 0 CODE 0 cinit -
 __CFG_FOSC$HS 0 0 ABS 0 - Supervisorio.obj
-___aldiv 1EE2 0 CODE 0 text2 Supervisorio.obj
-___lldiv 8E6 0 CODE 0 text11 Supervisorio.obj
-_USART_WriteString 1AB6 0 CODE 0 text22 Supervisorio.obj
+___aldiv 172 0 CODE 0 text2 Supervisorio.obj
+_USART_WriteString 45C 0 CODE 0 text7 Supervisorio.obj
 __Hspace_3 0 0 ABS 0 - -
 __Lspace_3 0 0 ABS 0 - -
-_Display 64 0 BANK0 1 bssBANK0 Supervisorio.obj
+_Display 53 0 BANK0 1 bssBANK0 Supervisorio.obj
 __size_of_main 0 0 ABS 0 - Supervisorio.obj
-_dpowers A20 0 STRING 0 strings Supervisorio.obj
 __size_of_USART_WriteChar 0 0 ABS 0 - Supervisorio.obj
-_isdigit$651 70 0 COMMON 1 cstackCOMMON Supervisorio.obj
-___fttol@exp1 3D 0 BANK0 1 cstackBANK0 Supervisorio.obj
-__end_of_isdigit 19DC 0 CODE 0 text8 Supervisorio.obj
-__end_of_sprintf 4C8 0 CODE 0 text7 Supervisorio.obj
-_USART_Init 1B42 0 CODE 0 text1 Supervisorio.obj
-clear_ram0 19B0 0 CODE 0 clrtext Supervisorio.obj
-___ftpack@arg 70 0 COMMON 1 cstackCOMMON Supervisorio.obj
-___ftadd@exp2 25 0 BANK0 1 cstackBANK0 Supervisorio.obj
+_ADC_Buffer 42 0 BANK0 1 bssBANK0 Supervisorio.obj
+__HidataBANK0 0 0 ABS 0 idataBANK0 -
+__LidataBANK0 0 0 ABS 0 idataBANK0 -
+__pidataBANK0 55C 0 CODE 0 idataBANK0 Supervisorio.obj
+_USART_Init 32A 0 CODE 0 text1 Supervisorio.obj
+clear_ram0 53C 0 CODE 0 clrtext Supervisorio.obj
 __HbssBANK0 0 0 ABS 0 bssBANK0 -
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
-__pbssBANK0 5B 0 BANK0 1 bssBANK0 Supervisorio.obj
-__size_of_isdigit 0 0 ABS 0 - Supervisorio.obj
-sprintf@flag 38 0 BANK0 1 cstackBANK0 Supervisorio.obj
-__HbssBANK1 0 0 ABS 0 bssBANK1 -
-__LbssBANK1 0 0 ABS 0 bssBANK1 -
-__pbssBANK1 BC 0 BANK1 1 bssBANK1 Supervisorio.obj
-__ptext10 1BD2 0 CODE 0 text10 Supervisorio.obj
-__ptext20 EFC 0 CODE 0 text20 Supervisorio.obj
-__ptext11 8E6 0 CODE 0 text11 Supervisorio.obj
-__ptext21 1A48 0 CODE 0 text21 Supervisorio.obj
-__ptext12 9A2 0 CODE 0 text12 Supervisorio.obj
-__ptext22 1AB6 0 CODE 0 text22 Supervisorio.obj
+__pbssBANK0 3C 0 BANK0 1 bssBANK0 Supervisorio.obj
 USART_ReceiveChar@USART_Data 74 0 COMMON 1 cstackCOMMON Supervisorio.obj
-__ptext13 1DC6 0 CODE 0 text13 Supervisorio.obj
 _ADCON0bits 1F 0 ABS 0 - Supervisorio.obj
 _ADCON1bits 9F 0 ABS 0 - Supervisorio.obj
-__ptext23 1990 0 CODE 0 text23 Supervisorio.obj
-sprintf@prec 41 0 BANK0 1 cstackBANK0 Supervisorio.obj
-__ptext14 1A7E 0 CODE 0 text14 Supervisorio.obj
-__ptext24 FCC 0 CODE 0 text24 Supervisorio.obj
-__ptext15 6D8 0 CODE 0 text15 Supervisorio.obj
-__ptext16 19A0 0 CODE 0 text16 Supervisorio.obj
 __CFG_BOREN$OFF 0 0 ABS 0 - Supervisorio.obj
-___llmod@divisor 20 0 BANK0 1 cstackBANK0 Supervisorio.obj
-__ptext17 BE2 0 CODE 0 text17 Supervisorio.obj
-__ptext18 1D0C 0 CODE 0 text18 Supervisorio.obj
-___fttol@sign1 38 0 BANK0 1 cstackBANK0 Supervisorio.obj
-__ptext19 1A20 0 CODE 0 text19 Supervisorio.obj
+__HbssCOMMON 0 0 ABS 0 bssCOMMON -
+__LbssCOMMON 0 0 ABS 0 bssCOMMON -
+__pbssCOMMON 7C 0 COMMON 1 bssCOMMON Supervisorio.obj
 _INTCONbits B 0 ABS 0 - Supervisorio.obj
 __Hend_init 2A 0 CODE 0 end_init -
 __Lend_init 24 0 CODE 0 end_init -
 ADC_Read@channel 70 0 COMMON 1 cstackCOMMON Supervisorio.obj
-___aldiv@divisor A0 0 BANK1 1 cstackBANK1 Supervisorio.obj
-___lldiv@divisor 70 0 COMMON 1 cstackCOMMON Supervisorio.obj
-___ftpack@exp 73 0 COMMON 1 cstackCOMMON Supervisorio.obj
-__size_of___lldiv 0 0 ABS 0 - Supervisorio.obj
-__end_of_ftoa EFC 0 CODE 0 text6 Supervisorio.obj
-__end_of___ftmul D88 0 CODE 0 text17 Supervisorio.obj
-__end_of___llmod 1C6E 0 CODE 0 text10 Supervisorio.obj
-__size_of___wmul 0 0 ABS 0 - Supervisorio.obj
+___aldiv@divisor 20 0 BANK0 1 cstackBANK0 Supervisorio.obj
 __Hreset_vec 6 0 CODE 0 reset_vec -
 __Lreset_vec 0 0 CODE 0 reset_vec -
-__stringdata A70 0 STRING 0 strings Supervisorio.obj
+__stringdata 40C 0 STRING 0 strings Supervisorio.obj
 __size_of___aldiv 0 0 ABS 0 - Supervisorio.obj
-ISR@byte1 5A 0 BANK0 1 cstackBANK0 Supervisorio.obj
-USART_Init@BaudRate AF 0 BANK1 1 cstackBANK1 Supervisorio.obj
+USART_Init@BaudRate 2F 0 BANK0 1 cstackBANK0 Supervisorio.obj
 intlevel0 0 0 CODE 0 functab startup.obj
-ISR@byte2 59 0 BANK0 1 cstackBANK0 Supervisorio.obj
 __CFG_WDTE$OFF 0 0 ABS 0 - Supervisorio.obj
 intlevel1 0 0 CODE 0 functab startup.obj
 intlevel2 0 0 CODE 0 functab startup.obj
-___lltoft@exp 7D 0 COMMON 1 cstackCOMMON Supervisorio.obj
 intlevel3 0 0 CODE 0 functab startup.obj
 intlevel4 0 0 CODE 0 functab startup.obj
 intlevel5 0 0 CODE 0 functab startup.obj
-__end_of_ADC_Read FFC 0 CODE 0 text24 Supervisorio.obj
-__end_of_USART_WriteString 1AFC 0 CODE 0 text22 Supervisorio.obj
-_USART_ReceiveChar 1A48 0 CODE 0 text21 Supervisorio.obj
+__end_of_ADC_Read 4F8 0 CODE 0 text9 Supervisorio.obj
+__end_of_USART_WriteString 494 0 CODE 0 text7 Supervisorio.obj
+_USART_ReceiveChar 494 0 CODE 0 text6 Supervisorio.obj
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON Supervisorio.obj
-__end_of___wmul 1B42 0 CODE 0 text9 Supervisorio.obj
 __CFG_CPD$OFF 0 0 ABS 0 - Supervisorio.obj
 start_initialization 2A 0 CODE 0 cinit Supervisorio.obj
-___aldiv@quotient AB 0 BANK1 1 cstackBANK1 Supervisorio.obj
-___lldiv@quotient 79 0 COMMON 1 cstackCOMMON Supervisorio.obj
-ftoa@status 47 0 BANK0 1 cstackBANK0 Supervisorio.obj
-__size_of___ftge 0 0 ABS 0 - Supervisorio.obj
-__end_of_ADC_Init 1A20 0 CODE 0 text4 Supervisorio.obj
+___aldiv@quotient 2B 0 BANK0 1 cstackBANK0 Supervisorio.obj
+__end_of_ADC_Init 51C 0 CODE 0 text4 Supervisorio.obj
 __Hmaintext 0 0 ABS 0 maintext -
 __Lmaintext 0 0 ABS 0 maintext -
-__pmaintext 1C6E 0 CODE 0 maintext Supervisorio.obj
-__end_of___fttol 1EE2 0 CODE 0 text13 Supervisorio.obj
-__size_of_sprintf 0 0 ABS 0 - Supervisorio.obj
-__end_of___ftsub 1AB6 0 CODE 0 text14 Supervisorio.obj
+__pmaintext 290 0 CODE 0 maintext Supervisorio.obj
 __initialization 2A 0 CODE 0 cinit Supervisorio.obj
-__end_of___ftge 1DC6 0 CODE 0 text18 Supervisorio.obj
-__stringbase A1E 0 STRING 0 strings Supervisorio.obj
-___llmod@dividend 24 0 BANK0 1 cstackBANK0 Supervisorio.obj
-sprintf@_val 3A 0 BANK0 1 cstackBANK0 Supervisorio.obj
-___llmod@counter 29 0 BANK0 1 cstackBANK0 Supervisorio.obj
-___wmul@product 74 0 COMMON 1 cstackCOMMON Supervisorio.obj
+__stringbase 40A 0 STRING 0 strings Supervisorio.obj
 __CFG_CP$OFF 0 0 ABS 0 - Supervisorio.obj
-__end_of_USART_Init 1BD2 0 CODE 0 text1 Supervisorio.obj
-__size_of___ftmul 0 0 ABS 0 - Supervisorio.obj
+__end_of_USART_Init 3BE 0 CODE 0 text1 Supervisorio.obj
 __CFG_LVP$OFF 0 0 ABS 0 - Supervisorio.obj
-sprintf@c 43 0 BANK0 1 cstackBANK0 Supervisorio.obj
-__size_of___llmod 0 0 ABS 0 - Supervisorio.obj
-___aldiv@dividend A4 0 BANK1 1 cstackBANK1 Supervisorio.obj
+___aldiv@dividend 24 0 BANK0 1 cstackBANK0 Supervisorio.obj
 __size_of_USART_ReceiveChar 0 0 ABS 0 - Supervisorio.obj
-___lldiv@dividend 74 0 COMMON 1 cstackCOMMON Supervisorio.obj
-isdigit@c 71 0 COMMON 1 cstackCOMMON Supervisorio.obj
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -919,27 +535,9 @@ isdigit@c 71 0 COMMON 1 cstackCOMMON Supervisorio.obj
 # All other numeric quantities are in decimal.
 %SEGMENTS
 reset_vec 0 0 0 3 2
-intentry 0 4 8 4F8 2
+intentry 0 4 8 1DB 2
 config 0 2007 400E 1 2
 cstackCOMMON 1 70 70 E 1
-cstackBANK0 1 20 20 50 1
-cstackBANK1 1 A0 A0 2D 1
-strings 0 500 A00 F1 2
-text17 0 5F1 BE2 20D 2
-text2 0 F71 1EE2 8F 2
-text13 0 EE3 1DC6 8E 2
-text18 0 E86 1D0C 5D 2
-maintext 0 E37 1C6E 4F 2
-text10 0 DE9 1BD2 4E 2
-text1 0 DA1 1B42 48 2
-text9 0 D7E 1AFC 23 2
-text22 0 D5B 1AB6 23 2
-text14 0 D3F 1A7E 1C 2
-text21 0 D24 1A48 1B 2
-text19 0 D10 1A20 14 2
-text4 0 CFE 19FC 12 2
-text3 0 CEE 19DC 10 2
-text8 0 CE0 19C0 E 2
-clrtext 0 CD8 19B0 8 2
-text16 0 CD0 19A0 8 2
-text23 0 CC8 1990 8 2
+cstackBANK0 1 20 20 35 1
+strings 0 200 400 2E 2
+text7 0 22E 45C 81 2

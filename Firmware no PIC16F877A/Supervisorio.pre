@@ -1502,7 +1502,7 @@ extern char * ultoa(char * buf, unsigned long val, int base);
 extern char * ftoa(float f, int * status);
 
 
-# 6 "C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c"
+# 7 "C:\Users\Dracarys\Documents\GitHub\SistemaEmbarcado_projeto_final\SistemasEmbarcados\Firmware no PIC16F877A\Supervisorio.c"
 #pragma config FOSC = HS
 #pragma config WDTE = OFF
 #pragma config PWRTE = ON
@@ -1516,7 +1516,16 @@ unsigned short ADCResult = 0;
 unsigned char *Display;
 float input = 0;
 int status = 0;
-unsigned char buffer[9];
+
+unsigned char buffer[6];
+unsigned char HIGH;
+unsigned char LOW;
+
+unsigned char ADC_Buffer[4];
+char resp = '#';
+unsigned short ativa = 0;
+
+
 unsigned short cont1 = 0;
 unsigned int sec =0;
 
@@ -1583,7 +1592,9 @@ unsigned char USART_Data;
 
 if (!OERR)
 {
+PORTBbits.RB4 = 1;
 USART_Data = RCREG;
+PORTBbits.RB4 = 0;
 PIR1bits.RCIF = 0;
 }
 else
@@ -1652,7 +1663,8 @@ void interrupt ISR(void)
 {
 
 
-if(PIR1bits.TMR1IF == 1)
+
+if(PIR1bits.TMR1IF)
 {
 TMR1 = 7936;
 if(cont1 == 10)
@@ -1668,24 +1680,12 @@ PIR1bits.TMR1IF = 0;
 if (PIR1bits.ADIF)
 {
 
-ADC_Read(0);
-ADCResult = ((ADRESH << 8) + ADRESL);
-input = ADCResult * 0.004887585533;
-Display = ftoa(input, &status);
-USART_WriteString(Display);
-_delay((unsigned long)((2)*(18432000/4000000.0)));
-
-
 PIR1bits.ADIF = 0;
 }
 
 
 if (PIR1bits.RCIF)
 {
-char resp;
-unsigned char byte2;
-unsigned char byte1;
-
 resp = USART_ReceiveChar();
 
 
@@ -1693,55 +1693,26 @@ switch(resp)
 {
 case 'A' :
 
-
 buffer[0] = '#';
-buffer[1] = ':';
-
+buffer[1] = '$';
+buffer[2] = ':';
 
 ADC_Read(0);
-byte2 = ADRESH;
-byte1 = ADRESL;
+HIGH = ADRESH;
+LOW = ADRESL;
 
+buffer[3] = HIGH;
+buffer[4] = LOW;
 
-if (byte2 == '\0') byte2 = '0';
-if (byte1 == '\0') byte1 = '0';
+unsigned char checksum = 0x00;
+for(unsigned char index = 0; index < 5; index++)
+{
+USART_WriteChar(buffer[index]);
+checksum ^= buffer[index];
+}
+buffer[5] = checksum;
+USART_WriteChar(buffer[5]);
 
-buffer[2] = byte2;
-buffer[3] = byte1;
-
-buffer[4] = '0';
-buffer[5] = '0';
-
-buffer[6] = '0';
-buffer[7] = '0';
-buffer[8] = ';';
-
-USART_WriteString(buffer);
-
-resp = '#';
-
-break;
-case 'B' :
-RB4 = 1;
-USART_WriteString("------------> valvula 1 ativada");
-resp = '#';
-break;
-
-case 'C' :
-RB4 = 0;
-USART_WriteString("------------> valvula 1 desativada");
-resp = '#';
-break;
-
-case 'D' :
-RB5 = 1;
-USART_WriteString("------------> valvula 2 ativada");
-resp = '#';
-break;
-
-case 'E' :
-RB5 = 0;
-USART_WriteString("------------> valvula 2 desativada");
 resp = '#';
 break;
 }

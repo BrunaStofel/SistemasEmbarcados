@@ -17,7 +17,16 @@ unsigned short ADCResult = 0;
 unsigned char *Display;
 float input = 0;
 int status = 0;
-unsigned char buffer[9];
+
+unsigned char buffer[6];
+unsigned char HIGH;
+unsigned char LOW;
+
+unsigned char ADC_Buffer[4];
+char resp = '#';
+unsigned short ativa = 0;
+
+//unsigned char buffer[9];
 unsigned short cont1 = 0;
 unsigned int sec =0;
 
@@ -84,8 +93,10 @@ unsigned char USART_ReceiveChar(void)
 
 	if (!OERR)						// Erro de Muitos Bytes Recebidos sem Nenhuma Leitura.
 	{
+		PORTBbits.RB4 	= 1;
 		USART_Data 		= RCREG;	// Recebe o byte da USART e atribui a variável USARTData.
-    	PIR1bits.RCIF 	= 0;		// Limpa a Flag da Interrupção de Recepção.
+    	PORTBbits.RB4 	= 0;
+		PIR1bits.RCIF 	= 0;		// Limpa a Flag da Interrupção de Recepção.
 	}
 	else
 	{
@@ -153,7 +164,8 @@ void interrupt ISR(void)
 {
 
  // ***------------------ Interrupcoes do TIMER1 ------------------***
-    if(PIR1bits.TMR1IF == 1)
+// Interrupção do TIMER1 para a frequência de amostragem do sistema.
+    if(PIR1bits.TMR1IF)
     {
         TMR1 = 7936;		// contagem 100ms
 	    if(cont1 == 10)		// A cada 10 estouros, passou-se 1 segundo
@@ -168,85 +180,44 @@ void interrupt ISR(void)
 	// Verificação se a Interrupção foi causada pela conversão A/D.
 	if (PIR1bits.ADIF)
 	{
-		
-		ADC_Read(0);							// Leitura do canal 0.
-		ADCResult = ((ADRESH << 8) + ADRESL);	// Converte em um valor de 10 bits o valor lido do canal 0.
-		input = ADCResult * 0.004887585533;		// Formatação do valor de 10 bits em tensão (0V e 5V).
-		Display = ftoa(input, &status);			// Converte um valor real em string para 
-		USART_WriteString(Display);
-		__delay_us(2);
-		// Caso a interrupção seja ativada... a manipulação dos dados pode ser feita aqui!
-	
+
 		PIR1bits.ADIF = 0;	// Limpa a flag da interrupção do conversor A/D.
 	}
 
 	// Verifica se a interrupção foi causada pela recepção de bytes.
 	if (PIR1bits.RCIF)		
     {
-		char resp;
-		unsigned char byte2;
-		unsigned char byte1;
-
 		resp = USART_ReceiveChar();
 
 		//Comparação se coincide com o inicializador do pacote de dados.
     	switch(resp)
     	{
 			case 'A' :
-			//	PIR1bits.ADIF = 1;
        			//Formatação do Pacote de dados.
        			buffer[0] = '#';
-       			buffer[1] = ':';
-		
+       			buffer[1] = '$';
+				buffer[2] = ':';
        			//Conversão de um valor de 10 bits em 2 bytes para transmissão via serial.
 				ADC_Read(0);
-       			byte2 = ADRESH;
-       			byte1 = ADRESL;
+       			HIGH = ADRESH;
+				LOW  = ADRESL;
 
-		        //Tratamento de terminadores nulos da String.
-       			if (byte2 == '\0') byte2 = '0';
-       			if (byte1 == '\0') byte1 = '0';
-   
-       			buffer[2] = byte2;
-       			buffer[3] = byte1;
-	       		/* 1 xxxx*/
-       			buffer[4] = '0';
-       			buffer[5] = '0';
-				/* 2 xxxx*/
-       			buffer[6] = '0';
-       			buffer[7] = '0';
-       			buffer[8] = ';';				
-	
-				USART_WriteString(buffer);
+       			buffer[3] = HIGH;
+       			buffer[4] = LOW;
+	       	
+				unsigned char checksum = 0x00;
+		        for(unsigned char index = 0; index < 5; index++) 
+				{
+		           		USART_WriteChar(buffer[index]);
+		           		checksum ^= buffer[index];
+		        }
+				buffer[5] = checksum;
+				USART_WriteChar(buffer[5]);
 
 				resp = '#';
-
 			break;
-			case 'B' :
-				RB4 = 1;
-				USART_WriteString("------------> valvula 1 ativada");
-				resp = '#';				
-			break;
-
-			case 'C' :
-				RB4 = 0;
-				USART_WriteString("------------> valvula 1 desativada");
-				resp = '#';			
-			break;
-
-			case 'D' :
-				RB5 = 1;
-				USART_WriteString("------------> valvula 2 ativada");
-				resp = '#';				
-			break;
-
-			case 'E' :
-				RB5 = 0;
-				USART_WriteString("------------> valvula 2 desativada");
-				resp = '#';			
-			break;
-		}
-    }	
+    	}	
+	}
 }
 
 //-----------------------------------------------------------------------------

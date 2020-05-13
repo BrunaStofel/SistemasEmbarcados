@@ -1,10 +1,10 @@
 object FSerialPort: TFSerialPort
-  Left = 208
-  Top = 88
+  Left = 289
+  Top = 109
   HorzScrollBar.Visible = False
   VertScrollBar.Visible = False
   BorderStyle = bsSingle
-  Caption = 'Exemplo de Comunicacao Serial e Monitoramento de Sensores'
+  Caption = 'Monitoramento de Temperatura'
   ClientHeight = 547
   ClientWidth = 975
   Color = clBtnFace
@@ -203,8 +203,8 @@ object FSerialPort: TFSerialPort
     Top = 16
     Width = 801
     Height = 513
-    ActivePage = TabSheet1
-    TabIndex = 0
+    ActivePage = TabSheet3
+    TabIndex = 1
     TabOrder = 2
     TabPosition = tpBottom
     object TabSheet1: TTabSheet
@@ -301,9 +301,10 @@ object FSerialPort: TFSerialPort
           LeftAxis.AutomaticMinimum = False
           LeftAxis.AxisValuesFormat = '#,##0.00###'
           LeftAxis.ExactDateTime = False
-          LeftAxis.Increment = 0.5
-          LeftAxis.Maximum = 5
-          LeftAxis.Title.Caption = 'Tensao (V)'
+          LeftAxis.Increment = 5
+          LeftAxis.LabelsSeparation = 30
+          LeftAxis.Maximum = 50
+          LeftAxis.Title.Caption = 'Graus (Celsius)'
           LeftAxis.Title.Font.Charset = DEFAULT_CHARSET
           LeftAxis.Title.Font.Color = clBlack
           LeftAxis.Title.Font.Height = -13

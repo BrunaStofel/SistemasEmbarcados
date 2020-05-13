@@ -601,7 +601,7 @@ void __fastcall Thread::Execute()
 
             // Calculo da temperatura conforme os bytes recebidos (10 bits).
             valor = (buffer1[3] << 8) + (buffer1[4]);
-            tensao1 = (valor * 0.004887585532749);
+            tensao1 = (valor * 0.004887585532749)*100;
 
             //------- Gráfico de sinais ------------------------------------------
 
@@ -626,7 +626,7 @@ void __fastcall Thread::Execute()
             //------- Gráfico de sinais ------------------------------------------
 
             // Apresenta a saída.
-            saida = saida + "Tensão1: "  + FloatToStrF(tensao1, ffFixed,10,3) + " [V] " +
+            saida = saida + "Temperatura: "  + FloatToStrF(tensao1, ffFixed,10,3) + " [V] " +
                             " inteiro: " + IntToStr(valor) + " - " + check;
 
             FSerialPort->Log->Lines->Add(saida);
