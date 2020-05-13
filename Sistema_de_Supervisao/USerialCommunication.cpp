@@ -34,10 +34,6 @@ SerialPort *PortaSerial;
 bool atuador1 = false;
 bool atuador2 = false;
 
-
-
-
-
 //double tensao1 = 0;
 int valor, Tatual = 0;
 
@@ -444,19 +440,19 @@ void __fastcall Thread::Execute()
 
             // Apresenta a saída.
             FSerialPort->Log->Lines->Add(saida);
+
         }
     }
 }
 
 
-void __fastcall TFSerialPort::horalabelClick(TObject *Sender)
+
+
+
+
+void __fastcall TFSerialPort::Timer1Timer(TObject *Sender)
 {
-   char timeStr[9];
-   _strtime( timeStr );
-   horalabel->SetTextBuf(timeStr);
+       FSerialPort->horalabel->Caption = TimeToStr(Time());
 }
 //---------------------------------------------------------------------------
-
-
-
 

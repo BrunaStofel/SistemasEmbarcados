@@ -203,8 +203,8 @@ object FSerialPort: TFSerialPort
     Top = 16
     Width = 801
     Height = 513
-    ActivePage = TabSheet1
-    TabIndex = 0
+    ActivePage = TabSheet3
+    TabIndex = 1
     TabOrder = 2
     TabPosition = tpBottom
     object TabSheet1: TTabSheet
@@ -230,7 +230,6 @@ object FSerialPort: TFSerialPort
         Width = 23
         Height = 13
         Caption = 'Hora'
-        OnClick = horalabelClick
       end
       object GroupBox1: TGroupBox
         Left = 0
@@ -407,6 +406,7 @@ object FSerialPort: TFSerialPort
     Top = 480
   end
   object Timer1: TTimer
+    OnTimer = Timer1Timer
     Left = 40
     Top = 480
   end
