@@ -324,12 +324,12 @@ void __fastcall TFSerialPort::Abri1Click(TObject *Sender)
         //PosicaoFinal = ftell(arq_dados);
 
                 // Abertura do arquivo para verificação configuração inicial.
-        arq_dadostxt = fopen(NomeArquivoDeDados.c_str(), read);
+      //  arq_dadostxt = fopen(NomeArquivoDeDados.c_str(), read);
 
         // Posiciona o Ponteiro do Arquivo.
-        PosicaoAtual = 0;
-        fseek(arq_dadostxt, 0, 0);
-        fseek(arq_dadostxt, PosicaoAtual, 1);  // Modificar a posição do ponteiro de arquivo para buscar mais janelas de pontos.
+      //  PosicaoAtual = 0;
+       // fseek(arq_dadostxt, 0, 0);
+      //  fseek(arq_dadostxt, PosicaoAtual, 1);  // Modificar a posição do ponteiro de arquivo para buscar mais janelas de pontos.
 
 
 
@@ -343,13 +343,15 @@ void __fastcall TFSerialPort::Abri1Click(TObject *Sender)
         }
 
         // Deve ser preenchido as séries com valores iniciais para poderem ser trabalhadas.
-        for (unsigned int i = 0; i < 100; i++)
-        {
+  //      for (unsigned int i = 0; i < hourToSec; i++)
+//        {
              // Realiza a Leitura da Frequencia de Amostragem do arquivo.
-             fscanf(arq_dadosdat,"%lf", &itens[Tatual]);
-             GraficoLinha->Series[0]->YValues->Value[i] = itens[Tatual].coleta;
+             fread(itens, sizeof(DATA), hourToSec, arq_dadosdat);
+             //GraficoLinha->Series[0]->YValues->Value[i] = itens[Tatual].coleta;
+    //    }
+        for (unsigned int i = 0; i < 100; i++){
+                GraficoLinha->Series[0]->YValues->Value[i] = itens[i].coleta;
         }
-
         GraficoLinha->Refresh();
     }
 }
@@ -443,6 +445,7 @@ void __fastcall Thread::Execute()
             _strtime( itens[Tatual].timeStr );
             if(Tatual >= hourToSec)
             {
+                Tatual = 0;
                 //Gravar em outro arquivo
             }else{ //grava no arquivo
                 fwrite(itens, sizeof(DATA), hourToSec, arq_dadosdat);
@@ -453,7 +456,7 @@ void __fastcall Thread::Execute()
             //------- Gráfico de sinais ------------------------------------------
 
             // Apresenta a saída.
-            saida = saida + DateTimeToStr(Now()) +  " - " + "Temperatura: "  + FloatToStrF(itens[Tatual], ffFixed,10,3) + " [V] " +
+            saida = saida + DateTimeToStr(Now()) +  " - " + "Temperatura: "  + FloatToStrF(itens[Tatual].coleta, ffFixed,10,3) +
                             " inteiro: " + IntToStr(valor) + " - " + check;
 
             FSerialPort->Log->Lines->Add(saida);
