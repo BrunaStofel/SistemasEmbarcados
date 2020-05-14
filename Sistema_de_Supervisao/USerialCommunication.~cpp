@@ -72,8 +72,13 @@ unsigned int TamanhoDaEpoca;
 unsigned int Deslocamento;
 const int hourToSec = 3600; // 60sX60min
 float tensao = 0;
+// Structs      -           -          -           -           -           -           -           -       -
+typedef struct {
+    char timeStr[9];
+    double coleta;
 
-double itens[hourToSec];
+}DATA;
+DATA itens[hourToSec];
 
 //---------------------------------------------------------------------------
 
@@ -342,7 +347,7 @@ void __fastcall TFSerialPort::Abri1Click(TObject *Sender)
         {
              // Realiza a Leitura da Frequencia de Amostragem do arquivo.
              fscanf(arq_dadosdat,"%lf", &itens[Tatual]);
-             GraficoLinha->Series[0]->YValues->Value[i] = itens[Tatual];
+             GraficoLinha->Series[0]->YValues->Value[i] = itens[Tatual].coleta;
         }
 
         GraficoLinha->Refresh();
@@ -354,7 +359,7 @@ void __fastcall TFSerialPort::Abri1Click(TObject *Sender)
 void __fastcall TFSerialPort::AtualizaGrafico()
 {
     // Plota a amostra no gráfico.
-    FSerialPort->GraficoLinha->Series[0]->YValues->Value[posicao_do_grafico] = itens[Tatual];
+    FSerialPort->GraficoLinha->Series[0]->YValues->Value[posicao_do_grafico] = itens[Tatual].coleta;
 }
 
 
@@ -414,7 +419,7 @@ void __fastcall Thread::Execute()
 
             // Calculo da temperatura conforme os bytes recebidos (10 bits).
             valor = (buffer1[3] << 8) + (buffer1[4]);
-            itens[Tatual] = (valor * 0.004887585532749);
+            itens[Tatual].coleta = (valor * 0.004887585532749)*100;
 
             //------- Gráfico de sinais ------------------------------------------
 
@@ -434,15 +439,14 @@ void __fastcall Thread::Execute()
             FSerialPort->GraficoLinha->Refresh();
 
             // Grava o canal 1 no arquivo.
-            char timeStr[9];
-            _strtime( timeStr );
-//            char hora[9] = timeStr;
-            if(itens[Tatual] >= hourToSec)
+
+            _strtime( itens[Tatual].timeStr );
+            if(Tatual >= hourToSec)
             {
                 //Gravar em outro arquivo
             }else{ //grava no arquivo
-                fwrite (&itens[Tatual], sizeof(double), 1, arq_dadosdat);
-                fprintf(arq_dadostxt,"%0.3f\n", itens[Tatual]);
+                fwrite(itens, sizeof(DATA), hourToSec, arq_dadosdat);
+                fprintf(arq_dadostxt,"%0.3f;%s\n", itens[Tatual].coleta, itens[Tatual].timeStr);
 
             }
 
