@@ -414,7 +414,7 @@ void __fastcall Thread::Execute()
 
             // Calculo da temperatura conforme os bytes recebidos (10 bits).
             valor = (buffer1[3] << 8) + (buffer1[4]);
-            itens[Tatual] = (valor * 0.004887585532749);
+            itens[Tatual] = (valor * 0.004887585532749)*100;
 
             //------- Gráfico de sinais ------------------------------------------
 

@@ -441,8 +441,8 @@ void __fastcall Thread::Execute()
             {
                 //Gravar em outro arquivo
             }else{ //grava no arquivo
-               // result = fwrite (&itens[Tatual], sizeof(double), 1, arq_dados);
-                    fprintf(arq_dados,"%0.3f\n", itens[Tatual]);
+                fwrite (&itens[Tatual], sizeof(double), 1, arq_dadosdat);
+                fprintf(arq_dadostxt,"%0.3f\n", itens[Tatual]);
 
             }
 
