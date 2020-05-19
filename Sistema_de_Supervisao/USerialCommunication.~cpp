@@ -47,7 +47,7 @@ Thread *ProcessaGrafico;
 //------- Gráfico de sinais ------------------------------------------
 
 FILE *arq_dadosdat, *arq_dadostxt;
-char nome_arq_dadostxt[15];
+char nome_arq_dadostxt[15], nome_arq_dadosdat[13];
 unsigned int max_tela = 100;
 unsigned int i = 0;
 unsigned int j = 0;
@@ -140,6 +140,7 @@ void __fastcall TFSerialPort::BtOpenPortClick(TObject *Sender)
     LeArquivo = false;
     Log->Lines->Add("Porta Serial Aberta...");
     // Decalaração do ponteiro do arquivo que armazena os dados.
+    strcpy(nome_arq_dadostxt, "teste123.txt"); 
     arq_dadostxt = fopen(nome_arq_dadostxt, write);
     //arq_dadosdat = fopen("dados.dat",writeBin);
 
@@ -384,7 +385,7 @@ void __fastcall Thread::Execute()
 
         int valor = 0;
         AnsiString saida;
-        Sleep(1000);
+        Sleep(970);
         // Envia o buffer pela porta serial.
         PortaSerial->WriteABuffer("A", 1);
 
@@ -442,26 +443,25 @@ void __fastcall Thread::Execute()
             {
                 FSerialPort->Log->Lines->Add("entrou na troca de arquivo");
                 //Fecha o arquivo e salva alterações.
-                fclose(arq_dadostxt);
-                //fclose(arq_dadosdat);
-                Tatual = 0;
+                fclose(arq_dadostxt);  //fclose(arq_dadosdat);
+                Tatual = 0;            // Reseta a var de contagem na lista
                 //Gravar em outro arquivo
-                char nome_arq_dadostxt[15]; // nome_arq_dadosdat[13],
+
                 char timeStr[9];
                 _strtime(timeStr);
-                strcpy(nome_arq_dadostxt, timeStr);
-                strcat(nome_arq_dadostxt, ".txt");
-//              strcat(nome_arq_dadosdat, ".dat");
+                strcpy(nome_arq_dadostxt, "testando");
+                strcat(nome_arq_dadostxt, ".txt");  //              strcat(nome_arq_dadosdat, ".dat");
                 arq_dadostxt = fopen(nome_arq_dadostxt, write);
+//                int creat(nome_arq_dadostxt, int O_WRONLY);
 //                 arq_dadostxt = fopen(timeStr+".txt",write);
                 // Apresenta a saída.
 
             }else{ //grava no arquivo
 //               fwrite(itens, sizeof(DATA), hourToSec, arq_dadosdat);
                  FSerialPort->Log->Lines->Add("Gravando no txt ");
-                 arq_dadostxt = fopen(nome_arq_dadostxt, append);
+                 //arq_dadostxt = fopen(nome_arq_dadostxt, append);
                  fprintf(arq_dadostxt,"%0.3f;%s\n", itens[Tatual].coleta, itens[Tatual].timeStr);
-                 fclose(arq_dadostxt);
+                 //fclose(arq_dadostxt);
                  Tatual ++;
             }
 
