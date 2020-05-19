@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <vector.h>
 #include <string.h>
+#include <conio.h>
 #include <time.h>
 
 #pragma hdrstop
@@ -35,9 +36,6 @@ bool atuador1 = false;
 bool atuador2 = false;
 
 
-
-
-
 //double tensao1 = 0;
 int valor, Tatual = 0;
 
@@ -49,7 +47,7 @@ Thread *ProcessaGrafico;
 //------- Gráfico de sinais ------------------------------------------
 
 FILE *arq_dadosdat, *arq_dadostxt;
-
+char nome_arq_dadostxt[15];
 unsigned int max_tela = 100;
 unsigned int i = 0;
 unsigned int j = 0;
@@ -76,7 +74,6 @@ float tensao = 0;
 typedef struct {
     char timeStr[9];
     double coleta;
-
 }DATA;
 DATA itens[hourToSec];
 
@@ -85,8 +82,6 @@ DATA itens[hourToSec];
 __fastcall TFSerialPort::TFSerialPort(TComponent* Owner)
     : TForm(Owner)
 {
-
-
 }
 
 //---------------------------------------------------------------------------
@@ -145,13 +140,13 @@ void __fastcall TFSerialPort::BtOpenPortClick(TObject *Sender)
     LeArquivo = false;
     Log->Lines->Add("Porta Serial Aberta...");
     // Decalaração do ponteiro do arquivo que armazena os dados.
-    arq_dadostxt = fopen("dados.txt","w");
-    arq_dadosdat = fopen("dados.dat",writeBin);
+    arq_dadostxt = fopen(nome_arq_dadostxt, write);
+    //arq_dadosdat = fopen("dados.dat",writeBin);
 
     // Declaração da thread para leitura dos pacotes e plotagem do gráfico.
     ProcessaGrafico = new Thread(true);
     ProcessaGrafico->Resume();
-      Timer1->Enabled = true;
+    Timer1->Enabled = true;
     BtOpenPort->Enabled = false;
 }
 
@@ -189,7 +184,7 @@ void __fastcall TFSerialPort::BtClosePortClick(TObject *Sender)
 
     //Fecha o arquivo e salva alterações.
     fclose(arq_dadostxt);
-    fclose(arq_dadosdat);
+    //fclose(arq_dadosdat);
 }
 
 //---------------------------------------------------------------------------
@@ -442,15 +437,32 @@ void __fastcall Thread::Execute()
 
             // Grava o canal 1 no arquivo.
 
-            _strtime( itens[Tatual].timeStr );
-            if(Tatual >= hourToSec)
+            _strtime(itens[Tatual].timeStr );
+            if(Tatual == 5)
             {
+                FSerialPort->Log->Lines->Add("entrou na troca de arquivo");
+                //Fecha o arquivo e salva alterações.
+                fclose(arq_dadostxt);
+                //fclose(arq_dadosdat);
                 Tatual = 0;
                 //Gravar em outro arquivo
-            }else{ //grava no arquivo
-                fwrite(itens, sizeof(DATA), hourToSec, arq_dadosdat);
-                fprintf(arq_dadostxt,"%0.3f;%s\n", itens[Tatual].coleta, itens[Tatual].timeStr);
+                char nome_arq_dadostxt[15]; // nome_arq_dadosdat[13],
+                char timeStr[9];
+                _strtime(timeStr);
+                strcpy(nome_arq_dadostxt, timeStr);
+                strcat(nome_arq_dadostxt, ".txt");
+//              strcat(nome_arq_dadosdat, ".dat");
+                arq_dadostxt = fopen(nome_arq_dadostxt, write);
+//                 arq_dadostxt = fopen(timeStr+".txt",write);
+                // Apresenta a saída.
 
+            }else{ //grava no arquivo
+//               fwrite(itens, sizeof(DATA), hourToSec, arq_dadosdat);
+                 FSerialPort->Log->Lines->Add("Gravando no txt ");
+                 arq_dadostxt = fopen(nome_arq_dadostxt, append);
+                 fprintf(arq_dadostxt,"%0.3f;%s\n", itens[Tatual].coleta, itens[Tatual].timeStr);
+                 fclose(arq_dadostxt);
+                 Tatual ++;
             }
 
             //------- Gráfico de sinais ------------------------------------------

@@ -240,8 +240,8 @@ object FSerialPort: TFSerialPort
         Caption = 'Envio de mensagens'
         TabOrder = 0
         object Log: TMemo
-          Left = 8
-          Top = 16
+          Left = 16
+          Top = 24
           Width = 777
           Height = 425
           ScrollBars = ssBoth
