@@ -155,7 +155,7 @@ object FSerialPort: TFSerialPort
     end
     object BtOpenPort: TButton
       Left = 6
-      Top = 352
+      Top = 328
       Width = 115
       Height = 41
       Caption = 'Abrir'
@@ -164,29 +164,19 @@ object FSerialPort: TFSerialPort
     end
     object BtClosePort: TButton
       Left = 6
-      Top = 408
+      Top = 392
       Width = 115
       Height = 41
       Caption = 'Fechar'
       TabOrder = 6
       OnClick = BtClosePortClick
     end
-    object CheckBoxModoContinuo: TCheckBox
-      Left = 8
-      Top = 328
-      Width = 97
-      Height = 17
-      Caption = 'Modo Continuo'
-      Enabled = False
-      TabOrder = 7
-      OnClick = CheckBoxModoContinuoClick
-    end
     object EdCommand: TEdit
       Left = 8
       Top = 256
       Width = 113
       Height = 21
-      TabOrder = 8
+      TabOrder = 7
     end
     object Enviar: TButton
       Left = 8
@@ -194,7 +184,7 @@ object FSerialPort: TFSerialPort
       Width = 113
       Height = 25
       Caption = 'Enviar'
-      TabOrder = 9
+      TabOrder = 8
       OnClick = EnviarClick
     end
   end

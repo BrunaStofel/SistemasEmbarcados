@@ -6,7 +6,7 @@
 #include <string.h>
 #include <conio.h>
 #include <time.h>
-
+#include <Windows.h>
 #pragma hdrstop
 
 #include "USerialCommunication.h"
@@ -37,7 +37,7 @@ bool atuador2 = false;
 
 
 //double tensao1 = 0;
-int valor, Tatual = 0;
+int valor, Tatual = 0, diaEm24Horas = 0;
 
 AnsiString saida;
 
@@ -47,7 +47,7 @@ Thread *ProcessaGrafico;
 //------- Gráfico de sinais ------------------------------------------
 
 FILE *arq_dadosdat, *arq_dadostxt;
-char nome_arq_dadostxt[15], nome_arq_dadosdat[13];
+char nome_arq_dadostxt[15], nome_arq_dadosdat[13], nomePasta[50];
 unsigned int max_tela = 100;
 unsigned int i = 0;
 unsigned int j = 0;
@@ -135,15 +135,21 @@ void __fastcall TFSerialPort::BtOpenPortClick(TObject *Sender)
     //Configurações da Porta Serial selecionada.
     PortaSerial = new SerialPort();
     PortaSerial->OpenSerialPort(CbSerialPort1->Text, CbBaudRate1->Text);
-
-    CheckBoxModoContinuo->Enabled = true;
     LeArquivo = false;
-    Log->Lines->Add("Porta Serial Aberta...");
     // Decalaração do ponteiro do arquivo que armazena os dados.
-    strcpy(nome_arq_dadostxt, "teste123.txt"); 
+    char timeStr[9];
+    _strtime(timeStr);
+    for(int i = 0; i<9; i++)
+    {
+       if(timeStr[i] == ':') timeStr[i] = '_';
+    }
+  //  strcpy(nome_arq_dadostxt, "\\Dia\\");
+    strcpy(nome_arq_dadostxt, timeStr);
+    strcat(nome_arq_dadostxt, ".txt");      // add .txt para gravar em modo texto
     arq_dadostxt = fopen(nome_arq_dadostxt, write);
     //arq_dadosdat = fopen("dados.dat",writeBin);
-
+    Log->Lines->Add("Porta Serial Aberta...");
+    Log->Lines->Add(nome_arq_dadostxt);
     // Declaração da thread para leitura dos pacotes e plotagem do gráfico.
     ProcessaGrafico = new Thread(true);
     ProcessaGrafico->Resume();
@@ -155,8 +161,6 @@ void __fastcall TFSerialPort::BtOpenPortClick(TObject *Sender)
 
 void __fastcall TFSerialPort::BtClosePortClick(TObject *Sender)
 {
-    CheckBoxModoContinuo->Checked = false;
-    CheckBoxModoContinuo->Enabled = false;
     BtOpenPort->Enabled = true;
     Timer1->Enabled = false;
 
@@ -205,14 +209,6 @@ void __fastcall TFSerialPort::EnviarClick(TObject *Sender)
     strcpy(buff,PortaSerial->ReadABuffer());
     Log->Lines->Add(buff);
 }
-
-//---------------------------------------------------------------------------
-
-void __fastcall TFSerialPort::CheckBoxModoContinuoClick(TObject *Sender)
-{
-    Timer1->Enabled = CheckBoxModoContinuo->Checked;
-}
-
 //---------------------------------------------------------------------------
 
 void __fastcall TFSerialPort::CbSerialPort1DropDown(TObject *Sender)
@@ -266,7 +262,7 @@ void __fastcall TFSerialPort::SalvarComo1Click(TObject *Sender)
 {
 
     SaveDialog1->InitialDir = "Supervisao";
-
+    // ajustar
     if (FileExists("dados.txt"))
     {
         FILE *arq;
@@ -377,7 +373,6 @@ __fastcall Thread::Thread(bool CreateSuspended)
 void __fastcall Thread::Execute()
 {
     AnsiString check;
-   // char timeStr[9];
 
     while(!Terminated)
     {
@@ -385,13 +380,14 @@ void __fastcall Thread::Execute()
 
         int valor = 0;
         AnsiString saida;
-        Sleep(970);
+
         // Envia o buffer pela porta serial.
         PortaSerial->WriteABuffer("A", 1);
 
         // Instante de tempo para receber resposta do mestre.
-        Sleep(30);
-
+        //Sleep(30);
+        //Sleep(970);
+         Sleep(1000);
         // Armazena em buffer a resposta enviada pelo mestre com as temperaturas.
         buffer1 = PortaSerial->ReadBuffer();
 
@@ -402,18 +398,15 @@ void __fastcall Thread::Execute()
         // Verificação e Validação do pacote de dados recebido.
         if (buffer1[0] == '#' && buffer1[1] == '$' && buffer1[2] == ':')
         {
-
             unsigned char checksum = 0x00;
-		    for(unsigned char index = 0; index < 5; index++)
-			{
+	    for(unsigned char index = 0; index < 5; index++)
+            {
                 checksum ^= buffer1[index];
             }
-
             if (buffer1[5] == checksum)
                 check = "PACOTE VÁLIDO";
             else
                 check = "PACOTE INVÁLIDO";
-
 
             // Calculo da temperatura conforme os bytes recebidos (10 bits).
             valor = (buffer1[3] << 8) + (buffer1[4]);
@@ -439,39 +432,66 @@ void __fastcall Thread::Execute()
             // Grava o canal 1 no arquivo.
 
             _strtime(itens[Tatual].timeStr );
-            if(Tatual == 5)
+            FSerialPort->horalabel->SetTextBuf(itens[Tatual].timeStr);
+            if(Tatual == hourToSec)
             {
                 FSerialPort->Log->Lines->Add("entrou na troca de arquivo");
-                //Fecha o arquivo e salva alterações.
-                fclose(arq_dadostxt);  //fclose(arq_dadosdat);
+
+                fclose(arq_dadostxt);  //Fecha o arquivo e salva alterações.  //fclose(arq_dadosdat);
                 Tatual = 0;            // Reseta a var de contagem na lista
                 //Gravar em outro arquivo
-
                 char timeStr[9];
                 _strtime(timeStr);
-                strcpy(nome_arq_dadostxt, "testando");
-                strcat(nome_arq_dadostxt, ".txt");  //              strcat(nome_arq_dadosdat, ".dat");
-                arq_dadostxt = fopen(nome_arq_dadostxt, write);
-//                int creat(nome_arq_dadostxt, int O_WRONLY);
-//                 arq_dadostxt = fopen(timeStr+".txt",write);
-                // Apresenta a saída.
+                for(int i = 0; i<9; i++)
+                { // Substitui : por _ no nome do arquivo
+                  if(timeStr[i] == ':') timeStr[i] = '_';
+                }
+                strcpy(nome_arq_dadostxt, timeStr);     // Add a hora como nome do arquivo
+                strcat(nome_arq_dadostxt, ".txt");      // add .txt para gravar em modo texto
 
+                arq_dadostxt = fopen(nome_arq_dadostxt, write); // Abre o arquivo em modo escrita
+
+                diaEm24Horas++;
+                if(diaEm24Horas >=24)
+                {
+                  FSerialPort->Log->Lines->Add("entrou na troca de pasta");
+                  if(!CreateDirectory("dia", NULL)) {
+                     fprintf(stderr, "ERRO: %d\n", GetLastError());
+                  }
+                }
+
+
+                //              strcat(nome_arq_dadosdat, ".dat");
             }else{ //grava no arquivo
-//               fwrite(itens, sizeof(DATA), hourToSec, arq_dadosdat);
-                 FSerialPort->Log->Lines->Add("Gravando no txt ");
-                 //arq_dadostxt = fopen(nome_arq_dadostxt, append);
-                 fprintf(arq_dadostxt,"%0.3f;%s\n", itens[Tatual].coleta, itens[Tatual].timeStr);
-                 //fclose(arq_dadostxt);
-                 Tatual ++;
-            }
-
-            //------- Gráfico de sinais ------------------------------------------
-
-            // Apresenta a saída.
-            saida = saida + DateTimeToStr(Now()) +  " - " + "Temperatura: "  + FloatToStrF(itens[Tatual].coleta, ffFixed,10,3) +
+                 // Apresenta a saída.
+                 saida = saida + DateTimeToStr(Now()) +  " - " + "Temperatura: "  + FloatToStrF(itens[Tatual].coleta, ffFixed,10,3) +
                             " inteiro: " + IntToStr(valor) + " - " + check;
 
-            FSerialPort->Log->Lines->Add(saida);
+                 FSerialPort->Log->Lines->Add(saida);
+
+//               fwrite(itens, sizeof(DATA), hourToSec, arq_dadosdat);
+                 FSerialPort->Log->Lines->Add("Gravando no txt ");
+                 fprintf(arq_dadostxt,"%0.3f;%s\n", itens[Tatual].coleta, itens[Tatual].timeStr);
+                 Tatual ++;
+                 FSerialPort->Log->Lines->Add("entrou na troca de pasta:" + DateToStr(Now()));
+                 diaEm24Horas++;
+                 if(diaEm24Horas >=24)
+                 {
+                   char *tempnome[] = {saida.c_str()};
+                   for(int i =0; i <sizeof(tempnome);i++)
+                   {
+                     if(tempnome[i] == '/')
+                        tempnome[i] = '_';
+                   }
+                  // FSerialPort->Log->Lines->Add("entrou na troca de pasta:" ));
+                   strcpy(nomePasta, tempnome);
+                   if(!CreateDirectory(nomePasta, NULL))
+                   {
+                      fprintf(stderr, "ERRO: %d\n", GetLastError());
+                   }
+                   diaEm24Horas = 0;
+                 }
+            }
         }
         else
         {
@@ -492,6 +512,7 @@ void __fastcall TFSerialPort::horalabelClick(TObject *Sender)
    horalabel->SetTextBuf(timeStr);
 }
 //---------------------------------------------------------------------------
+
 
 
 

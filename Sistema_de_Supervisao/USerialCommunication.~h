@@ -48,7 +48,6 @@ __published:	// IDE-managed Components
     TComboBox *CbSerialPort1;
     TButton *BtOpenPort;
     TButton *BtClosePort;
-        TCheckBox *CheckBoxModoContinuo;
     TEdit *EdCommand;
     TButton *Enviar;
         TPageControl *PageControl1;
@@ -66,7 +65,6 @@ __published:	// IDE-managed Components
     void __fastcall BtOpenPortClick(TObject *Sender);
     void __fastcall Sair1Click(TObject *Sender);
     void __fastcall EnviarClick(TObject *Sender);
-    void __fastcall CheckBoxModoContinuoClick(TObject *Sender);
     void __fastcall FormCreate(TObject *Sender);
     void __fastcall CbSerialPort1DropDown(TObject *Sender);
     void __fastcall GraficoLinhaAfterDraw(TObject *Sender);
