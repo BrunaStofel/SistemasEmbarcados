@@ -47,7 +47,7 @@ Thread *ProcessaGrafico;
 //------- Gráfico de sinais ------------------------------------------
 
 FILE *arq_dadosdat, *arq_dadostxt;
-char nome_arq_dadostxt[15], nome_arq_dadosdat[13], nomePasta[50];
+char nome_arq_dadostxt[50], nome_arq_dadosdat[13], nomePasta[20];
 unsigned int max_tela = 100;
 unsigned int i = 0;
 unsigned int j = 0;
@@ -118,18 +118,6 @@ void __fastcall TFSerialPort::FormCreate(TObject *Sender)
 }
 
 //---------------------------------------------------------------------------
-    //Instante de tempo para receber resposta do mestre.
-//    Sleep(50);
-    //Armazena em buffer a resposta enviada pelo mestre com as temperaturas.
-//     strcpy(buffer, PortaSerial->ReadABuffer());
-//------------------------------------------------------------------------
-        // Grava o canal 1 no arquivo.
-//        fprintf(arq_dados,"%0.2f\n", tensao1);
-        //------- Gráfico de sinais -----------------------------------------
-//        saida ="Tensao1: "  + FloatToStrF(tensao1, ffFixed,10,2) + " [V] ";
-//---------------------------------------------------------------------------
-//---------------------------------------------------------------------------
-//---------------------------------------------------------------------------
 void __fastcall TFSerialPort::BtOpenPortClick(TObject *Sender)
 {
     //Configurações da Porta Serial selecionada.
@@ -137,14 +125,29 @@ void __fastcall TFSerialPort::BtOpenPortClick(TObject *Sender)
     PortaSerial->OpenSerialPort(CbSerialPort1->Text, CbBaudRate1->Text);
     LeArquivo = false;
     // Decalaração do ponteiro do arquivo que armazena os dados.
+    char tempnome[20];
+    strcpy(tempnome, DateTimeToStr(Now()).c_str());     // Pega data atual e passa para a variavel
+    for(int i =0; i <sizeof(tempnome);i++)
+    {  // substitui o caractere ilegal para pasta "/" por "_"
+       if(tempnome[i] == '/')   tempnome[i] = '_';
+       if (i < 10 )
+       { // passa apenas a data formatada
+           nomePasta[i] = tempnome[i];
+       }else
+           break;
+    }
     char timeStr[9];
-    _strtime(timeStr);
+    _strtime(timeStr); //
     for(int i = 0; i<9; i++)
-    {
+    {  // poderia ser incluido isso antes instead of break
        if(timeStr[i] == ':') timeStr[i] = '_';
     }
-  //  strcpy(nome_arq_dadostxt, "\\Dia\\");
-    strcpy(nome_arq_dadostxt, timeStr);
+    strcat(nomePasta, "//");                // Estrutura
+    if(!CreateDirectory(nomePasta, NULL)) {
+       fprintf(stderr, "ERRO: %d\n", GetLastError());
+    }
+    strcpy(nome_arq_dadostxt, nomePasta);   // 23_05_2020//
+    strcat(nome_arq_dadostxt, timeStr);     // 23_05_2020//20_16_00
     strcat(nome_arq_dadostxt, ".txt");      // add .txt para gravar em modo texto
     arq_dadostxt = fopen(nome_arq_dadostxt, write);
     //arq_dadosdat = fopen("dados.dat",writeBin);
@@ -455,9 +458,9 @@ void __fastcall Thread::Execute()
                 if(diaEm24Horas >=24)
                 {
                   FSerialPort->Log->Lines->Add("entrou na troca de pasta");
-                  if(!CreateDirectory("dia", NULL)) {
-                     fprintf(stderr, "ERRO: %d\n", GetLastError());
-                  }
+                  //if(!CreateDirectory(, NULL)) {
+                  //   fprintf(stderr, "ERRO: %d\n", GetLastError());
+                  //}
                 }
 
 
@@ -473,19 +476,26 @@ void __fastcall Thread::Execute()
                  FSerialPort->Log->Lines->Add("Gravando no txt ");
                  fprintf(arq_dadostxt,"%0.3f;%s\n", itens[Tatual].coleta, itens[Tatual].timeStr);
                  Tatual ++;
-                 FSerialPort->Log->Lines->Add("entrou na troca de pasta:" + DateToStr(Now()));
+                 FSerialPort->Log->Lines->Add("Data:" + DateToStr(Now()));
                  diaEm24Horas++;
                  if(diaEm24Horas >=24)
                  {
-                   char tempnome[50];
+                   char tempnome[20];
                    strcpy(tempnome, saida.c_str());
                    for(int i =0; i <sizeof(tempnome);i++)
                    {
-                     if(tempnome[i] == '/')
-                        tempnome[i] = '_';
+                     if(tempnome[i] == '/')   tempnome[i] = '_';
+                     //if(tempnome[i] == '/')   tempnome[i] = '_';
+                     if (i < 10 )
+                     {
+                       nomePasta[i] = tempnome[i];
+
+                     }else
+                        break;
                    }
-                  // FSerialPort->Log->Lines->Add("entrou na troca de pasta:" ));
-                   strcpy(nomePasta, tempnome);
+
+                   //strcpy(nomePasta, tempnome);
+                   FSerialPort->Log->Lines->Add( nomePasta);
                    if(!CreateDirectory(nomePasta, NULL))
                    {
                       fprintf(stderr, "ERRO: %d\n", GetLastError());
