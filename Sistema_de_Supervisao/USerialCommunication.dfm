@@ -33,41 +33,77 @@ object FSerialPort: TFSerialPort
     Width = 129
     Height = 516
     Caption = 'Configuracoes'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
     TabOrder = 1
     object Label5: TLabel
       Left = 8
       Top = 204
-      Width = 82
+      Width = 101
       Height = 13
       Caption = 'Controle de fluxo:'
     end
     object Label4: TLabel
       Left = 10
       Top = 156
-      Width = 71
+      Width = 87
       Height = 13
       Caption = 'Bits de parada:'
     end
     object Label3: TLabel
       Left = 8
       Top = 108
-      Width = 45
+      Width = 55
       Height = 13
       Caption = 'Paridade:'
     end
     object Label2: TLabel
       Left = 7
       Top = 60
-      Width = 82
+      Width = 100
       Height = 13
       Caption = 'Bits por segundo:'
     end
     object Label1: TLabel
       Left = 10
       Top = 16
-      Width = 55
+      Width = 69
       Height = 13
       Caption = 'Porta serial:'
+    end
+    object Label8: TLabel
+      Left = 8
+      Top = 432
+      Width = 113
+      Height = 26
+      Alignment = taCenter
+      AutoSize = False
+      Caption = 'Navegacao'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label9: TLabel
+      Left = 8
+      Top = 448
+      Width = 113
+      Height = 13
+      Alignment = taCenter
+      AutoSize = False
+      Caption = 'De Paginas'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
     end
     object ComboBox4: TComboBox
       Left = 8
@@ -164,7 +200,7 @@ object FSerialPort: TFSerialPort
     end
     object BtClosePort: TButton
       Left = 6
-      Top = 392
+      Top = 384
       Width = 115
       Height = 41
       Caption = 'Fechar'
@@ -187,14 +223,38 @@ object FSerialPort: TFSerialPort
       TabOrder = 8
       OnClick = EnviarClick
     end
+    object Avancar: TButton
+      Left = 80
+      Top = 472
+      Width = 43
+      Height = 33
+      Caption = '>>'
+      TabOrder = 9
+      OnClick = AvancarClick
+    end
+    object Voltar: TButton
+      Left = 6
+      Top = 472
+      Width = 43
+      Height = 33
+      Caption = '<<'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 10
+      OnClick = VoltarClick
+    end
   end
   object PageControl1: TPageControl
     Left = 144
     Top = 16
     Width = 801
     Height = 513
-    ActivePage = TabSheet1
-    TabIndex = 0
+    ActivePage = TabSheet3
+    TabIndex = 1
     TabOrder = 2
     TabPosition = tpBottom
     object TabSheet1: TTabSheet
@@ -221,6 +281,13 @@ object FSerialPort: TFSerialPort
         Height = 13
         Caption = 'Hora'
         OnClick = horalabelClick
+      end
+      object Label7: TLabel
+        Left = 576
+        Top = 8
+        Width = 29
+        Height = 13
+        Caption = 'Hora: '
       end
       object GroupBox1: TGroupBox
         Left = 0
@@ -257,6 +324,13 @@ object FSerialPort: TFSerialPort
     object TabSheet3: TTabSheet
       Caption = 'Sinais'
       ImageIndex = 3
+      object Label6: TLabel
+        Left = 56
+        Top = 488
+        Width = 32
+        Height = 13
+        Caption = 'Label6'
+      end
       object Panel2: TPanel
         Left = 0
         Top = 0
@@ -299,7 +373,7 @@ object FSerialPort: TFSerialPort
           LeftAxis.AutomaticMinimum = False
           LeftAxis.AxisValuesFormat = '#,##0.00###'
           LeftAxis.ExactDateTime = False
-          LeftAxis.Increment = 5
+          LeftAxis.Increment = 2.5
           LeftAxis.LabelsSeparation = 30
           LeftAxis.Maximum = 50
           LeftAxis.Title.Caption = 'Graus (Celsius)'
@@ -358,8 +432,7 @@ object FSerialPort: TFSerialPort
     end
   end
   object MainMenu1: TMainMenu
-    Left = 104
-    Top = 480
+    Left = 96
     object Arquivo1: TMenuItem
       Caption = 'Arquivo'
       object Abri1: TMenuItem
@@ -389,15 +462,12 @@ object FSerialPort: TFSerialPort
     end
   end
   object SaveDialog1: TSaveDialog
-    Left = 16
-    Top = 480
+    Left = 128
   end
   object OpenDialog1: TOpenDialog
-    Left = 72
-    Top = 480
+    Left = 200
   end
   object Timer1: TTimer
-    Left = 40
-    Top = 480
+    Left = 168
   end
 end

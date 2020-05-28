@@ -126,7 +126,8 @@ void __fastcall TFSerialPort::BtOpenPortClick(TObject *Sender)
     LeArquivo = false;
     // Decalaração do ponteiro do arquivo que armazena os dados.
     char tempnome[20];
-    strcpy(tempnome, DateTimeToStr(Now()).c_str());     // Pega data atual e passa para a variavel
+     // Pega a data atual e passa para a variavel tempnome
+    strcpy(tempnome, DateTimeToStr(Now()).c_str());
     for(int i =0; i <sizeof(tempnome);i++)
     {  // substitui o caractere ilegal para pasta "/" por "_"
        if(tempnome[i] == '/')   tempnome[i] = '_';
@@ -139,17 +140,18 @@ void __fastcall TFSerialPort::BtOpenPortClick(TObject *Sender)
     char timeStr[9];
     _strtime(timeStr); //
     for(int i = 0; i<9; i++)
-    {  // poderia ser incluido isso antes instead of break
+    {  // substitui : por _ para criar o arquivo texto
        if(timeStr[i] == ':') timeStr[i] = '_';
     }
     strcat(nomePasta, "//");                // Estrutura
-    if(!CreateDirectory(nomePasta, NULL)) {
+    if(!CreateDirectory(nomePasta, NULL))
+    { // Cria a pasta senao da erro
        fprintf(stderr, "ERRO: %d\n", GetLastError());
     }
     strcpy(nome_arq_dadostxt, nomePasta);   // 23_05_2020//
     strcat(nome_arq_dadostxt, timeStr);     // 23_05_2020//20_16_00
     strcat(nome_arq_dadostxt, ".txt");      // add .txt para gravar em modo texto
-    arq_dadostxt = fopen(nome_arq_dadostxt, write);
+    arq_dadostxt = fopen(nome_arq_dadostxt, write);  //Cria o arquivo na pasta
     //arq_dadosdat = fopen("dados.dat",writeBin);
     Log->Lines->Add("Porta Serial Aberta...");
     Log->Lines->Add(nome_arq_dadostxt);
@@ -307,25 +309,18 @@ void __fastcall TFSerialPort::Abri1Click(TObject *Sender)
         NomeArquivoDeDados = OpenDialog1->FileName;
 
         // Abertura do arquivo para verificação configuração inicial.
-        arq_dadosdat = fopen(NomeArquivoDeDados.c_str(), readBin);
-
+//        arq_dadosdat = fopen(NomeArquivoDeDados.c_str(), readBin);
+        arq_dadostxt = fopen(NomeArquivoDeDados.c_str(), read);
         // Posiciona o Ponteiro do Arquivo.
         PosicaoAtual = 0;
-        fseek(arq_dadosdat, 0, 0);
-        fseek(arq_dadosdat, PosicaoAtual, 1);  // Modificar a posição do ponteiro de arquivo para buscar mais janelas de pontos.
+        fseek(arq_dadostxt, 0, 0);
+        fseek(arq_dadostxt, PosicaoAtual, 1);  // Modificar a posição do ponteiro de arquivo para buscar mais janelas de pontos.
 
         // Posiciona o Ponteiro no fim do Arquivo.
-        //fseek(arq_dados, 0, 2);
-        //PosicaoFinal = ftell(arq_dados);
+        fseek(arq_dadostxt, 0, 2);
+        PosicaoFinal = ftell(arq_dadostxt);
 
-                // Abertura do arquivo para verificação configuração inicial.
-      //  arq_dadostxt = fopen(NomeArquivoDeDados.c_str(), read);
-
-        // Posiciona o Ponteiro do Arquivo.
-      //  PosicaoAtual = 0;
-       // fseek(arq_dadostxt, 0, 0);
-      //  fseek(arq_dadostxt, PosicaoAtual, 1);  // Modificar a posição do ponteiro de arquivo para buscar mais janelas de pontos.
-
+        // Abertura do arquivo para verificação configuração inicial.
 
 
         // Limpa todas as séries criadas.
@@ -336,16 +331,25 @@ void __fastcall TFSerialPort::Abri1Click(TObject *Sender)
         {
             GraficoLinha->Series[j]->AddY(0.0);
         }
-
+//        char stringe[100]
         // Deve ser preenchido as séries com valores iniciais para poderem ser trabalhadas.
-  //      for (unsigned int i = 0; i < hourToSec; i++)
-//        {
-             // Realiza a Leitura da Frequencia de Amostragem do arquivo.
-             fread(itens, sizeof(DATA), hourToSec, arq_dadosdat);
-             //GraficoLinha->Series[0]->YValues->Value[i] = itens[Tatual].coleta;
-    //    }
-        for (unsigned int i = 0; i < 100; i++){
-                GraficoLinha->Series[0]->YValues->Value[i] = itens[i].coleta;
+
+        fscanf(arq_dadostxt,"%lf;%s", &itens[0].coleta, itens[0].timeStr);
+
+        fscanf(arq_dadostxt,"%lf;%s", &itens[1].coleta, itens[1].timeStr);
+        fscanf(arq_dadostxt,"%lf;%s", &itens[2].coleta, itens[2].timeStr);
+        fscanf(arq_dadostxt,"%lf;%s", &itens[3].coleta, itens[3].timeStr);
+
+       for (unsigned int i = 4; i < hourToSec; i++)
+       {
+           fscanf(arq_dadostxt,"%lf;%s", &itens[i].coleta, itens[i].timeStr);
+           //GraficoLinha->Series[0]->YValues->Value[i] = itens[Tatual].coleta;
+        }
+        //PosicaoAtual = ftell(arq_dadostxt);
+        fseek(arq_dadostxt, 0, 0);
+        unsigned int pos_final = PosicaoAtual + 100;
+        for (PosicaoAtual; PosicaoAtual < pos_final; PosicaoAtual++){
+                GraficoLinha->Series[0]->YValues->Value[PosicaoAtual] = itens[PosicaoAtual].coleta;
         }
         GraficoLinha->Refresh();
     }
@@ -442,69 +446,56 @@ void __fastcall Thread::Execute()
 
                 fclose(arq_dadostxt);  //Fecha o arquivo e salva alterações.  //fclose(arq_dadosdat);
                 Tatual = 0;            // Reseta a var de contagem na lista
-                //Gravar em outro arquivo
-                char timeStr[9];
-                _strtime(timeStr);
-                for(int i = 0; i<9; i++)
-                { // Substitui : por _ no nome do arquivo
-                  if(timeStr[i] == ':') timeStr[i] = '_';
+
+                char tempnome[20];
+                strcpy(tempnome, DateTimeToStr(Now()).c_str());
+                // Decalaração do ponteiro do arquivo que armazena os dados.
+                // Pega a data atual e passa para a variavel tempnome
+                strcpy(tempnome, DateTimeToStr(Now()).c_str());
+                for(int i =0; i <sizeof(tempnome);i++)
+                {  // substitui o caractere ilegal para pasta "/" por "_"
+                   if(tempnome[i] == '/')   tempnome[i] = '_';
+                   if (i < 10 )
+                   { // passa apenas a data formatada
+                       nomePasta[i] = tempnome[i];
+                   }else
+                       break;
                 }
-                strcpy(nome_arq_dadostxt, timeStr);     // Add a hora como nome do arquivo
-                strcat(nome_arq_dadostxt, ".txt");      // add .txt para gravar em modo texto
-
-                arq_dadostxt = fopen(nome_arq_dadostxt, write); // Abre o arquivo em modo escrita
-
+                char timeStr[9];
+                _strtime(timeStr); //
+                for(int i = 0; i<9; i++)
+                {  // substitui : por _ para criar o arquivo texto
+                   if(timeStr[i] == ':') timeStr[i] = '_';
+                }
+                strcat(nomePasta, "//");                // Estrutura
                 diaEm24Horas++;
                 if(diaEm24Horas >=24)
                 {
                   FSerialPort->Log->Lines->Add("entrou na troca de pasta");
-                  //if(!CreateDirectory(, NULL)) {
-                  //   fprintf(stderr, "ERRO: %d\n", GetLastError());
-                  //}
+                  if(!CreateDirectory(nomePasta, NULL))
+                  { // Cria a pasta senao der erro
+                    fprintf(stderr, "ERRO: %d\n", GetLastError());
+                  }
                 }
 
+                strcpy(nome_arq_dadostxt, nomePasta);   // 23_05_2020//
+                strcat(nome_arq_dadostxt, timeStr);     // 23_05_2020//20_16_00
+                strcat(nome_arq_dadostxt, ".txt");      // add .txt para gravar em modo texto
+                arq_dadostxt = fopen(nome_arq_dadostxt, write);  //Cria o arquivo na pasta
 
-                //              strcat(nome_arq_dadosdat, ".dat");
             }else{ //grava no arquivo
-                 // Apresenta a saída.
                  saida = saida + DateTimeToStr(Now()) +  " - " + "Temperatura: "  + FloatToStrF(itens[Tatual].coleta, ffFixed,10,3) +
                             " inteiro: " + IntToStr(valor) + " - " + check;
-
-                 FSerialPort->Log->Lines->Add(saida);
+                 FSerialPort->Log->Lines->Add(saida);      // Apresenta a saída.
 
 //               fwrite(itens, sizeof(DATA), hourToSec, arq_dadosdat);
                  FSerialPort->Log->Lines->Add("Gravando no txt ");
                  fprintf(arq_dadostxt,"%0.3f;%s\n", itens[Tatual].coleta, itens[Tatual].timeStr);
-                 Tatual ++;
                  FSerialPort->Log->Lines->Add("Data:" + DateToStr(Now()));
                  diaEm24Horas++;
-                 if(diaEm24Horas >=24)
-                 {
-                   char tempnome[20];
-                   strcpy(tempnome, saida.c_str());
-                   for(int i =0; i <sizeof(tempnome);i++)
-                   {
-                     if(tempnome[i] == '/')   tempnome[i] = '_';
-                     //if(tempnome[i] == '/')   tempnome[i] = '_';
-                     if (i < 10 )
-                     {
-                       nomePasta[i] = tempnome[i];
-
-                     }else
-                        break;
-                   }
-
-                   //strcpy(nomePasta, tempnome);
-                   FSerialPort->Log->Lines->Add( nomePasta);
-                   if(!CreateDirectory(nomePasta, NULL))
-                   {
-                      fprintf(stderr, "ERRO: %d\n", GetLastError());
-                   }
-                   diaEm24Horas = 0;
-                 }
+                 Tatual ++;
             }
-        }
-        else
+        }else
         {
             // Saída indicando erro de recebimento de pacotes.
             saida = saida + "\nErro no recebimento do pacote de dados!";
@@ -526,5 +517,58 @@ void __fastcall TFSerialPort::horalabelClick(TObject *Sender)
 
 
 
+void __fastcall TFSerialPort::AvancarClick(TObject *Sender)
+{
+        //PosicaoAtual = ftell(arq_dadostxt);
+        unsigned long int pos_final = PosicaoAtual + 100;
+        posicao_do_grafico =0;
+        if(PosicaoAtual >= (PosicaoFinal -99))
+        {  // Verifica se chegou no ultimo grafico a ser mostrado
+                for (PosicaoAtual; PosicaoAtual < PosicaoFinal; PosicaoAtual++){
+                        GraficoLinha->Series[0]->YValues->Value[posicao_do_grafico] = itens[PosicaoAtual].coleta;
+                        posicao_do_grafico++;
+                }
+                 ShowMessage("Voce chegou ao final dos dados");
 
+        }else{
+                for (PosicaoAtual; PosicaoAtual < pos_final; PosicaoAtual++)
+                {
+                     GraficoLinha->Series[0]->YValues->Value[posicao_do_grafico] = itens[PosicaoAtual].coleta;
+                     posicao_do_grafico++;
+                }
+        }
+
+        GraficoLinha->Refresh();
+
+
+
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFSerialPort::VoltarClick(TObject *Sender)
+{
+        PosicaoAtual -= 200;
+        unsigned long int pos_final = PosicaoAtual + 100;
+        posicao_do_grafico =0;
+        if(PosicaoAtual <= 0)
+        {  // Verifica se chegou no ultimo grafico a ser mostrado
+                for (PosicaoAtual; PosicaoAtual < PosicaoFinal; PosicaoAtual++){
+                        GraficoLinha->Series[0]->YValues->Value[posicao_do_grafico] = itens[PosicaoAtual].coleta;
+                        posicao_do_grafico++;
+                }
+                ShowMessage("Voce chegou ao inicio dos dados");
+
+        }else{
+                for (PosicaoAtual; PosicaoAtual < pos_final; PosicaoAtual++){
+                        GraficoLinha->Series[0]->YValues->Value[posicao_do_grafico] = itens[PosicaoAtual].coleta;
+                        posicao_do_grafico++;
+                }
+        }
+
+        GraficoLinha->Refresh();
+
+
+
+}
+//---------------------------------------------------------------------------
 

@@ -61,6 +61,12 @@ __published:	// IDE-managed Components
         TLineSeries *Series2;
         TDateTimePicker *tempo;
         TLabel *horalabel;
+        TLabel *Label6;
+        TLabel *Label7;
+        TButton *Avancar;
+        TButton *Voltar;
+        TLabel *Label8;
+        TLabel *Label9;
     void __fastcall BtClosePortClick(TObject *Sender);
     void __fastcall BtOpenPortClick(TObject *Sender);
     void __fastcall Sair1Click(TObject *Sender);
@@ -71,6 +77,8 @@ __published:	// IDE-managed Components
     void __fastcall SalvarComo1Click(TObject *Sender);
         void __fastcall Abri1Click(TObject *Sender);
         void __fastcall horalabelClick(TObject *Sender);
+        void __fastcall AvancarClick(TObject *Sender);
+        void __fastcall VoltarClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
     __fastcall TFSerialPort(TComponent* Owner);
