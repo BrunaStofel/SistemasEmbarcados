@@ -524,9 +524,10 @@ void __fastcall TFSerialPort::AvancarClick(TObject *Sender)
         posicao_do_grafico =0;
         if(PosicaoAtual >= (PosicaoFinal -99))
         {  // Verifica se chegou no ultimo grafico a ser mostrado
-                for (PosicaoAtual; PosicaoAtual < PosicaoFinal; PosicaoAtual++){
-                        GraficoLinha->Series[0]->YValues->Value[posicao_do_grafico] = itens[PosicaoAtual].coleta;
-                        posicao_do_grafico++;
+                for (PosicaoAtual; PosicaoAtual < PosicaoFinal; PosicaoAtual++)
+                {
+                     GraficoLinha->Series[0]->YValues->Value[posicao_do_grafico] = itens[PosicaoAtual].coleta;
+                     posicao_do_grafico++;
                 }
                  ShowMessage("Voce chegou ao final dos dados");
 
@@ -539,7 +540,7 @@ void __fastcall TFSerialPort::AvancarClick(TObject *Sender)
         }
 
         GraficoLinha->Refresh();
-
+        posicao_do_grafico =0;
 
 
 }
@@ -552,21 +553,23 @@ void __fastcall TFSerialPort::VoltarClick(TObject *Sender)
         posicao_do_grafico =0;
         if(PosicaoAtual <= 0)
         {  // Verifica se chegou no ultimo grafico a ser mostrado
-                for (PosicaoAtual; PosicaoAtual < PosicaoFinal; PosicaoAtual++){
-                        GraficoLinha->Series[0]->YValues->Value[posicao_do_grafico] = itens[PosicaoAtual].coleta;
-                        posicao_do_grafico++;
-                }
+           for (PosicaoAtual; PosicaoAtual < PosicaoFinal; PosicaoAtual++)
+           {
+               GraficoLinha->Series[0]->YValues->Value[posicao_do_grafico] = itens[PosicaoAtual].coleta;
+               posicao_do_grafico++;
+           }
                 ShowMessage("Voce chegou ao inicio dos dados");
 
         }else{
-                for (PosicaoAtual; PosicaoAtual < pos_final; PosicaoAtual++){
-                        GraficoLinha->Series[0]->YValues->Value[posicao_do_grafico] = itens[PosicaoAtual].coleta;
-                        posicao_do_grafico++;
-                }
+             for(PosicaoAtual; PosicaoAtual < pos_final; PosicaoAtual++)
+             {
+                 GraficoLinha->Series[0]->YValues->Value[posicao_do_grafico] = itens[PosicaoAtual].coleta;
+                 posicao_do_grafico++;
+             }
         }
 
         GraficoLinha->Refresh();
-
+        posicao_do_grafico =0;
 
 
 }
