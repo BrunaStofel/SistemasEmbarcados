@@ -62,6 +62,7 @@ unsigned long PosicaoInicial;
 unsigned long PosicaoAtual;
 unsigned long PosicaoFinal;
 unsigned long Fim;
+char timeStr[9];
 
 unsigned int TamanhoDaJanelaEmSegundos;
 unsigned int TamanhoDoRegistro;
@@ -506,17 +507,6 @@ void __fastcall Thread::Execute()
     }
 }
 
-
-void __fastcall TFSerialPort::horalabelClick(TObject *Sender)
-{
-   char timeStr[9];
-   _strtime( timeStr );
-   horalabel->SetTextBuf(timeStr);
-}
-//---------------------------------------------------------------------------
-
-
-
 void __fastcall TFSerialPort::AvancarClick(TObject *Sender)
 {
         //PosicaoAtual = ftell(arq_dadostxt);
@@ -570,8 +560,14 @@ void __fastcall TFSerialPort::VoltarClick(TObject *Sender)
 
         GraficoLinha->Refresh();
         posicao_do_grafico =0;
+}
+//---------------------------------------------------------------------------
 
-
+void __fastcall TFSerialPort::Timer1Timer(TObject *Sender)
+{
+        //label da hora dentro de um timer, para que seja atualizado a cada instante
+        _strtime( timeStr );
+        horalabel->SetTextBuf(timeStr);
 }
 //---------------------------------------------------------------------------
 

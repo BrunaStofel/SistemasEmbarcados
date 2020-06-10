@@ -280,7 +280,6 @@ object FSerialPort: TFSerialPort
         Width = 23
         Height = 13
         Caption = 'Hora'
-        OnClick = horalabelClick
       end
       object Label7: TLabel
         Left = 576
@@ -468,6 +467,7 @@ object FSerialPort: TFSerialPort
     Left = 200
   end
   object Timer1: TTimer
+    OnTimer = Timer1Timer
     Left = 168
   end
 end

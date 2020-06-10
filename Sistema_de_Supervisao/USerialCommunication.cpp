@@ -118,7 +118,7 @@ void __fastcall TFSerialPort::FormCreate(TObject *Sender)
      CbSerialPort1->ItemIndex = 0;
 }
 
-//---------------------------------------------------------------------------
+// Botao abrir (inicia comunicacao com o pic)-----------------------------------
 void __fastcall TFSerialPort::BtOpenPortClick(TObject *Sender)
 {
     //Configurações da Porta Serial selecionada.
