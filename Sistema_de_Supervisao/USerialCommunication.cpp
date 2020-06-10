@@ -139,6 +139,7 @@ void __fastcall TFSerialPort::BtOpenPortClick(TObject *Sender)
            break;
     }
     char timeStr[9];
+    char timeStrHour[9];
     _strtime(timeStr); //
     for(int i = 0; i<9; i++)
     {  // substitui : por _ para criar o arquivo texto
@@ -150,9 +151,14 @@ void __fastcall TFSerialPort::BtOpenPortClick(TObject *Sender)
        fprintf(stderr, "ERRO: %d\n", GetLastError());
     }
     strcpy(nome_arq_dadostxt, nomePasta);   // 23_05_2020//
-    strcat(nome_arq_dadostxt, timeStr);     // 23_05_2020//20_16_00
+    strcpy(timeStrHour, timeStr);
+    timeStrHour[3] = '0';
+    timeStrHour[4] = '0';
+    timeStrHour[6] = '0';
+    timeStrHour[7] = '0';
+    strcat(nome_arq_dadostxt, timeStrHour);     // 23_05_2020//20_16_00
     strcat(nome_arq_dadostxt, ".txt");      // add .txt para gravar em modo texto
-    arq_dadostxt = fopen(nome_arq_dadostxt, write);  //Cria o arquivo na pasta
+    arq_dadostxt = fopen(nome_arq_dadostxt, append);  //Cria o arquivo na pasta
     //arq_dadosdat = fopen("dados.dat",writeBin);
     Log->Lines->Add("Porta Serial Aberta...");
     Log->Lines->Add(nome_arq_dadostxt);
@@ -320,10 +326,7 @@ void __fastcall TFSerialPort::Abri1Click(TObject *Sender)
         // Posiciona o Ponteiro no fim do Arquivo.
         fseek(arq_dadostxt, 0, 2);
         PosicaoFinal = ftell(arq_dadostxt);
-
         // Abertura do arquivo para verificação configuração inicial.
-
-
         // Limpa todas as séries criadas.
         GraficoLinha->Series[i]->Clear();
 
@@ -350,7 +353,7 @@ void __fastcall TFSerialPort::Abri1Click(TObject *Sender)
         fseek(arq_dadostxt, 0, 0);
         unsigned int pos_final = PosicaoAtual + 100;
         for (PosicaoAtual; PosicaoAtual < pos_final; PosicaoAtual++){
-                GraficoLinha->Series[0]->YValues->Value[PosicaoAtual] = itens[PosicaoAtual].coleta;
+            GraficoLinha->Series[0]->YValues->Value[PosicaoAtual] = itens[PosicaoAtual].coleta;
         }
         GraficoLinha->Refresh();
     }
@@ -463,6 +466,7 @@ void __fastcall Thread::Execute()
                        break;
                 }
                 char timeStr[9];
+                char timeStrHour[9];
                 _strtime(timeStr); //
                 for(int i = 0; i<9; i++)
                 {  // substitui : por _ para criar o arquivo texto
@@ -478,11 +482,15 @@ void __fastcall Thread::Execute()
                     fprintf(stderr, "ERRO: %d\n", GetLastError());
                   }
                 }
-
-                strcpy(nome_arq_dadostxt, nomePasta);   // 23_05_2020//
-                strcat(nome_arq_dadostxt, timeStr);     // 23_05_2020//20_16_00
+                strcpy(nome_arq_dadostxt, nomePasta);
+                strcpy(timeStrHour, timeStr);
+                timeStrHour[3] = '0';
+                timeStrHour[4] = '0';
+                timeStrHour[6] = '0';
+                timeStrHour[7] = '0';
+                strcat(nome_arq_dadostxt, timeStrHour);     // 23_05_2020//20_16_00
                 strcat(nome_arq_dadostxt, ".txt");      // add .txt para gravar em modo texto
-                arq_dadostxt = fopen(nome_arq_dadostxt, write);  //Cria o arquivo na pasta
+                arq_dadostxt = fopen(nome_arq_dadostxt, append);  //Cria o arquivo na pasta
 
             }else{ //grava no arquivo
                  saida = saida + DateTimeToStr(Now()) +  " - " + "Temperatura: "  + FloatToStrF(itens[Tatual].coleta, ffFixed,10,3) +

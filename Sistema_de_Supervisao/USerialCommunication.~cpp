@@ -62,6 +62,7 @@ unsigned long PosicaoInicial;
 unsigned long PosicaoAtual;
 unsigned long PosicaoFinal;
 unsigned long Fim;
+char timeStr[9];
 
 unsigned int TamanhoDaJanelaEmSegundos;
 unsigned int TamanhoDoRegistro;
@@ -138,6 +139,7 @@ void __fastcall TFSerialPort::BtOpenPortClick(TObject *Sender)
            break;
     }
     char timeStr[9];
+    char timeStrHour[9];
     _strtime(timeStr); //
     for(int i = 0; i<9; i++)
     {  // substitui : por _ para criar o arquivo texto
@@ -149,7 +151,12 @@ void __fastcall TFSerialPort::BtOpenPortClick(TObject *Sender)
        fprintf(stderr, "ERRO: %d\n", GetLastError());
     }
     strcpy(nome_arq_dadostxt, nomePasta);   // 23_05_2020//
-    strcat(nome_arq_dadostxt, timeStr);     // 23_05_2020//20_16_00
+    strcpy(timeStrHour, timeStr);
+    timeStrHour[3] = '0';
+    timeStrHour[4] = '0';
+    timeStrHour[6] = '0';
+    timeStrHour[7] = '0';
+    strcat(nome_arq_dadostxt, timeStrHour);     // 23_05_2020//20_16_00
     strcat(nome_arq_dadostxt, ".txt");      // add .txt para gravar em modo texto
     arq_dadostxt = fopen(nome_arq_dadostxt, write);  //Cria o arquivo na pasta
     //arq_dadosdat = fopen("dados.dat",writeBin);
@@ -319,10 +326,7 @@ void __fastcall TFSerialPort::Abri1Click(TObject *Sender)
         // Posiciona o Ponteiro no fim do Arquivo.
         fseek(arq_dadostxt, 0, 2);
         PosicaoFinal = ftell(arq_dadostxt);
-
         // Abertura do arquivo para verificação configuração inicial.
-
-
         // Limpa todas as séries criadas.
         GraficoLinha->Series[i]->Clear();
 
@@ -349,7 +353,7 @@ void __fastcall TFSerialPort::Abri1Click(TObject *Sender)
         fseek(arq_dadostxt, 0, 0);
         unsigned int pos_final = PosicaoAtual + 100;
         for (PosicaoAtual; PosicaoAtual < pos_final; PosicaoAtual++){
-                GraficoLinha->Series[0]->YValues->Value[PosicaoAtual] = itens[PosicaoAtual].coleta;
+            GraficoLinha->Series[0]->YValues->Value[PosicaoAtual] = itens[PosicaoAtual].coleta;
         }
         GraficoLinha->Refresh();
     }
@@ -462,6 +466,7 @@ void __fastcall Thread::Execute()
                        break;
                 }
                 char timeStr[9];
+                char timeStrHour[9];
                 _strtime(timeStr); //
                 for(int i = 0; i<9; i++)
                 {  // substitui : por _ para criar o arquivo texto
@@ -478,8 +483,13 @@ void __fastcall Thread::Execute()
                   }
                 }
 
-                strcpy(nome_arq_dadostxt, nomePasta);   // 23_05_2020//
-                strcat(nome_arq_dadostxt, timeStr);     // 23_05_2020//20_16_00
+                strcpy(nome_arq_dadostxt, nomePasta);
+                strcpy(timeStrHour, timeStr);
+                timeStrHour[3] = '0';
+                timeStrHour[4] = '0';
+                timeStrHour[6] = '0';
+                timeStrHour[7] = '0';
+                strcat(nome_arq_dadostxt, timeStrHour);     // 23_05_2020//20_16_00
                 strcat(nome_arq_dadostxt, ".txt");      // add .txt para gravar em modo texto
                 arq_dadostxt = fopen(nome_arq_dadostxt, write);  //Cria o arquivo na pasta
 
@@ -505,17 +515,6 @@ void __fastcall Thread::Execute()
         }
     }
 }
-
-
-void __fastcall TFSerialPort::horalabelClick(TObject *Sender)
-{
-   char timeStr[9];
-   _strtime( timeStr );
-   horalabel->SetTextBuf(timeStr);
-}
-//---------------------------------------------------------------------------
-
-
 
 void __fastcall TFSerialPort::AvancarClick(TObject *Sender)
 {
@@ -570,8 +569,14 @@ void __fastcall TFSerialPort::VoltarClick(TObject *Sender)
 
         GraficoLinha->Refresh();
         posicao_do_grafico =0;
+}
+//---------------------------------------------------------------------------
 
-
+void __fastcall TFSerialPort::Timer1Timer(TObject *Sender)
+{
+        //label da hora dentro de um timer, para que seja atualizado a cada instante
+        _strtime( timeStr );
+        horalabel->SetTextBuf(timeStr);
 }
 //---------------------------------------------------------------------------
 
