@@ -514,7 +514,7 @@ void __fastcall Thread::Execute()
         }
     }
 }
-
+//
 void __fastcall TFSerialPort::AvancarClick(TObject *Sender)
 {
         //PosicaoAtual = ftell(arq_dadostxt);
