@@ -17,7 +17,7 @@
 
 #define read        "r"				// Abre um arquivo-texto para leitura
 #define write       "w"				// Cria um arq-txt para escrita
-#define append      "a"				// Adiciona dados no fianl de um arq txt
+#define apend      "a"				// Adiciona dados no fianl de um arq txt
 #define readBin     "rb"			// Abre um arq-binario para leitura
 #define writeBin    "wb"			// cria um arq-binario para escrita
 #define appendBin   "ab"			// Adiciona dados no final de um arq binario
@@ -158,7 +158,7 @@ void __fastcall TFSerialPort::BtOpenPortClick(TObject *Sender)
     timeStrHour[7] = '0';
     strcat(nome_arq_dadostxt, timeStrHour);     // 23_05_2020//20_16_00
     strcat(nome_arq_dadostxt, ".txt");      // add .txt para gravar em modo texto
-    arq_dadostxt = fopen(nome_arq_dadostxt, append);  //Cria o arquivo na pasta
+    arq_dadostxt = fopen(nome_arq_dadostxt, apendMais);  //Cria o arquivo na pasta
     //arq_dadosdat = fopen("dados.dat",writeBin);
     Log->Lines->Add("Porta Serial Aberta...");
     Log->Lines->Add(nome_arq_dadostxt);
@@ -490,7 +490,7 @@ void __fastcall Thread::Execute()
                 timeStrHour[7] = '0';
                 strcat(nome_arq_dadostxt, timeStrHour);     // 23_05_2020//20_16_00
                 strcat(nome_arq_dadostxt, ".txt");      // add .txt para gravar em modo texto
-                arq_dadostxt = fopen(nome_arq_dadostxt, append);  //Cria o arquivo na pasta
+                arq_dadostxt = fopen(nome_arq_dadostxt, apendMais);  //Cria o arquivo na pasta
 
             }else{ //grava no arquivo
                  saida = saida + DateTimeToStr(Now()) +  " - " + "Temperatura: "  + FloatToStrF(itens[Tatual].coleta, ffFixed,10,3) +
@@ -514,7 +514,7 @@ void __fastcall Thread::Execute()
         }
     }
 }
-
+//
 void __fastcall TFSerialPort::AvancarClick(TObject *Sender)
 {
         //PosicaoAtual = ftell(arq_dadostxt);
